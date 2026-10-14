@@ -28,7 +28,7 @@ B = 300
 def build_instrumented(repo: Path, main_pkg: str, out_bin: Path) -> Path:
     env = dict(os.environ)
     env["PATH"] = "/usr/local/go/bin:" + env.get("PATH", "")
-    env["GOTOOLCHAIN"] = "local"
+    env.setdefault("GOTOOLCHAIN", "auto")
     env.setdefault("GOFLAGS", "-mod=mod")
     subprocess.run(
         ["go", "build", "-cover", "-coverpkg=./...", "-o", str(out_bin), main_pkg],
