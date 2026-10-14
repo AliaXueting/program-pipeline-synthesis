@@ -1,0 +1,692 @@
+# Validation results — dialect_parsing_json
+
+- tests collected: 686
+- OK: 685
+- REJECTED: 1
+
+- OK     `eval.tests.test_auto_detection.test_bash_config_filenames[.bash_logout]`
+- OK     `eval.tests.test_auto_detection.test_bash_config_filenames[.bash_profile]`
+- OK     `eval.tests.test_auto_detection.test_bash_config_filenames[.bashrc]`
+- OK     `eval.tests.test_auto_detection.test_bash_config_filenames[bashrc]`
+- OK     `eval.tests.test_auto_detection.test_config_name_beats_shebang`
+- OK     `eval.tests.test_auto_detection.test_explicit_extensionless_file_uses_its_shebang`
+- OK     `eval.tests.test_auto_detection.test_explicit_file_bash_fallback`
+- OK     `eval.tests.test_auto_detection.test_explicit_file_uses_its_own_extension`
+- OK     `eval.tests.test_auto_detection.test_extension_beats_shebang`
+- OK     `eval.tests.test_auto_detection.test_filename_extension_selects_dialect[s.bash-function f { echo; }\n-function f { echo; }\n]`
+- OK     `eval.tests.test_auto_detection.test_filename_extension_selects_dialect[s.bats-@test "n" { echo; }\n-@test "n" { echo; }\n]`
+- OK     `eval.tests.test_auto_detection.test_filename_extension_selects_dialect[s.mksh-case $a { x) echo;; }\n-case $a in x) echo ;; esac\n]`
+- OK     `eval.tests.test_auto_detection.test_filename_extension_selects_dialect[s.zsh-echo ${+a}\n-echo ${+a}\n]`
+- OK     `eval.tests.test_auto_detection.test_filename_prefixes_error_positions`
+- OK     `eval.tests.test_auto_detection.test_other_dotted_name_falls_back_to_bash`
+- OK     `eval.tests.test_auto_detection.test_sh_extension_does_not_mean_posix`
+- OK     `eval.tests.test_auto_detection.test_sh_extension_still_uses_the_shebang`
+- OK     `eval.tests.test_auto_detection.test_shebang_only_counts_on_the_first_line`
+- OK     `eval.tests.test_auto_detection.test_shebang_posix_detection[#!/bin/dash\n]`
+- OK     `eval.tests.test_auto_detection.test_shebang_posix_detection[#!/bin/sh\n]`
+- OK     `eval.tests.test_auto_detection.test_shebang_selects_dialect[#! /bin/zsh\n]`
+- OK     `eval.tests.test_auto_detection.test_shebang_selects_dialect[#!/bin/zsh\n]`
+- OK     `eval.tests.test_auto_detection.test_shebang_selects_dialect[#!/usr/bin/env zsh\n]`
+- OK     `eval.tests.test_auto_detection.test_stdin_default_name_in_errors`
+- OK     `eval.tests.test_auto_detection.test_unknown_extension_falls_through_to_the_shebang`
+- OK     `eval.tests.test_auto_detection.test_unknown_shebang_falls_back_to_bash[#!/bin/zsh5\n]`
+- OK     `eval.tests.test_auto_detection.test_unknown_shebang_falls_back_to_bash[#!/usr/bin/perl\n]`
+- OK     `eval.tests.test_auto_detection.test_unknown_shebang_falls_back_to_bash[echo hi\n]`
+- OK     `eval.tests.test_auto_detection.test_zsh_config_filenames[.zlogin]`
+- OK     `eval.tests.test_auto_detection.test_zsh_config_filenames[.zlogout]`
+- OK     `eval.tests.test_auto_detection.test_zsh_config_filenames[.zprofile]`
+- OK     `eval.tests.test_auto_detection.test_zsh_config_filenames[.zshenv]`
+- OK     `eval.tests.test_auto_detection.test_zsh_config_filenames[.zshrc]`
+- OK     `eval.tests.test_auto_detection.test_zsh_config_filenames[zshrc]`
+- OK     `eval.tests.test_construct_zoo.test_bash_zoo_formats`
+- OK     `eval.tests.test_construct_zoo.test_bash_zoo_json_round_trip`
+- OK     `eval.tests.test_construct_zoo.test_bash_zoo_json_type_names`
+- OK     `eval.tests.test_construct_zoo.test_bash_zoo_simplify_walks_every_node`
+- OK     `eval.tests.test_construct_zoo.test_bats_zoo_formats_via_env_shebang`
+- OK     `eval.tests.test_construct_zoo.test_bats_zoo_json_round_trip`
+- OK     `eval.tests.test_construct_zoo.test_bats_zoo_json_type_names`
+- OK     `eval.tests.test_construct_zoo.test_mksh_zoo_formats`
+- OK     `eval.tests.test_construct_zoo.test_mksh_zoo_json_round_trip`
+- OK     `eval.tests.test_construct_zoo.test_zsh_zoo_formats_via_stdin_shebang`
+- OK     `eval.tests.test_construct_zoo.test_zsh_zoo_json_round_trip`
+- OK     `eval.tests.test_construct_zoo.test_zsh_zoo_json_type_names`
+- OK     `eval.tests.test_dialect_flags.test_explicit_ln_auto_still_autodetects`
+- OK     `eval.tests.test_dialect_flags.test_explicit_ln_suppresses_auto_detection_suffix`
+- OK     `eval.tests.test_dialect_flags.test_invalid_dialect_prints_full_usage`
+- OK     `eval.tests.test_dialect_flags.test_invalid_dialect_value_rejected[SH]`
+- OK     `eval.tests.test_dialect_flags.test_invalid_dialect_value_rejected[]`
+- OK     `eval.tests.test_dialect_flags.test_invalid_dialect_value_rejected[bash5]`
+- OK     `eval.tests.test_dialect_flags.test_invalid_dialect_value_rejected[bogus]`
+- OK     `eval.tests.test_dialect_flags.test_invalid_dialect_value_rejected[posix ]`
+- OK     `eval.tests.test_dialect_flags.test_last_ln_value_wins`
+- OK     `eval.tests.test_dialect_flags.test_ln_accepts_space_separated_value`
+- OK     `eval.tests.test_dialect_flags.test_ln_without_value_is_a_flag_error`
+- OK     `eval.tests.test_dialect_flags.test_long_language_dialect_flag`
+- OK     `eval.tests.test_dialect_flags.test_p_and_ln_conflict[order0]`
+- OK     `eval.tests.test_dialect_flags.test_p_and_ln_conflict[order1]`
+- OK     `eval.tests.test_dialect_flags.test_p_shorthand_selects_posix`
+- OK     `eval.tests.test_dialect_flags.test_posix_aliases_reject_arrays[dash]`
+- OK     `eval.tests.test_dialect_flags.test_posix_aliases_reject_arrays[posix]`
+- OK     `eval.tests.test_dialect_flags.test_posix_aliases_reject_arrays[sh]`
+- OK     `eval.tests.test_dialect_flags.test_unknown_flag_is_rejected`
+- OK     `eval.tests.test_dialect_flags.test_valid_dialect_names_accepted[auto]`
+- OK     `eval.tests.test_dialect_flags.test_valid_dialect_names_accepted[bash]`
+- OK     `eval.tests.test_dialect_flags.test_valid_dialect_names_accepted[bats]`
+- OK     `eval.tests.test_dialect_flags.test_valid_dialect_names_accepted[mksh]`
+- OK     `eval.tests.test_dialect_flags.test_valid_dialect_names_accepted[posix]`
+- OK     `eval.tests.test_dialect_flags.test_valid_dialect_names_accepted[zsh]`
+- OK     `eval.tests.test_dialect_gating.test_bash_accepts_the_same_constructs[a=(1 2)\n-a=(1 2)\n]`
+- OK     `eval.tests.test_dialect_gating.test_bash_accepts_the_same_constructs[cat <<< hi\n-cat <<<hi\n]`
+- OK     `eval.tests.test_dialect_gating.test_bash_accepts_the_same_constructs[cmd &> file\n-cmd &>file\n]`
+- OK     `eval.tests.test_dialect_gating.test_bash_accepts_the_same_constructs[echo ${!a}\n-echo ${!a}\n]`
+- OK     `eval.tests.test_dialect_gating.test_bash_accepts_the_same_constructs[echo ${a/b/c}\n-echo ${a/b/c}\n]`
+- OK     `eval.tests.test_dialect_gating.test_bash_accepts_the_same_constructs[echo ${a:1:2}\n-echo ${a:1:2}\n]`
+- OK     `eval.tests.test_dialect_gating.test_bash_accepts_the_same_constructs[echo ${a[0]}\n-echo ${a[0]}\n]`
+- OK     `eval.tests.test_dialect_gating.test_bash_accepts_the_same_constructs[exec {fd}> file\n-exec {fd}>file\n]`
+- OK     `eval.tests.test_dialect_gating.test_bash_accepts_the_same_constructs[for ((i=0; i<3; i++)); do echo $i; done\n-for ((i = 0; i < 3; i++)); do echo $i; done\n]`
+- OK     `eval.tests.test_dialect_gating.test_bash_accepts_the_same_constructs[function f { echo; }\n-function f { echo; }\n]`
+- OK     `eval.tests.test_dialect_gating.test_bash_accepts_the_same_constructs[select x in a b; do echo; done\n-select x in a b; do echo; done\n]`
+- OK     `eval.tests.test_dialect_gating.test_bash_case_modification_operator`
+- OK     `eval.tests.test_dialect_gating.test_bash_error_mentions_bash_not_bats`
+- OK     `eval.tests.test_dialect_gating.test_bash_pipe_all_requires_a_statement`
+- OK     `eval.tests.test_dialect_gating.test_bats_test_declaration`
+- OK     `eval.tests.test_dialect_gating.test_bats_test_declaration_rejected_by_bash`
+- OK     `eval.tests.test_dialect_gating.test_double_brackets_are_words_in_posix`
+- OK     `eval.tests.test_dialect_gating.test_mksh_case_braces_are_canonicalized`
+- OK     `eval.tests.test_dialect_gating.test_mksh_case_braces_rejected_elsewhere`
+- OK     `eval.tests.test_dialect_gating.test_mksh_coprocess_pipe`
+- OK     `eval.tests.test_dialect_gating.test_mksh_lacks_regex_matching`
+- OK     `eval.tests.test_dialect_gating.test_mksh_pipe_all_splits_lines`
+- OK     `eval.tests.test_dialect_gating.test_posix_redirect_before_block_is_zsh_only`
+- OK     `eval.tests.test_dialect_gating.test_posix_rejects_bash_features[a=(1 2)\n-<standard input>:1:3: arrays are a bash/mksh/zsh feature; tried parsing as posix\n]`
+- OK     `eval.tests.test_dialect_gating.test_posix_rejects_bash_features[cat <<< hi\n-<standard input>:1:5: herestrings are a bash/mksh/zsh feature; tried parsing as posix\n]`
+- OK     `eval.tests.test_dialect_gating.test_posix_rejects_bash_features[cmd &> file\n-<standard input>:1:5: `&>` redirects are a bash/mksh/zsh feature; tried parsing as posix\n]`
+- OK     `eval.tests.test_dialect_gating.test_posix_rejects_bash_features[echo ${!a}\n-<standard input>:1:6: `${!foo}` is a bash/mksh feature; tried parsing as posix\n]`
+- OK     `eval.tests.test_dialect_gating.test_posix_rejects_bash_features[echo ${a/b/c}\n-<standard input>:1:9: search and replace is a bash/mksh/zsh feature; tried parsing as posix\n]`
+- OK     `eval.tests.test_dialect_gating.test_posix_rejects_bash_features[echo ${a:1:2}\n-<standard input>:1:9: slicing is a bash/mksh/zsh feature; tried parsing as posix\n]`
+- OK     `eval.tests.test_dialect_gating.test_posix_rejects_bash_features[echo ${a[0]}\n-<standard input>:1:9: arrays are a bash/mksh/zsh feature; tried parsing as posix\n]`
+- OK     `eval.tests.test_dialect_gating.test_posix_rejects_bash_features[exec {fd}> file\n-<standard input>:1:6: `{varname}` redirects are a bash/zsh feature; tried parsing as posix\n]`
+- OK     `eval.tests.test_dialect_gating.test_posix_rejects_bash_features[for ((i=0; i<3; i++)); do echo $i; done\n-<standard input>:1:5: c-style fors are a bash/zsh feature; tried parsing as posix\n]`
+- OK     `eval.tests.test_dialect_gating.test_posix_rejects_bash_features[function f { echo; }\n-<standard input>:1:12: the "function" builtin is a bash feature; tried parsing as posix\n]`
+- OK     `eval.tests.test_dialect_gating.test_posix_rejects_bash_features[select x in a b; do echo; done\n-<standard input>:1:18: `do` can only be used in a loop\n]`
+- OK     `eval.tests.test_dialect_gating.test_process_substitution_accepted[bash]`
+- OK     `eval.tests.test_dialect_gating.test_process_substitution_accepted[zsh]`
+- OK     `eval.tests.test_dialect_gating.test_process_substitution_rejected[mksh]`
+- OK     `eval.tests.test_dialect_gating.test_process_substitution_rejected[posix]`
+- OK     `eval.tests.test_dialect_gating.test_regex_matching_accepted[bash]`
+- OK     `eval.tests.test_dialect_gating.test_regex_matching_accepted[zsh]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_accepts_its_own_constructs[() { a; }\n-() { a; }\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_accepts_its_own_constructs[echo ${(e)a}\n-echo ${(e)a}\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_accepts_its_own_constructs[echo ${+a}\n-echo ${+a}\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_accepts_its_own_constructs[echo ${=a}\n-echo ${=a}\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_accepts_its_own_constructs[foo &!\n-foo &|\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_accepts_its_own_constructs[function a b { echo; }\n-function a b { echo; }\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_only_constructs_rejected_by_bash[() { a; }\n-<standard input>:1:1: anonymous functions are a zsh feature; tried parsing as bash\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_only_constructs_rejected_by_bash[echo $((1.5 + 1))\n-<standard input>:1:10: floating point arithmetic is a zsh feature; tried parsing as bash\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_only_constructs_rejected_by_bash[echo ${(e)a}\n-<standard input>:1:6: parameter expansion flags are a zsh feature; tried parsing as bash\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_only_constructs_rejected_by_bash[echo ${+a}\n-<standard input>:1:6: `${+foo}` is a zsh feature; tried parsing as bash\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_only_constructs_rejected_by_bash[echo ${=a}\n-<standard input>:1:8: invalid parameter name\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_only_constructs_rejected_by_bash[foo &|\nbar\n-<standard input>:1:6: `|` can only immediately follow a statement\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_only_constructs_rejected_by_bash[function a b { echo; }\n-<standard input>:1:1: multi-name functions are a zsh feature; tried parsing as bash\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_only_constructs_rejected_by_bash[function { echo hi; }\n-<standard input>:1:1: anonymous functions are a zsh feature; tried parsing as bash\n]`
+- OK     `eval.tests.test_dialect_gating.test_zsh_rejects_bash_indirection`
+- OK     `eval.tests.test_dialect_gating2.test_at_expansion_op_errors[echo ${a@$x}\n-<standard input>:1:10: @ expansion operator requires a literal\n]`
+- OK     `eval.tests.test_dialect_gating2.test_at_expansion_op_errors[echo ${a@b}\n-<standard input>:1:10: invalid @ expansion operator `b`\n]`
+- OK     `eval.tests.test_dialect_gating2.test_at_expansion_ops[bash-echo ${a@#}\n-False]`
+- OK     `eval.tests.test_dialect_gating2.test_at_expansion_ops[bash-echo ${a@E}\n-True]`
+- OK     `eval.tests.test_dialect_gating2.test_at_expansion_ops[bash-echo ${a@Q}\n-True]`
+- OK     `eval.tests.test_dialect_gating2.test_at_expansion_ops[mksh-echo ${a@#}\n-True]`
+- OK     `eval.tests.test_dialect_gating2.test_at_expansion_ops[mksh-echo ${a@Q}\n-True]`
+- OK     `eval.tests.test_dialect_gating2.test_at_expansion_ops[posix-echo ${a@Q}\n-False]`
+- OK     `eval.tests.test_dialect_gating2.test_at_expansion_ops[zsh-echo ${a@E}\n-False]`
+- OK     `eval.tests.test_dialect_gating2.test_at_expansion_ops[zsh-echo ${a@Q}\n-False]`
+- OK     `eval.tests.test_dialect_gating2.test_coproc_clause`
+- OK     `eval.tests.test_dialect_gating2.test_coproc_requires_a_command`
+- OK     `eval.tests.test_dialect_gating2.test_declare_clause_variants`
+- OK     `eval.tests.test_dialect_gating2.test_declare_not_special_in_mksh`
+- OK     `eval.tests.test_dialect_gating2.test_double_negation_still_formats_single`
+- OK     `eval.tests.test_dialect_gating2.test_extended_globs`
+- OK     `eval.tests.test_dialect_gating2.test_for_loop_braces_accepted[bash]`
+- OK     `eval.tests.test_dialect_gating2.test_for_loop_braces_accepted[mksh]`
+- OK     `eval.tests.test_dialect_gating2.test_for_loop_braces_rejected_by_zsh`
+- OK     `eval.tests.test_dialect_gating2.test_indirection_names_bash_only[echo ${!a*}\n-<standard input>:1:6: `${!foo*}` is a bash feature; tried parsing as mksh\n]`
+- OK     `eval.tests.test_dialect_gating2.test_indirection_names_bash_only[echo ${!a^}\n-<standard input>:1:10: this expansion operator is a bash feature; tried parsing as mksh\n]`
+- OK     `eval.tests.test_dialect_gating2.test_invalid_func_names[bash-"x y"() { echo; }\n-<standard input>:1:1: invalid func name\n]`
+- OK     `eval.tests.test_dialect_gating2.test_invalid_func_names[posix-a.b() { echo; }\n-<standard input>:1:1: invalid func name\n]`
+- OK     `eval.tests.test_dialect_gating2.test_let_clause`
+- OK     `eval.tests.test_dialect_gating2.test_mksh_double_brackets`
+- OK     `eval.tests.test_dialect_gating2.test_mksh_unsigned_arithmetic`
+- OK     `eval.tests.test_dialect_gating2.test_mksh_value_of_forms_accepted[bash]`
+- OK     `eval.tests.test_dialect_gating2.test_mksh_value_of_forms_accepted[mksh]`
+- OK     `eval.tests.test_dialect_gating2.test_mksh_value_of_forms_rejected[posix]`
+- OK     `eval.tests.test_dialect_gating2.test_mksh_value_of_forms_rejected[zsh]`
+- OK     `eval.tests.test_dialect_gating2.test_mksh_value_of_multiline_printing`
+- OK     `eval.tests.test_dialect_gating2.test_mksh_width_prefix`
+- OK     `eval.tests.test_dialect_gating2.test_posix_rejects_append_all_redirect`
+- OK     `eval.tests.test_dialect_gating2.test_select_in_ksh_dialects[mksh]`
+- OK     `eval.tests.test_dialect_gating2.test_select_in_ksh_dialects[zsh]`
+- OK     `eval.tests.test_dialect_gating2.test_special_parameter_indexing`
+- OK     `eval.tests.test_dialect_gating2.test_stray_closer_is_a_word_in_posix`
+- OK     `eval.tests.test_dialect_gating2.test_stray_reserved_word_errors[! ! true\n-<standard input>:1:1: cannot negate a command multiple times\n]`
+- OK     `eval.tests.test_dialect_gating2.test_stray_reserved_word_errors[elif\n-<standard input>:1:1: `elif` can only be used in an `if`\n]`
+- OK     `eval.tests.test_dialect_gating2.test_stray_reserved_word_errors[esac\n-<standard input>:1:1: `esac` can only be used to end a `case`\n]`
+- OK     `eval.tests.test_dialect_gating2.test_stray_reserved_word_errors[}\n-<standard input>:1:1: `}` can only be used to close a block\n]`
+- OK     `eval.tests.test_dialect_gating2.test_time_clause`
+- OK     `eval.tests.test_dialect_gating2.test_unclosed_heredoc_rejected_only_by_mksh`
+- OK     `eval.tests.test_dialect_gating2.test_value_of_json_fields`
+- OK     `eval.tests.test_dialect_gating2.test_zsh_array_operators`
+- OK     `eval.tests.test_dialect_gating2.test_zsh_clobber_redirects[&>>|]`
+- OK     `eval.tests.test_dialect_gating2.test_zsh_clobber_redirects[&>|]`
+- OK     `eval.tests.test_dialect_gating2.test_zsh_clobber_redirects[>>|]`
+- OK     `eval.tests.test_dialect_gating2.test_zsh_empty_block`
+- OK     `eval.tests.test_dialect_gating2.test_zsh_empty_param_name`
+- OK     `eval.tests.test_dialect_gating2.test_zsh_glob_qualifiers`
+- OK     `eval.tests.test_dialect_gating2.test_zsh_modifiers_vs_bash_slice`
+- OK     `eval.tests.test_dialect_gating2.test_zsh_nested_param_expansions`
+- OK     `eval.tests.test_dialect_gating2.test_zsh_short_indexing`
+- OK     `eval.tests.test_dialect_gating2.test_zsh_temp_file_procsubst`
+- OK     `eval.tests.test_diff_color.test_force_color_beats_no_color`
+- OK     `eval.tests.test_diff_color.test_force_color_colors_the_diff`
+- OK     `eval.tests.test_diff_color.test_no_color_keeps_the_diff_plain`
+- OK     `eval.tests.test_editorconfig.test_bash_language_section`
+- OK     `eval.tests.test_editorconfig.test_editorconfig_beats_the_filename_extension`
+- OK     `eval.tests.test_editorconfig.test_editorconfig_not_used_without_the_file`
+- OK     `eval.tests.test_editorconfig.test_invalid_editorconfig_dialect_ignored`
+- OK     `eval.tests.test_editorconfig.test_language_dialect_suffix_in_errors`
+- OK     `eval.tests.test_editorconfig.test_posix_flag_disables_editorconfig`
+- OK     `eval.tests.test_editorconfig.test_shell_variant_selects_the_dialect`
+- OK     `eval.tests.test_editorconfig.test_star_section_applies_to_any_file`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-!=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-%=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-%]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-&&=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-&&]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-&=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-&]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-**=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-**]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-*=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-*]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-+=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-+]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-,]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit--=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit--]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-/=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-/]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-:]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-<<=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-<<]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-<=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-<]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-==]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit->=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit->>=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit->>]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit->]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-?]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-^=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-^]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-^^=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-^^]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-|=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-|]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-||=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_arith_operator_enum_decodes[binarit-||]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest-!=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest-&&]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest--ef]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest--eq]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest--ge]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest--gt]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest--le]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest--lt]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest--ne]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest--nt]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest--ot]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest-<]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest-==]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest-=]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest-=~]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest->]`
+- OK     `eval.tests.test_from_json_operators.test_binary_test_operator_enum_decodes[bintest-||]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[bincmd-&&]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[bincmd-|&]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[bincmd-|]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[bincmd-||]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[case-;&]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[case-;;&]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[case-;;]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[case-;|]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[glob-!(]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[glob-*(]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[glob-+(]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[glob-?(]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[glob-@(]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[parnames-*]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[parnames-@]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[proc-<(]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[proc-=(]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[proc->(]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir-&>>]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir-&>>|]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir-&>]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir-&>|]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir-<&]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir-<<-]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir-<<<]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir-<<]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir-<>]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir-<]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir->&]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir->>]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir->>|]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir->]`
+- OK     `eval.tests.test_from_json_operators.test_operator_enum_decodes[redir->|]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-##]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-#]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-%%]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-%]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-+]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-,,]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-,]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp--]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-:#]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-:*]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-:+]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-:-]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-:=]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-:?]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-:|]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-=]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-?]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-@]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-^]`
+- OK     `eval.tests.test_from_json_operators.test_parexp_operator_enum_decodes[parexp-^^]`
+- OK     `eval.tests.test_from_json_operators.test_unary_arith_operator_enum_decodes[unarit-!]`
+- OK     `eval.tests.test_from_json_operators.test_unary_arith_operator_enum_decodes[unarit-++]`
+- OK     `eval.tests.test_from_json_operators.test_unary_arith_operator_enum_decodes[unarit-+]`
+- OK     `eval.tests.test_from_json_operators.test_unary_arith_operator_enum_decodes[unarit---]`
+- OK     `eval.tests.test_from_json_operators.test_unary_arith_operator_enum_decodes[unarit--]`
+- OK     `eval.tests.test_from_json_operators.test_unary_arith_operator_enum_decodes[unarit-~]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest-!]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest-(]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--G]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--L]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--N]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--O]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--R]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--S]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--b]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--c]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--d]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--e]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--f]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--g]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--k]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--n]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--o]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--p]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--r]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--s]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--t]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--u]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--v]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--w]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--x]`
+- OK     `eval.tests.test_from_json_operators.test_unary_test_operator_enum_decodes[untest--z]`
+- OK     `eval.tests.test_json_decode_errors.test_bogus_operator_spelling_rejected[binarit-invalid BinAritOperator: "Bogus"\n]`
+- OK     `eval.tests.test_json_decode_errors.test_bogus_operator_spelling_rejected[bincmd-invalid BinCmdOperator: "Bogus"\n]`
+- OK     `eval.tests.test_json_decode_errors.test_bogus_operator_spelling_rejected[bintest-invalid BinTestOperator: "Bogus"\n]`
+- OK     `eval.tests.test_json_decode_errors.test_bogus_operator_spelling_rejected[case-invalid CaseOperator: "Bogus"\n]`
+- OK     `eval.tests.test_json_decode_errors.test_bogus_operator_spelling_rejected[glob-invalid GlobOperator: "Bogus"\n]`
+- OK     `eval.tests.test_json_decode_errors.test_bogus_operator_spelling_rejected[parexp-invalid ParExpOperator: "Bogus"\n]`
+- OK     `eval.tests.test_json_decode_errors.test_bogus_operator_spelling_rejected[parnames-invalid ParNamesOperator: "Bogus"\n]`
+- OK     `eval.tests.test_json_decode_errors.test_bogus_operator_spelling_rejected[proc-invalid ProcOperator: "Bogus"\n]`
+- OK     `eval.tests.test_json_decode_errors.test_bogus_operator_spelling_rejected[redir-invalid RedirOperator: "Bogus"\n]`
+- OK     `eval.tests.test_json_decode_errors.test_bogus_operator_spelling_rejected[unarit-invalid UnAritOperator: "Bogus"\n]`
+- OK     `eval.tests.test_json_decode_errors.test_bogus_operator_spelling_rejected[untest-invalid UnTestOperator: "Bogus"\n]`
+- OK     `eval.tests.test_json_decode_errors.test_lenient_decode_arms[empty-stmts]`
+- OK     `eval.tests.test_json_decode_errors.test_lenient_decode_arms[file-without-stmts]`
+- OK     `eval.tests.test_json_decode_errors.test_lenient_decode_arms[null-lit-empty]`
+- OK     `eval.tests.test_json_decode_errors.test_lenient_decode_arms[positions-ignored]`
+- OK     `eval.tests.test_json_decode_errors.test_malformed_documents[top-array]`
+- OK     `eval.tests.test_json_decode_errors.test_malformed_documents[top-string]`
+- OK     `eval.tests.test_json_decode_errors.test_malformed_documents[truncated]`
+- OK     `eval.tests.test_json_decode_errors.test_malformed_documents[type-array]`
+- OK     `eval.tests.test_json_decode_errors.test_malformed_documents[type-bool]`
+- OK     `eval.tests.test_json_decode_errors.test_malformed_documents[type-missing]`
+- OK     `eval.tests.test_json_decode_errors.test_malformed_documents[type-null]`
+- OK     `eval.tests.test_json_decode_errors.test_malformed_documents[type-number]`
+- OK     `eval.tests.test_json_decode_errors.test_malformed_documents[type-object]`
+- OK     `eval.tests.test_json_decode_errors.test_malformed_documents[type-unknown]`
+- OK     `eval.tests.test_json_decode_errors.test_wrong_container_shapes[args-object]`
+- OK     `eval.tests.test_json_decode_errors.test_wrong_container_shapes[parts-number]`
+- OK     `eval.tests.test_json_decode_errors.test_wrong_container_shapes[stmt-bool]`
+- OK     `eval.tests.test_json_decode_errors.test_wrong_container_shapes[stmt-number]`
+- OK     `eval.tests.test_json_decode_errors.test_wrong_container_shapes[stmt-string]`
+- OK     `eval.tests.test_json_decode_errors.test_wrong_container_shapes[stmts-object]`
+- OK     `eval.tests.test_json_decode_errors.test_wrong_scalar_shapes[5-number]`
+- OK     `eval.tests.test_json_decode_errors.test_wrong_scalar_shapes[True-boolean]`
+- OK     `eval.tests.test_json_decode_errors.test_wrong_scalar_shapes[value1-object]`
+- OK     `eval.tests.test_json_decode_errors.test_wrong_scalar_shapes[value2-array]`
+- OK     `eval.tests.test_json_trees.test_from_json_decode_errors[-EOF\n]`
+- OK     `eval.tests.test_json_trees.test_from_json_decode_errors[[]-cannot decode JSON array into syntax.Node\n]`
+- OK     `eval.tests.test_json_trees.test_from_json_decode_errors[not json-invalid character 'o' in literal null (expecting 'u')\n]`
+- OK     `eval.tests.test_json_trees.test_from_json_decode_errors[{"Type": "Bogus"}-unknown type: "Bogus"\n]`
+- OK     `eval.tests.test_json_trees.test_from_json_requires_stdin`
+- OK     `eval.tests.test_json_trees.test_from_json_simplifies_with_s`
+- OK     `eval.tests.test_json_trees.test_json_round_trip_formats`
+- OK     `eval.tests.test_json_trees.test_json_round_trip_is_stable`
+- OK     `eval.tests.test_json_trees.test_json_round_trip_zsh_construct`
+- OK     `eval.tests.test_json_trees.test_to_json_and_from_json_conflict`
+- OK     `eval.tests.test_json_trees.test_to_json_dialect_specific_fields`
+- OK     `eval.tests.test_json_trees.test_to_json_empty_input`
+- OK     `eval.tests.test_json_trees.test_to_json_exact_bytes`
+- OK     `eval.tests.test_json_trees.test_to_json_parse_error_has_no_filename`
+- OK     `eval.tests.test_json_trees.test_to_json_positions_track_the_source`
+- OK     `eval.tests.test_json_trees.test_to_json_requires_stdin`
+- OK     `eval.tests.test_json_trees.test_to_json_simplifies_with_s`
+- OK     `eval.tests.test_json_trees.test_to_json_with_filename`
+- OK     `eval.tests.test_json_trees.test_tojson_legacy_alias`
+- OK     `eval.tests.test_json_trees2.test_backquotes_canonicalized_from_json`
+- OK     `eval.tests.test_json_trees2.test_from_json_bool_field_type`
+- OK     `eval.tests.test_json_trees2.test_from_json_ignores_pos_and_end_keys`
+- OK     `eval.tests.test_json_trees2.test_from_json_missing_and_wrong_type_keys`
+- OK     `eval.tests.test_json_trees2.test_from_json_nested_type_mismatch_errors`
+- OK     `eval.tests.test_json_trees2.test_from_json_null_root`
+- OK     `eval.tests.test_json_trees2.test_from_json_operator_enum_decodes`
+- OK     `eval.tests.test_json_trees2.test_from_json_operator_enum_errors`
+- OK     `eval.tests.test_json_trees2.test_from_json_position_decode_errors[1-cannot decode JSON number into a position\n]`
+- OK     `eval.tests.test_json_trees2.test_from_json_position_decode_errors[oppos2-a position must contain exactly the fields [Offset Line Col]\n]`
+- OK     `eval.tests.test_json_trees2.test_from_json_position_decode_errors[oppos3-cannot decode JSON string into the position field "Col"\n]`
+- OK     `eval.tests.test_json_trees2.test_from_json_position_decode_errors[oppos4-the position field "Col" is out of range: -1\n]`
+- OK     `eval.tests.test_json_trees2.test_from_json_position_decode_errors[oppos5-the position field "Col" is out of range: 0.5\n]`
+- OK     `eval.tests.test_json_trees2.test_from_json_position_decode_errors[x-cannot decode JSON string into a position\n]`
+- OK     `eval.tests.test_json_trees2.test_from_json_unknown_fields[node_path0-unknown field for syntax.File: "Bogus"\n]`
+- OK     `eval.tests.test_json_trees2.test_from_json_unknown_fields[node_path1-unknown field for syntax.CallExpr: "Bogus"\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags0-let a=1 b=2\n-let a=1 b=2\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags1-coproc name { echo; }\n-coproc name { echo; }\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags10-echo ${${a}}\n-echo ${${a}}\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags11-echo $((# a))\n-echo $((# a))\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags12-echo ${%a}\n-echo ${%a}\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags13-case $a in x) echo; ;| esac\n-case $a in x) echo ;| esac\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags2-time -p ls\n-time -p ls\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags3-declare -a x\n-declare -a x\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags4-echo $((a ? b : c))\n-echo $((a ? b : c))\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags5-echo !(x)\n-echo !(x)\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags6-x=${|foo;}\n-x=${|foo;}\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags7-case $a in x) echo; ;;& esac\n-case $a in x) echo ;;& esac\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags8-echo ${a:#pat}\n-echo ${a:#pat}\n]`
+- OK     `eval.tests.test_json_trees2.test_new_constructs_round_trip[flags9-echo ${(f)"$(x)"}\n-echo ${(f)"$(x)"}\n]`
+- OK     `eval.tests.test_json_trees2.test_test_clause_paren_node`
+- OK     `eval.tests.test_json_trees2.test_to_json_arith_operator_strings[!a-ops4]`
+- OK     `eval.tests.test_json_trees2.test_to_json_arith_operator_strings[++a-ops6]`
+- OK     `eval.tests.test_json_trees2.test_to_json_arith_operator_strings[1 != 2-ops7]`
+- OK     `eval.tests.test_json_trees2.test_to_json_arith_operator_strings[2 ** 3-ops2]`
+- OK     `eval.tests.test_json_trees2.test_to_json_arith_operator_strings[a += 2-ops1]`
+- OK     `eval.tests.test_json_trees2.test_to_json_arith_operator_strings[a << 2-ops8]`
+- OK     `eval.tests.test_json_trees2.test_to_json_arith_operator_strings[a ? b : c-ops0]`
+- OK     `eval.tests.test_json_trees2.test_to_json_arith_operator_strings[a, b-ops3]`
+- OK     `eval.tests.test_json_trees2.test_to_json_arith_operator_strings[~a-ops5]`
+- OK     `eval.tests.test_lex_torture.test_arithmetic_in_other_contexts`
+- OK     `eval.tests.test_lex_torture.test_arithmetic_negation_spacing`
+- OK     `eval.tests.test_lex_torture.test_arithmetic_operator_torture`
+- OK     `eval.tests.test_lex_torture.test_assignment_forms`
+- OK     `eval.tests.test_lex_torture.test_assignment_quoting_torture`
+- OK     `eval.tests.test_lex_torture.test_at_expansion_operator_full_set`
+- OK     `eval.tests.test_lex_torture.test_at_expansion_rejects_case_ops[R]`
+- OK     `eval.tests.test_lex_torture.test_at_expansion_rejects_case_ops[l]`
+- OK     `eval.tests.test_lex_torture.test_at_expansion_rejects_case_ops[r]`
+- OK     `eval.tests.test_lex_torture.test_bash_accepts_xor_xor_arith`
+- OK     `eval.tests.test_lex_torture.test_bash_rejects_json_only_arith_assign_ops[$((a &&= b))-&&]`
+- OK     `eval.tests.test_lex_torture.test_bash_rejects_json_only_arith_assign_ops[$((a **= b))-**]`
+- OK     `eval.tests.test_lex_torture.test_bash_rejects_json_only_arith_assign_ops[$((a ^^= b))-^^]`
+- OK     `eval.tests.test_lex_torture.test_bash_rejects_json_only_arith_assign_ops[$((a ||= b))-||]`
+- OK     `eval.tests.test_lex_torture.test_declaration_assignment_forms`
+- OK     `eval.tests.test_lex_torture.test_glob_and_regex_patterns`
+- OK     `eval.tests.test_lex_torture.test_heredoc_delimiter_styles`
+- OK     `eval.tests.test_lex_torture.test_heredoc_strips_crlf`
+- OK     `eval.tests.test_lex_torture.test_inline_indexed_assign_is_rejected`
+- OK     `eval.tests.test_lex_torture.test_lenient_assignment_names["x y"=z]`
+- OK     `eval.tests.test_lex_torture.test_lenient_assignment_names[$(x)=y]`
+- OK     `eval.tests.test_lex_torture.test_lenient_assignment_names[a$b=c]`
+- OK     `eval.tests.test_lex_torture.test_lenient_assignment_names[{a..b}=c]`
+- OK     `eval.tests.test_lex_torture.test_param_expansion_operator_torture`
+- OK     `eval.tests.test_lex_torture.test_param_index_and_slice_forms`
+- OK     `eval.tests.test_lex_torture.test_quoting_torture`
+- OK     `eval.tests.test_lex_torture.test_redirect_operator_torture`
+- OK     `eval.tests.test_lex_torture.test_test_operator_torture`
+- OK     `eval.tests.test_lex_torture.test_unicode_param_name_is_rejected`
+- OK     `eval.tests.test_lex_torture.test_unicode_passthrough`
+- OK     `eval.tests.test_lex_torture.test_zsh_clobber_redirect_spellings`
+- OK     `eval.tests.test_lex_torture.test_zsh_float_and_subscript_arithmetic`
+- OK     `eval.tests.test_lex_torture.test_zsh_subscripts_flags_and_numranges`
+- OK     `eval.tests.test_main_modes.test_apply_ignore_false_formats`
+- OK     `eval.tests.test_main_modes.test_apply_ignore_needs_a_section`
+- REJECT  `eval.tests.test_main_modes.test_apply_ignore_skips_ignored_stdin` — dummy-check: still passes against no-output dummy
+- OK     `eval.tests.test_main_modes.test_diff_flag_on_stdin`
+- OK     `eval.tests.test_main_modes.test_editorconfig_language_sections[bash-s.bats-True]`
+- OK     `eval.tests.test_main_modes.test_editorconfig_language_sections[bash-s.zsh-False]`
+- OK     `eval.tests.test_main_modes.test_editorconfig_language_sections[shell-s.bash-True]`
+- OK     `eval.tests.test_main_modes.test_editorconfig_language_sections[shell-s.mksh-True]`
+- OK     `eval.tests.test_main_modes.test_editorconfig_language_sections[zsh-s.bash-False]`
+- OK     `eval.tests.test_main_modes.test_editorconfig_language_sections[zsh-s.zsh-True]`
+- OK     `eval.tests.test_main_modes.test_filename_flag_rejected_with_file_args`
+- OK     `eval.tests.test_main_modes.test_fn_bl_conflict`
+- OK     `eval.tests.test_main_modes.test_ignore_without_apply_ignore_still_formats`
+- OK     `eval.tests.test_main_modes.test_list_flag_reports_unformatted_stdin`
+- OK     `eval.tests.test_main_modes.test_list_null_separated_stdin`
+- OK     `eval.tests.test_main_modes.test_optional_value_flag_validation[flags0-only -l and -l=0 allowed\n]`
+- OK     `eval.tests.test_main_modes.test_optional_value_flag_validation[flags1-only -f and -f=0 allowed\n]`
+- OK     `eval.tests.test_main_modes.test_optional_value_flag_validation[flags2---detect only allows default, exec, or all\n]`
+- OK     `eval.tests.test_main_modes.test_version_flag`
+- OK     `eval.tests.test_main_modes.test_write_flag_rejected_on_stdin`
+- OK     `eval.tests.test_parse_errors.test_arithmetic_and_index_errors[((\n-<standard input>:1:1: `((` must be followed by an expression\n]`
+- OK     `eval.tests.test_parse_errors.test_arithmetic_and_index_errors[echo $((1 ! 2))\n-<standard input>:1:11: not a valid arithmetic operator: `!`\n]`
+- OK     `eval.tests.test_parse_errors.test_arithmetic_and_index_errors[echo $((1 +))\n-<standard input>:1:11: `+` must be followed by an expression\n]`
+- OK     `eval.tests.test_parse_errors.test_arithmetic_and_index_errors[echo $((1 2))\n-<standard input>:1:11: not a valid arithmetic operator: `2`\n]`
+- OK     `eval.tests.test_parse_errors.test_arithmetic_and_index_errors[echo $((1 ~ 2))\n-<standard input>:1:11: not a valid arithmetic operator: `~`\n]`
+- OK     `eval.tests.test_parse_errors.test_arithmetic_and_index_errors[echo $((a =+= 1))\n-<standard input>:1:12: `+=` must follow a name\n]`
+- OK     `eval.tests.test_parse_errors.test_arithmetic_and_index_errors[echo ${a[}\n-<standard input>:1:9: `[` must be followed by an expression\n]`
+- OK     `eval.tests.test_parse_errors.test_error_positions_are_line_col`
+- OK     `eval.tests.test_parse_errors.test_errors_from_file_arguments_use_the_path`
+- OK     `eval.tests.test_parse_errors.test_first_error_is_reported`
+- OK     `eval.tests.test_parse_errors.test_heredoc_dash_strips_the_delimiters_tab`
+- OK     `eval.tests.test_parse_errors.test_heredoc_missing_delimiter_is_completed`
+- OK     `eval.tests.test_parse_errors.test_heredoc_operator_requires_a_word[cat <<<\n-<standard input>:1:5: `<<<` must be followed by a word\n]`
+- OK     `eval.tests.test_parse_errors.test_heredoc_operator_requires_a_word[cat <<\n-<standard input>:1:5: `<<` must be followed by a word\n]`
+- OK     `eval.tests.test_parse_errors.test_missing_block_keywords[case $a in\n-<standard input>:1:1: `case` statement must end with `esac`\n]`
+- OK     `eval.tests.test_parse_errors.test_missing_block_keywords[for i in 1 2\n-<standard input>:1:1: `for foo [in words]` must be followed by `do`\n]`
+- OK     `eval.tests.test_parse_errors.test_missing_block_keywords[if true; then echo; \n-<standard input>:1:1: `if` statement must end with `fi`\n]`
+- OK     `eval.tests.test_parse_errors.test_missing_block_keywords[if true\n-<standard input>:1:1: `if <cond>` must be followed by `then`\n]`
+- OK     `eval.tests.test_parse_errors.test_missing_block_keywords[until false\n-<standard input>:1:1: `until <cond>` must be followed by `do`\n]`
+- OK     `eval.tests.test_parse_errors.test_missing_block_keywords[while true\ndo\n-<standard input>:2:1: `do` must be followed by a statement list\n]`
+- OK     `eval.tests.test_parse_errors.test_parameter_expansion_operator_errors[echo ${a\n-<standard input>:1:9: not a valid parameter expansion operator: "\\n"\n]`
+- OK     `eval.tests.test_parse_errors.test_parameter_expansion_operator_errors[echo ${a{b}}\n-<standard input>:1:9: not a valid parameter expansion operator: `{`\n]`
+- OK     `eval.tests.test_parse_errors.test_parse_error_routing`
+- OK     `eval.tests.test_parse_errors.test_reached_eof_without_matching[((a\n-<standard input>:1:1: reached EOF without matching `((` with `))`\n]`
+- OK     `eval.tests.test_parse_errors.test_reached_eof_without_matching[echo "a$(b\n-<standard input>:1:8: reached EOF without matching `$(` with `)`\n]`
+- OK     `eval.tests.test_parse_errors.test_reached_eof_without_matching[echo "unterminated\n-<standard input>:1:6: reached EOF without closing quote `"`\n]`
+- OK     `eval.tests.test_parse_errors.test_reached_eof_without_matching[echo $(a\n-<standard input>:1:6: reached EOF without matching `$(` with `)`\n]`
+- OK     `eval.tests.test_parse_errors.test_reached_eof_without_matching[echo 'unterminated\n-<standard input>:1:6: reached EOF without closing quote `'`\n]`
+- OK     `eval.tests.test_parse_errors.test_reached_eof_without_matching[{ echo hi\n-<standard input>:1:1: reached EOF without matching `{` with `}`\n]`
+- OK     `eval.tests.test_parse_errors.test_statement_after_heredoc_word`
+- OK     `eval.tests.test_parse_errors.test_stray_keyword_errors[do echo; done\n-<standard input>:1:1: `do` can only be used in a loop\n]`
+- OK     `eval.tests.test_parse_errors.test_stray_keyword_errors[done\n-<standard input>:1:1: `done` can only be used to end a loop\n]`
+- OK     `eval.tests.test_parse_errors.test_stray_keyword_errors[echo $(`ls)\n-<standard input>:1:11: a command can only contain words and redirects; encountered `)`\n]`
+- OK     `eval.tests.test_parse_errors.test_stray_keyword_errors[echo hi )\n-<standard input>:1:9: a command can only contain words and redirects; encountered `)`\n]`
+- OK     `eval.tests.test_parse_errors.test_stray_keyword_errors[echo hi ;;\n-<standard input>:1:9: `;;` can only be used in a case clause\n]`
+- OK     `eval.tests.test_parse_errors.test_stray_keyword_errors[fi\n-<standard input>:1:1: `fi` can only be used to end an `if`\n]`
+- OK     `eval.tests.test_parse_errors.test_stray_keyword_errors[if true; then echo; fi; fi\n-<standard input>:1:25: `fi` can only be used to end an `if`\n]`
+- OK     `eval.tests.test_parse_errors.test_stray_keyword_errors[then\n-<standard input>:1:1: `then` can only be used in an `if`\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expression_errors[echo $((,b))\n-<standard input>:1:9: `,` must follow an expression\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expression_errors[echo $((1 + 2 *))\n-<standard input>:1:15: `*` must be followed by an expression\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expression_errors[echo $(([x] = 1))\n-<standard input>:1:9: `[` must follow a name like a[i]\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expression_errors[echo $((a : b))\n-<standard input>:1:11: ternary operator missing `?` before `:`\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expression_errors[echo $((a ? : c))\n-<standard input>:1:11: `?` must be followed by an expression\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expression_errors[echo $((a ? b))\n-<standard input>:1:11: ternary operator missing `:` after `?`\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expression_errors[echo $((a++);\n-<standard input>:1:6: reached `)` without matching `$((` with `))`\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expressions_format[echo $((16#ff))\n-echo $((16#ff))\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expressions_format[echo $((2 ** 10))\n-echo $((2 ** 10))\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expressions_format[echo $((a += 2, b = 3))\n-echo $((a += 2, b = 3))\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expressions_format[echo $((a ? b : c))\n-echo $((a ? b : c))\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expressions_format[echo $((a[i] = 1))\n-echo $((a[i] = 1))\n]`
+- OK     `eval.tests.test_parse_errors2.test_arithmetic_expressions_format[echo $((x = y > 1 ? 2 : 3))\n-echo $((x = y > 1 ? 2 : 3))\n]`
+- OK     `eval.tests.test_parse_errors2.test_array_and_case_validation_errors[a=((1 2))\n-<standard input>:1:3: `((` can only be used to open an arithmetic cmd\n]`
+- OK     `eval.tests.test_parse_errors2.test_array_and_case_validation_errors[a=(1 2) ls\n-<standard input>:1:1: inline variables cannot be arrays\n]`
+- OK     `eval.tests.test_parse_errors2.test_array_and_case_validation_errors[a=(1 <2)\n-<standard input>:1:6: array element values must be words\n]`
+- OK     `eval.tests.test_parse_errors2.test_array_and_case_validation_errors[a=([0]=(1 2))\n-<standard input>:1:7: arrays cannot be nested\n]`
+- OK     `eval.tests.test_parse_errors2.test_array_and_case_validation_errors[case $a in <) ;; esac\n-<standard input>:1:12: case patterns must consist of words\n]`
+- OK     `eval.tests.test_parse_errors2.test_array_and_case_validation_errors[case $a in x y) ;; esac\n-<standard input>:1:14: case patterns must be separated with `|`\n]`
+- OK     `eval.tests.test_parse_errors2.test_array_and_case_validation_errors[cat << E$(x)OF\n-<standard input>:1:9: expansions not allowed in heredoc words\n]`
+- OK     `eval.tests.test_parse_errors2.test_backslash_newline_continuation`
+- OK     `eval.tests.test_parse_errors2.test_case_terminators_canonicalized[bash-case $a in x) echo; ;;& y) echo; ;;& esac\n-case $a in x) echo ;;& y) echo ;;& esac\n]`
+- OK     `eval.tests.test_parse_errors2.test_case_terminators_canonicalized[bash-case $a in x) echo;& y) echo;& esac\n-case $a in x) echo ;& y) echo ;& esac\n]`
+- OK     `eval.tests.test_parse_errors2.test_case_terminators_canonicalized[mksh-case $a in x) echo; ;| y) echo; ;| esac\n-case $a in x) echo ;| y) echo ;| esac\n]`
+- OK     `eval.tests.test_parse_errors2.test_comments_are_preserved`
+- OK     `eval.tests.test_parse_errors2.test_invalid_utf8_input`
+- OK     `eval.tests.test_parse_errors2.test_korn_case_terminator_rejected_by_bash`
+- OK     `eval.tests.test_parse_errors2.test_lexer_canonicalizations[echo $"foo"\n-echo $"foo"\n]`
+- OK     `eval.tests.test_parse_errors2.test_lexer_canonicalizations[echo $'a\\tb'\n-echo $'a\\tb'\n]`
+- OK     `eval.tests.test_parse_errors2.test_lexer_canonicalizations[echo $(<file)\n-echo $(<file)\n]`
+- OK     `eval.tests.test_parse_errors2.test_lexer_canonicalizations[echo `ls -l`\n-echo $(ls -l)\n]`
+- OK     `eval.tests.test_parse_errors2.test_lexer_canonicalizations[echo `ls`\n-echo $(ls)\n]`
+- OK     `eval.tests.test_parse_errors2.test_nesting_depth_just_under_limit`
+- OK     `eval.tests.test_parse_errors2.test_nesting_depth_limit`
+- OK     `eval.tests.test_parse_errors2.test_test_expression_errors[[[ (a) == b ]]\n-<standard input>:1:8: expected `&&`, `||` or `]]` after complex expr\n]`
+- OK     `eval.tests.test_parse_errors2.test_test_expression_errors[[[ ]]\n-<standard input>:1:1: `[[` must be followed by an expression\n]`
+- OK     `eval.tests.test_parse_errors2.test_test_expression_errors[[[ a -qq b ]]\n-<standard input>:1:6: not a valid test operator: `-qq`\n]`
+- OK     `eval.tests.test_parse_errors2.test_test_expression_errors[[[ a == ! b ]]\n-<standard input>:1:11: not a valid test operator: `b`\n]`
+- OK     `eval.tests.test_parse_errors2.test_test_expression_errors[[[ a == (b) ]]\n-<standard input>:1:6: `==` must be followed by a word\n]`
+- OK     `eval.tests.test_parse_errors2.test_test_expression_errors[[[ a ==n b ]]\n-<standard input>:1:6: not a valid test operator: `==n`\n]`
+- OK     `eval.tests.test_parse_errors2.test_test_expression_errors[[[ a foo b ]]\n-<standard input>:1:6: not a valid test operator: `foo`\n]`
+- OK     `eval.tests.test_parse_errors2.test_test_expressions_format[[[ (a == b) ]]\n-[[ (a == b) ]]\n]`
+- OK     `eval.tests.test_parse_errors2.test_test_expressions_format[[[ a -eq b && c -lt d ]]\n-[[ a -eq b && c -lt d ]]\n]`
+- OK     `eval.tests.test_parse_errors2.test_test_expressions_format[[[ a < b ]]\n-[[ a < b ]]\n]`
+- OK     `eval.tests.test_parse_errors2.test_valid_utf8_passes_through`
+- OK     `eval.tests.test_recover.test_recover_budget_too_small_for_subshell`
+- OK     `eval.tests.test_recover.test_recover_changes_the_error_message`
+- OK     `eval.tests.test_recover.test_recover_covers_a_later_statement`
+- OK     `eval.tests.test_recover.test_recover_does_not_recover_lang_errors`
+- OK     `eval.tests.test_recover.test_recover_keeps_editorconfig_active`
+- OK     `eval.tests.test_recover.test_recover_missing_case_terminators`
+- OK     `eval.tests.test_recover.test_recover_negative_is_ignored`
+- OK     `eval.tests.test_recover.test_recover_non_numeric_value`
+- OK     `eval.tests.test_recover.test_recover_subshell_and_pipe`
+- OK     `eval.tests.test_recover.test_recover_unterminated_quote`
+- OK     `eval.tests.test_recover.test_recover_while_missing_done`
+- OK     `eval.tests.test_recover.test_recover_zero_behaves_like_default`
+- OK     `eval.tests.test_recover.test_recovered_nodes_in_json`
+- OK     `eval.tests.test_simplify.test_editorconfig_simplify_applied`
+- OK     `eval.tests.test_simplify.test_editorconfig_simplify_disabled_by_ln`
+- OK     `eval.tests.test_simplify.test_minify_implies_simplify`
+- OK     `eval.tests.test_simplify.test_simplify_arithmetic_parens[(((b - c)))\n-((b - c))\n]`
+- OK     `eval.tests.test_simplify.test_simplify_arithmetic_parens[echo $(($a + ${b}))\n-echo $((a + b))\n]`
+- OK     `eval.tests.test_simplify.test_simplify_arithmetic_parens[echo $(((b - c)))\n-echo $((b - c))\n]`
+- OK     `eval.tests.test_simplify.test_simplify_arithmetic_parens[echo $((a + (((b - c)))))\n-echo $((a + (b - c)))\n]`
+- OK     `eval.tests.test_simplify.test_simplify_arithmetic_parens[echo $((a + ((b - c))))\n-echo $((a + (b - c)))\n]`
+- OK     `eval.tests.test_simplify.test_simplify_is_idempotent`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_meaningful_indices[a[$b]=2\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_meaningful_indices[echo ${a["x"]}\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_meaningful_indices[echo ${a[$b]}\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_meaningful_indices[echo ${a[0]}\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_meaningful_indices[echo ${a[@]}\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_meaningful_indices[echo ${a[x,$b]}\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_meaningful_tests[[[ ! -e foo ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_meaningful_tests[[[ -n a$b && -n $c ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_meaningful_tests[[[ foo == bar ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_meaningful_tests[[[ foo =~ "$bar" ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_other_strings[echo "$bar"\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_other_strings[echo "foo"\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_other_strings[echo "foo$bar"\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_other_strings[echo fo"o"bar\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_other_strings[echo foo""bar\n]`
+- OK     `eval.tests.test_simplify.test_simplify_keeps_redirected_subshell`
+- OK     `eval.tests.test_simplify.test_simplify_nested_subshells[( ( (sts)))\n-(sts)\n]`
+- OK     `eval.tests.test_simplify.test_simplify_nested_subshells[echo $( (sts))\n-echo $(sts)\n]`
+- OK     `eval.tests.test_simplify.test_simplify_off_by_default`
+- OK     `eval.tests.test_simplify.test_simplify_parameter_indices[a[(1)]=2\n-a[1]=2\n]`
+- OK     `eval.tests.test_simplify.test_simplify_parameter_indices[echo ${foo:(1):(2)}\n-echo ${foo:1:2}\n]`
+- OK     `eval.tests.test_simplify.test_simplify_parameter_indices[echo ${foo[(1)]}\n-echo ${foo[1]}\n]`
+- OK     `eval.tests.test_simplify.test_simplify_requotes_strings[echo "fo\\"o"\n-echo 'fo"o'\n]`
+- OK     `eval.tests.test_simplify.test_simplify_requotes_strings[echo "fo\\$o"\n-echo 'fo$o'\n]`
+- OK     `eval.tests.test_simplify.test_simplify_test_expressions[[[ ! ! -e a && ! -z $b ]]\n-[[ -e a && -n $b ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_test_expressions[[[ ! -n $foo ]]\n-[[ -z $foo ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_test_expressions[[[ "$foo" == "bar" ]]\n-[[ $foo == "bar" ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_test_expressions[[[ "$foo" =~ bar ]]\n-[[ $foo =~ bar ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_test_expressions[[[ "a b" > "$c" ]]\n-[[ "a b" > $c ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_test_expressions[[[ (! a == b) || (! c != d) ]]\n-[[ (a != b) || (c == d) ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_test_expressions[[[ (-z "$foo") ]]\n-[[ -z $foo ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_test_expressions[[[ -z "$empty" || -n "$set" ]]\n-[[ -z $empty || -n $set ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_test_expressions[[[ foo = bar ]]\n-[[ foo == bar ]]\n]`
+- OK     `eval.tests.test_simplify.test_simplify_with_posix_and_error`
+- OK     `eval.tests.test_simplify2.test_simplify_indices_in_assignments_and_expansions`
+- OK     `eval.tests.test_simplify2.test_simplify_keeps_complex_params[echo $(( ${#a} + 1 ))\n-echo $((${#a} + 1))\n]`
+- OK     `eval.tests.test_simplify2.test_simplify_keeps_complex_params[echo $(( ${a[0]} + 1 ))\n-echo $((${a[0]} + 1))\n]`
+- OK     `eval.tests.test_simplify2.test_simplify_keeps_complex_params[echo $((1 + $((2))))\n-echo $((1 + $((2))))\n]`
+- OK     `eval.tests.test_simplify2.test_simplify_keeps_multi_statement_subshell`
+- OK     `eval.tests.test_simplify2.test_simplify_keeps_negated_subshell`
+- OK     `eval.tests.test_simplify2.test_simplify_long_flag`
+- OK     `eval.tests.test_simplify2.test_single_quote_blocks_requoting`
+- OK     `eval.tests.test_simplify_walk_arms.test_simplify_walks_the_construct_untouched[array-elem-comment]`
+- OK     `eval.tests.test_simplify_walk_arms.test_simplify_walks_the_construct_untouched[array-elem-index]`
+- OK     `eval.tests.test_simplify_walk_arms.test_simplify_walks_the_construct_untouched[array-elem-leading-comment]`
+- OK     `eval.tests.test_simplify_walk_arms.test_simplify_walks_the_construct_untouched[bats-testdecl]`
+- OK     `eval.tests.test_simplify_walk_arms.test_simplify_walks_the_construct_untouched[case-item-comment]`
+- OK     `eval.tests.test_simplify_walk_arms.test_simplify_walks_the_construct_untouched[coproc-name]`
+- OK     `eval.tests.test_simplify_walk_arms.test_simplify_walks_the_construct_untouched[extglob]`
+- OK     `eval.tests.test_simplify_walk_arms.test_simplify_walks_the_construct_untouched[flags-arithm]`
+- OK     `eval.tests.test_simplify_walk_arms.test_simplify_walks_the_construct_untouched[repl-paramexp]`
+- OK     `eval.tests.test_stdin_mode.test_dash_argument_is_stdin`
+- OK     `eval.tests.test_stdin_mode.test_dash_uses_shebang_detection`
+- OK     `eval.tests.test_stdin_mode.test_dash_with_second_argument_is_files`
+- OK     `eval.tests.test_stdin_mode.test_double_dash_then_dash`
+- OK     `eval.tests.test_stdin_mode.test_extension_matching_is_case_sensitive`
+- OK     `eval.tests.test_stdin_mode.test_filename_flag_combines_with_dash`
+- OK     `eval.tests.test_stdin_mode.test_flags_before_dash_argument`
+- OK     `eval.tests.test_stdin_mode.test_to_json_with_dash_argument`
+- OK     `eval.tests.test_syntax_corners.test_brace_literal_words`
+- OK     `eval.tests.test_syntax_corners.test_comments_in_unusual_slots[after-in]`
+- OK     `eval.tests.test_syntax_corners.test_comments_in_unusual_slots[array-comments]`
+- OK     `eval.tests.test_syntax_corners.test_comments_in_unusual_slots[between-stmts]`
+- OK     `eval.tests.test_syntax_corners.test_empty_assignments[a+=\n]`
+- OK     `eval.tests.test_syntax_corners.test_empty_assignments[a=\n]`
+- OK     `eval.tests.test_syntax_corners.test_extglob_case_patterns`
+- OK     `eval.tests.test_syntax_corners.test_function_name_parens_normalized`
+- OK     `eval.tests.test_syntax_corners.test_heredoc_buried_in_case_item`
+- OK     `eval.tests.test_syntax_corners.test_heredoc_buried_in_subshell_body`
+- OK     `eval.tests.test_syntax_corners.test_line_continuations[arith]`
+- OK     `eval.tests.test_syntax_corners.test_line_continuations[dquote]`
+- OK     `eval.tests.test_syntax_corners.test_line_continuations[param-exp-dropped]`
+- OK     `eval.tests.test_syntax_corners.test_parse_error_corners[arith-open-bracket]`
+- OK     `eval.tests.test_syntax_corners.test_parse_error_corners[bare-star]`
+- OK     `eval.tests.test_syntax_corners.test_parse_error_corners[double-negation]`
+- OK     `eval.tests.test_syntax_corners.test_parse_error_corners[empty-case-pattern]`
+- OK     `eval.tests.test_syntax_corners.test_parse_error_corners[param-colon-eof]`
+- OK     `eval.tests.test_syntax_corners.test_parse_error_corners[param-exp-eof]`
+- OK     `eval.tests.test_syntax_corners.test_procsubst_dialect_gate[mksh]`
+- OK     `eval.tests.test_syntax_corners.test_procsubst_dialect_gate[posix]`
+- OK     `eval.tests.test_syntax_corners.test_regex_operand_forms`
+- OK     `eval.tests.test_syntax_corners.test_special_parameter_names[echo ${#?} ${#-}\n]`
+- OK     `eval.tests.test_syntax_corners.test_special_parameter_names[echo ${#} ${?} ${$} ${!} ${-} ${*} ${@}\n]`
+- OK     `eval.tests.test_syntax_corners.test_triply_nested_backquotes`
+- OK     `eval.tests.test_syntax_corners.test_zsh_clobber_bang_spellings`
+- OK     `eval.tests.test_syntax_corners.test_zsh_word_subscripts`
+- OK     `eval.tests.test_walk_directories.test_directory_walk_formats_shell_files`
+- OK     `eval.tests.test_walk_directories.test_extensionless_file_argument_uses_its_shebang`
+- OK     `eval.tests.test_walk_directories.test_list_flag_names_walked_files`
+- OK     `eval.tests.test_walk_directories.test_missing_path_argument_reports_lstat`
+- OK     `eval.tests.test_walk_directories.test_symlink_argument_dialect_comes_from_the_shebang`
+- OK     `eval.tests.test_walk_directories.test_unknown_shebang_file_argument_falls_back_to_bash`
+- OK     `eval.tests.test_walk_directories.test_walk_parse_error_carries_the_auto_suffix`
+- OK     `eval.tests.test_walk_directories.test_walk_parse_error_names_the_file_and_continues`
+- OK     `eval.tests.test_walk_directories.test_walk_skips_non_script_entries[extension]`
+- OK     `eval.tests.test_walk_directories.test_walk_skips_non_script_entries[hidden]`
+- OK     `eval.tests.test_walk_directories.test_walk_skips_non_script_entries[no-shebang]`
+- OK     `eval.tests.test_walk_directories.test_walk_skips_non_script_entries[symlink]`
+- OK     `eval.tests.test_walk_directories.test_walk_skips_non_script_entries[too-short]`
+- OK     `eval.tests.test_walk_directories.test_walk_skips_non_script_entries[vcs-dir]`
+- OK     `eval.tests.test_walk_directories.test_write_flag_refuses_to_replace_a_symlink`
+- OK     `eval.tests.test_walk_directories.test_write_flag_rewrites_walked_files`

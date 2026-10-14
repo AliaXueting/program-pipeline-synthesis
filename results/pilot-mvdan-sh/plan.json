@@ -1,0 +1,97 @@
+{
+  "complexity": {
+    "loc": 21837,
+    "deps": 8,
+    "xi": 3.293435483538982,
+    "budget": 6,
+    "language": "go"
+  },
+  "test_reuse": true,
+  "modules": [
+    {
+      "name": "shfmt_cli_io",
+      "source_paths": [
+        "cmd/shfmt",
+        "cmd/shfmt/shfmt.1.scd"
+      ],
+      "functional_description": "How the 'shfmt' binary is invoked and how it reports results (drive the shfmt executable; its full behavior spec is cmd/shfmt/shfmt.1.scd, the implementation is cmd/shfmt/main.go). Covers: flag syntax and parsing via Go's flag package -- short and long forms (-l/--list), '='-valued flags (-l=0, -ln=posix, -i=2), unknown flags erroring as 'flag provided but not defined: -x' with the usage text and exit code 2; hand-written validation in main() with exact stderr messages and exit code 1: '-p and -ln=lang cannot coexist', '-fn and -bl cannot coexist; note that -fn is deprecated', 'only -l and -l=0 allowed', 'only -f and -f=0 allowed', '--detect only allows default, exec, or all'; '--version'/'-version' printing the build version to stdout and exiting 0; the usage/help text printed to stderr by -h/--help and its section layout (Generic/Parser/Printer/Utilities flags), plus the jq-like behavior of printing usage and exiting 2 when no path arguments are given while stdin is a terminal. Input routing: no args or a single '-' reads standard input; any path args switch to file/directory mode; '--to-json', '--from-json' and '--filename' error ('can only be used with stdin') when path arguments are given; '-w cannot be used on standard input'. Output disposition and exit codes: default mode prints formatted code to stdout; '-l'/'-l=0' print the paths whose formatting differs (newline- vs NUL-separated); '-w' rewrites files in place, preserving permission bits and refusing to atomically replace non-regular files ('refusing to atomically replace ...'); '-d' prints a unified diff whose header names are 'path.orig' and 'path'; diff coloring controlled by FORCE_COLOR (force on), NO_COLOR or TERM=dumb (force off), and tty detection of stdout; exit code 0 when everything is formatted or formatting was printed, 1 when any file's formatting differs under -l/-d or when any error (unreadable file, parse error) occurred; parse errors go to stderr as 'name:line:col: message' using '<standard input>' or the --filename value as the name. Out of scope: which files are picked when walking directories (shfmt_file_discovery), language dialect choice and parse-error wording per dialect (dialect_parsing_json), and how style flags change the printed text (format_style_config).",
+      "interaction_categories": [
+        "Args",
+        "Help",
+        "I/O"
+      ]
+    },
+    {
+      "name": "shfmt_file_discovery",
+      "source_paths": [
+        "fileutil",
+        "cmd/shfmt"
+      ],
+      "functional_description": "Which files shfmt considers to be shell scripts when given path arguments, and the --find mode (engine: fileutil/file.go plus the filepath.WalkDir callback in cmd/shfmt/main.go). Covers: shebang detection via fileutil.Shebang -- accepted forms '#!/bin/sh', '#!/usr/bin/sh', '#!/usr/bin/env bash' etc. for sh/dash/bash/mksh/bats/zsh, whitespace after '#!', and rejected forms (missing '#!' or '/', non-shell interpreters such as /usr/bin/perl, '#!bin/sh'); HasShebang. File classification via fileutil.CouldBeScript2 and ScriptConfidence: hidden dot-files are never discovered, non-regular entries (directories, symlinks, fifos) are skipped, names ending in .sh/.bash/.mksh/.bats/.zsh are always scripts, other extensions are never scripts, extension-less files depend on their shebang. Walking behavior: explicit path arguments are always processed; an explicit symlink argument is resolved via os.Stat so it still gets formatted, while symlinks found during a walk are skipped; directories are walked recursively with .git/.svn/.hg directories pruned (vcsDir); '--detect default|exec|all' decides whether extension-less regular files get their shebang read by default, only when the executable bit is set (exec), or always (all). '-f'/'--find' (and '-f=0' with NUL separation) recursively lists discovered shell paths without formatting them. Error paths: nonexistent paths, unreadable files or directories, and files too short to hold a shebang. EditorConfig interaction during discovery: 'ignore=true' sections skip walked files and their whole directories, '--apply-ignore' extends ignore rules to explicit path arguments and to standard input (with --filename), while formatting properties from .editorconfig are format_style_config's concern.",
+      "interaction_categories": [
+        "I/O",
+        "Args",
+        "Config"
+      ]
+    },
+    {
+      "name": "dialect_parsing_json",
+      "source_paths": [
+        "syntax",
+        "syntax/typedjson",
+        "cmd/shfmt",
+        "fileutil",
+        "doc"
+      ],
+      "functional_description": "The shell language dialects that shfmt parses, the parse errors it reports, code simplification, and the typed-JSON syntax-tree utilities (engine: the syntax package -- lexer.go, parser.go, parser_arithm.go, nodes.go, tokens.go, braces.go, simplify.go, quote.go, walk.go -- plus syntax/typedjson; observed through shfmt's stdin mode and its -ln/-s/--exp.recover/--to-json/--from-json flags; syntax/filetests_test.go is the exhaustive per-dialect corpus). Covers: '-ln/--language-dialect' accepting bash, posix, mksh, bats, zsh and auto (default), with an invalid value rejected as 'unknown shell language variant: ...'; '-p' as shorthand for '-ln=posix'. Auto-detection order when -ln=auto: the --filename extension, then known config filenames (.bash_profile/.bashrc/.bash_logout -> bash; .zshenv/.zprofile/.zshrc/.zlogin/.zlogout -> zsh), then the file's shebang via fileutil.Shebang, finally falling back to bash. Dialect-dependent acceptance and rejection: each LangVariant gates constructs in the parser/lexer (bash/bats-only, POSIX-only, mksh-only and zsh-only syntax), so the same input can format under one -ln value and be a parse error under another; error messages carry 'name:line:col:' positions and wording like 'reached X without matching Y', 'not a valid arithmetic operator: ...', plus the '(parsed as bash via -ln=auto)' or '(parsed as LANG via EditorConfig)' suffix appended when the dialect was guessed rather than requested (LangError in main.go formatBytes). '--exp.recover N' lets the parser recover from up to N syntax errors and still print formatted output. '-s/--simplify' transformations on the parsed tree: dropping redundant quotes and parentheses ($((a + ((b - c)))) -> $((a + (b - c))), [[ \"$foo\" == \"bar\" ]] -> [[ $foo == \"bar\" ]], $( (sts)) -> $(sts)) and the cases that must NOT be simplified (e.g. ${a[$b]}, [[ ! -e foo ]], unquoted expansions that would change meaning). '--to-json' printing the syntax tree as indented typed JSON (per-node type names, position fields) to stdout, and '--from-json' decoding such a typed JSON tree from stdin and formatting it, including round-trips. Out of scope: whitespace/layout flags (-i, -bn, ...) which are format_style_config's; which files get discovered (shfmt_file_discovery); runtime brace expansion and pattern matching, which belong to expansion_globbing via gosh.",
+      "interaction_categories": [
+        "Args",
+        "I/O"
+      ]
+    },
+    {
+      "name": "format_style_config",
+      "source_paths": [
+        "cmd/shfmt",
+        "syntax/printer.go",
+        "syntax/canonical.sh"
+      ],
+      "functional_description": "Everything that controls the shape of shfmt's formatted output: the printer flags and EditorConfig integration (engine: syntax/printer.go and the propsOptions/ecQuery code in cmd/shfmt/main.go; syntax/canonical.sh documents the default style). Test each knob by feeding shell code on stdin and comparing stdout: '-i/--indent' (0 or unset = tabs, N = N spaces, -i=0), '-bn/--binary-next-line' (binary operators like && and | starting a line), '-ci/--case-indent' (indented case branches), '-sr/--space-redirects' (space after redirect operators), '-kp/--keep-padding' (preserving the input's column padding), '-fn/--func-next-line' (deprecated; opening brace on its own line) and '-bl/--block-next-line' (multi-line blocks' '{', 'then', 'do' on the next line), '-mn/--minify' (smallest output, implies --simplify); combinations of these flags and their interaction with multi-line constructs, binary pipelines, case statements, function definitions, redirects and heredocs. EditorConfig: .editorconfig files discovered from parent directories, the [[shell]] section for every dialect plus [[bash]] (bash and bats) and [[zsh]] (zsh), and the properties indent_style/indent_size (space -> --indent, defaulting to 8 when no size is given), binary_next_line, case_indent (legacy spelling switch_case_indent), space_redirects, keep_padding, function_next_line, block_next_line, minify, simplify, and language_dialect (legacy shell_variant; dialect effects are shared with dialect_parsing_json). Precedence is the key behavior: setting ANY parser or printer flag on the command line (-ln, -p, -s, -i, -bn, -ci, -sr, -kp, -fn, -bl, -mn) disables ALL EditorConfig formatting properties, so flags always win; with no such flag, .editorconfig values win over defaults; the ignore=true property belongs to shfmt_file_discovery.",
+      "interaction_categories": [
+        "Config",
+        "Args",
+        "I/O"
+      ]
+    },
+    {
+      "name": "gosh_execution",
+      "source_paths": [
+        "cmd/gosh",
+        "interp",
+        "x",
+        "x/coreutils"
+      ],
+      "functional_description": "The 'gosh' binary and everything about executing parsed shell programs at the statement/command level (engine: cmd/gosh/main.go and the interp package -- api.go, runner.go, builtin.go, vars.go, handler.go, test.go, test_classic.go, trace.go, help.go, os_*.go -- plus the x/coreutils ExecHandler middleware; drive the gosh executable or run scripts through it). gosh CLI: '-c \"command\"' runs a command string without reading stdin, an explicitly empty '-c \"\"' is a no-op (the flag being set is detected via flag.Visit), script file arguments run in order, non-terminal stdin is run as a script, terminal stdin starts the interactive REPL printing the '$ ' prompt and '> ' continuations for incomplete input (syntax.Parser.InteractiveSeq) and stopping at the first parse error; process exit status mirrors the script's exit status/last command status, other errors print to stderr and exit 1. Interpreter semantics to test with 'gosh -c' snippets and scripts: command resolution order and the builtins that expose it (builtin, command -v/-V, type, hash) including functions shadowing commands and PATH lookup of external programs; the full builtin surface: ':' true false, exit, return, break, continue, set, shift, unset, echo (including -n/-e/-E), printf (-v), cd (-L/-P), pwd, wait, eval, source/., exec, dirs, pushd, popd, read (-r/-s/-a/-p and raw IFS splitting), getopts, shopt, alias/unalias, trap (EXIT/ERR and signals), readarray/mapfile (-t/-d), times, help, declare/local/export/readonly/nameref/let (as parsed keywords in runner.go). Shell options: 'set -a/-e/-n/-f/-u/-x' and 'set -o errexit/nounset/xtrace/noglob/noexec/allexport/pipefail', plus 'shopt -s/-u' options dotglob, globstar, extglob, nocaseglob, nullglob, expand_aliases (option effects on expansion are shared with expansion_globbing). Statements and control flow: command lists and &&/||, pipelines and their statuses, if/then/elif/fi, while/until, for and for-in, case, functions (definition, recursion, local scope, return), subshells '( )', background jobs '&' with wait and $!, the arithmetic command '((...))', the conditional '[[ ]]' and test/[ operators (test.go, test_classic.go). Redirections: >, >>, <, <>, here-strings <<<, heredocs << and <<-, fd duplication and closing (2>&1, 2>&-), and process substitutions <() >() (shared with expansion_globbing). Variables and state at statement level: assignment statements, exit statuses ($?, $!, $$, $0), readonly violations, traps, xtrace output format (trace.go), working directory changes and TMPDIR handling. x/coreutils is an interp.ExecHandler middleware (not wired into gosh by default) providing portable cat, chmod, cp, find, ls, mkdir, mktemp, mv, rm, touch, xargs, base64, gzip/gunzip/gzcat, shasum and tar when installed via interp.ExecHandlers; its behaviors mirror running those utilities inside scripts.",
+      "interaction_categories": [
+        "I/O",
+        "Args",
+        "Subcommand"
+      ]
+    },
+    {
+      "name": "expansion_globbing",
+      "source_paths": [
+        "expand",
+        "pattern",
+        "shell",
+        "internal",
+        "internal/arithm"
+      ],
+      "functional_description": "Everything that happens to WORDS between parsing and command execution: parameter/tilde/brace/arithmetic expansion, field splitting, quoting, globbing and pattern matching (engine: the expand package -- expand.go, param.go, arith.go, braces.go, environ.go -- pattern/pattern.go, the shell package one-call helpers, and internal/ with internal/arithm; observed by running snippets through 'gosh -c \"...\"' and checking stdout/stderr and exit status, since interp wires expand.Config into the interpreter). Parameter expansion: $VAR and ${VAR}, the :-/=/+/? and -/=/+/? unset variants, ${#var} length, pattern removal ${var#pat} ${var##pat} ${var%pat} ${var%%pat}, substitution ${var/pat/repl} and ${var//pat/repl}, case conversion ${var^} ${var,,}, arrays -- indexed and associative, ${arr[@]} vs ${arr[*]} quoting behavior, slices ${arr[@]:1:2}, keys ${!arr[@]}, name expansion ${!prefix*} -- plus special parameters $@ $* $# $? $$ $! $0 and ${!var} indirection, and 'set -u' UnsetParameterError wording. Field splitting and IFS: default space/tab/newline, custom IFS, IFS= disabling splitting, quoting suppressing it, empty-field edge cases with \"$@\"/\"$*\". Tilde expansion (~, ~user, quoted tilde staying literal). Brace expansion: {a,b} alternation, {1..5} and {a..z} sequences including negative and zero-padded ranges, nesting, and when braces are NOT expanded (quoting, single element). Command substitution $(...) and legacy backticks, including nesting and trailing-newline trimming; process substitution <(...) and >(...). Arithmetic expansion $((...)): operator precedence, hex/octal/large bases (0x, 0-prefixed, 16#), assignment and compound assignment operators, pre/post ++/--, comma and ternary operators, division by zero errors, and integer overflow behavior. Pathname expansion/globbing: *, ?, [...] classes and ranges, ** with 'shopt -s globstar', extended globs @(x) *(x) ?(x) +(x) !(x) with 'shopt -s extglob', and the option effects of nullglob (no match -> empty vs literal pattern), dotglob and nocaseglob; unmatched patterns staying literal; error behavior for malformed patterns (pattern.SyntaxError). The same pattern semantics back the case statement and the ${var#pat} operators (pattern package). The shell package (Split/Join as a shlex-like pair, Fields, Expand, Match, Glob) exposes these semantics as one-call helpers; internal/ holds the !(pattern-list) extended matcher (internal/pattern.go), sparse indexed-array index bookkeeping (internal/sparse.go), and the arithmetic-to-word rebuilding shared with interp (internal/arithm).",
+      "interaction_categories": [
+        "I/O",
+        "Args"
+      ]
+    }
+  ]
+}

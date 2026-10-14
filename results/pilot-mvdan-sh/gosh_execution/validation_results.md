@@ -1,0 +1,350 @@
+# Validation results — gosh_execution
+
+- tests collected: 344
+- OK: 344
+- REJECTED: 0
+
+- OK     `eval.tests.test_gosh_cli_surface.test_dash_c_equals_form_is_rejected`
+- OK     `eval.tests.test_gosh_cli_surface.test_dash_c_is_not_a_defined_flag`
+- OK     `eval.tests.test_gosh_cli_surface.test_dash_c_performs_no_redirection`
+- OK     `eval.tests.test_gosh_cli_surface.test_dash_c_wins_over_script_arguments`
+- OK     `eval.tests.test_gosh_cli_surface.test_empty_dash_c_is_rejected_like_any_other`
+- OK     `eval.tests.test_gosh_cli_surface.test_exit_status_is_not_mirrored_from_dash_c`
+- OK     `eval.tests.test_gosh_cli_surface.test_missing_later_script_does_not_stop_the_run`
+- OK     `eval.tests.test_gosh_cli_surface.test_missing_script_path_error_wording`
+- OK     `eval.tests.test_gosh_cli_surface.test_multiple_script_arguments_run_in_order`
+- OK     `eval.tests.test_gosh_cli_surface.test_script_argument_has_no_side_effects`
+- OK     `eval.tests.test_gosh_cli_surface.test_script_argument_is_printed_not_executed`
+- OK     `eval.tests.test_gosh_cli_surface.test_script_exit_status_is_not_mirrored`
+- OK     `eval.tests.test_gosh_cli_surface.test_stdin_arithmetic_is_not_evaluated`
+- OK     `eval.tests.test_gosh_cli_surface.test_stdin_command_not_found_is_not_an_error`
+- OK     `eval.tests.test_gosh_cli_surface.test_stdin_exit_trap_does_not_fire`
+- OK     `eval.tests.test_gosh_cli_surface.test_stdin_function_definition_is_just_text`
+- OK     `eval.tests.test_gosh_cli_surface.test_stdin_heredoc_is_not_fed_to_a_command`
+- OK     `eval.tests.test_gosh_cli_surface.test_stdin_pipeline_is_not_run`
+- OK     `eval.tests.test_gosh_cli_surface.test_stdin_script_has_no_side_effects`
+- OK     `eval.tests.test_gosh_cli_surface.test_stdin_script_is_printed_not_executed`
+- OK     `eval.tests.test_gosh_cli_surface.test_stdin_xtrace_produces_no_trace`
+- OK     `eval.tests.test_gosh_conditional_validation.test_binary_operator_consumes_the_closing_brackets[[[ -f ]]\n]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_binary_operator_consumes_the_closing_brackets[[[ a == ]]\n]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_classic_test_forms_are_not_validated[[ ! a = b ]\n]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_classic_test_forms_are_not_validated[[ -f ]\n]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_classic_test_forms_are_not_validated[[ a -a b ]\n]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_classic_test_forms_are_not_validated[[ a = b = c ]\n]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_classic_test_forms_are_not_validated[test a = b = c\n]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_closing_brackets_on_the_next_line_are_rejoined`
+- OK     `eval.tests.test_gosh_conditional_validation.test_complex_expr_needs_operator_after_second_operand`
+- OK     `eval.tests.test_gosh_conditional_validation.test_conditional_continuation_line_gains_a_tab`
+- OK     `eval.tests.test_gosh_conditional_validation.test_dangling_arithmetic_operator_in_a_command[((1+))\n-+]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_dangling_arithmetic_operator_in_a_command[((a=))\n-=]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_empty_arithmetic_expansion_inside_a_word`
+- OK     `eval.tests.test_gosh_conditional_validation.test_empty_conditional_and_arithmetic_commands[(( ))\n-((]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_empty_conditional_and_arithmetic_commands[((;))\n-((]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_empty_conditional_and_arithmetic_commands[[[ ]]\n-[[]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_leading_comma_in_an_arithmetic_command`
+- OK     `eval.tests.test_gosh_conditional_validation.test_negation_inside_conditional_needs_an_expression`
+- OK     `eval.tests.test_gosh_conditional_validation.test_unbalanced_paren_inside_conditional_names_litword`
+- OK     `eval.tests.test_gosh_conditional_validation.test_unusable_word_is_reported_as_an_invalid_operator[[[ -n a b ]]\n-9-b]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_unusable_word_is_reported_as_an_invalid_operator[[[ a -a b ]]\n-6--a]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_unusable_word_is_reported_as_an_invalid_operator[[[ a | b ]]\n-6-|]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_valid_conditional_operators_roundtrip_verbatim[[[ ! -f x ]]\n]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_valid_conditional_operators_roundtrip_verbatim[[[ -z $x || -n $y ]]\n]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_valid_conditional_operators_roundtrip_verbatim[[[ a < b && c > d ]]\n]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_valid_conditional_operators_roundtrip_verbatim[[[ a = b && c = d ]]\n]`
+- OK     `eval.tests.test_gosh_conditional_validation.test_valid_conditional_operators_roundtrip_verbatim[[[ a =~ b ]]\n]`
+- OK     `eval.tests.test_gosh_control_bytes.test_bom_and_control_bytes_round_trip_raw`
+- OK     `eval.tests.test_gosh_control_bytes.test_form_feed_at_the_start_prints_a_leading_blank_line`
+- OK     `eval.tests.test_gosh_control_bytes.test_form_feed_breaks_heredoc_bodies_and_comments`
+- OK     `eval.tests.test_gosh_control_bytes.test_form_feed_breaks_lines_inside_quoted_words`
+- OK     `eval.tests.test_gosh_control_bytes.test_form_feed_in_indented_context_does_not_indent_the_rest`
+- OK     `eval.tests.test_gosh_control_bytes.test_form_feed_inside_a_word_breaks_the_output_line`
+- OK     `eval.tests.test_gosh_control_bytes.test_form_feed_leaves_the_following_space_at_line_start`
+- OK     `eval.tests.test_gosh_control_bytes.test_vertical_tab_becomes_a_single_space`
+- OK     `eval.tests.test_gosh_control_bytes.test_vertical_tab_is_an_aligned_tab_stop`
+- OK     `eval.tests.test_gosh_expr_gates.test_anonymous_function_is_rejected`
+- OK     `eval.tests.test_gosh_expr_gates.test_arithmetic_assignment_target_must_be_a_name`
+- OK     `eval.tests.test_gosh_expr_gates.test_dangling_logic_operator_in_conditional`
+- OK     `eval.tests.test_gosh_expr_gates.test_dangling_operator_inside_let`
+- OK     `eval.tests.test_gosh_expr_gates.test_hash_is_not_a_comment_in_arithmetic`
+- OK     `eval.tests.test_gosh_expr_gates.test_heredoc_operator_requires_its_delimiter`
+- OK     `eval.tests.test_gosh_expr_gates.test_plain_word_is_not_an_arithmetic_operator`
+- OK     `eval.tests.test_gosh_expr_gates.test_single_close_paren_in_arithmetic_command`
+- OK     `eval.tests.test_gosh_expr_gates.test_spaced_hash_starts_a_comment_inside_conditional`
+- OK     `eval.tests.test_gosh_expr_gates.test_unclosed_array_literal_and_subscript`
+- OK     `eval.tests.test_gosh_expr_gates.test_unspaced_hash_is_part_of_the_word`
+- OK     `eval.tests.test_gosh_expr_gates.test_valid_arithmetic_statement_forms_roundtrip`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_dash_hdoc_body_lines_gain_a_leading_tab`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_dash_hdoc_mixed_indent_body_lines`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_dash_hdoc_space_indent_does_not_terminate`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_dash_hdoc_strips_one_tab_from_the_terminator`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_dash_hdoc_with_quoted_delimiter`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_heredoc_blank_lines_are_preserved`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_heredoc_delimiter_is_a_single_word`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_heredoc_operator_space_is_collapsed`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_heredoc_redirect_is_printed_after_the_command_words`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_heredoc_terminator_must_match_the_delimiter_exactly`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_indented_dash_hdoc_inside_an_if`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_plain_heredoc_terminator_at_column_zero_inside_a_function`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_plain_heredoc_terminator_must_start_at_column_zero`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_quoted_heredoc_delimiters_are_preserved["]`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_quoted_heredoc_delimiters_are_preserved[']`
+- OK     `eval.tests.test_gosh_heredoc_forms.test_unterminated_heredoc_gains_its_terminator`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_case_pattern_without_a_closing_paren`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_dangling_operator_is_rejected[echo a &&\n-8]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_dangling_operator_is_rejected[echo a |\n-8]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_dangling_operator_is_rejected[echo a ||\n-8]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_else_and_in_are_plain_words`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_empty_clause_bodies_are_rejected`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_empty_elif_condition_and_missing_list_separator`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_invalid_utf8_input_is_a_parse_error`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_leading_operator_is_rejected[&&]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_leading_operator_is_rejected[&]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_leading_operator_is_rejected[;]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_leading_operator_is_rejected[|]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_leading_operator_is_rejected[||]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_lone_coproc_is_rejected`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_lone_negation_is_rejected[! && a\n]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_lone_negation_is_rejected[!\n]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_loop_headers_missing_do[for i in a; echo\n-`for foo [in words]` must be followed by `do`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_loop_headers_missing_do[for i in a\n-`for foo [in words]` must be followed by `do`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_loop_headers_missing_do[select x in a\n-`select foo [in words]` must be followed by `do`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_missing_clause_keywords[case x\n\t(a) echo A ;;\nesac\n-`case x` must be followed by `in`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_missing_clause_keywords[if x\n-`if <cond>` must be followed by `then`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_missing_clause_keywords[until\n-`until` must be followed by a statement list]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_missing_clause_keywords[while x\n-`while <cond>` must be followed by `do`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_only_the_first_parse_error_is_reported`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_parse_error_positions_use_line_and_column`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_stray_clause_keywords_are_rejected[)\n-`)` can only be used to close a subshell]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_stray_clause_keywords_are_rejected[;;\n-`;;` can only be used in a case clause]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_stray_clause_keywords_are_rejected[do\n-`do` can only be used in a loop]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_stray_clause_keywords_are_rejected[done\n-`done` can only be used to end a loop]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_stray_clause_keywords_are_rejected[elif x\n-`elif` can only be used in an `if`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_stray_clause_keywords_are_rejected[esac\n-`esac` can only be used to end a `case`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_stray_clause_keywords_are_rejected[fi\n-`fi` can only be used to end an `if`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_stray_clause_keywords_are_rejected[then\n-`then` can only be used in an `if`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_stray_clause_keywords_are_rejected[}\n-`}` can only be used to close a block]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_compound_forms[( echo a\n-reached EOF without matching `(` with `)`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_compound_forms[(( 1 + 2\n-reached EOF without matching `((` with `))`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_compound_forms[[[ $x == y\n-reached EOF without matching `[[` with `]]`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_compound_forms[{ echo a\n-reached EOF without matching `{` with `}`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_loops_and_case_name_their_keyword[case $x in\n-`case` statement must end with `esac`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_loops_and_case_name_their_keyword[select x in a; do :\n-`select` statement must end with `done`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_loops_and_case_name_their_keyword[until :; do :\n-`until` statement must end with `done`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_loops_and_case_name_their_keyword[while :; do :\n-`while` statement must end with `done`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_quote_diagnostics[echo "unclosed\n-`"`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_quote_diagnostics[echo 'unclosed\n-`'`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_quote_diagnostics[echo `unclosed\n-"`"]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_quote_swallows_the_rest_of_the_script`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_word_expansion_forms[echo $((1+\n-10-`+` must be followed by an expression]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_word_expansion_forms[echo $(x\n-6-reached EOF without matching `$(` with `)`]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unclosed_word_expansion_forms[echo ${x\n-9-not a valid parameter expansion operator: "\\n"]`
+- OK     `eval.tests.test_gosh_parse_diagnostics.test_unterminated_if_and_case`
+- OK     `eval.tests.test_gosh_redirection_forms.test_bash_combined_redirect_operators`
+- OK     `eval.tests.test_gosh_redirection_forms.test_exec_fd_redirection_statements`
+- OK     `eval.tests.test_gosh_redirection_forms.test_fd_closing_operators_roundtrip`
+- OK     `eval.tests.test_gosh_redirection_forms.test_fd_duplication_operator_forms`
+- OK     `eval.tests.test_gosh_redirection_forms.test_fd_prefixed_operator_spacing_is_collapsed`
+- OK     `eval.tests.test_gosh_redirection_forms.test_here_string_word_quoting_is_preserved`
+- OK     `eval.tests.test_gosh_redirection_forms.test_heredoc_after_a_compound_statement`
+- OK     `eval.tests.test_gosh_redirection_forms.test_leading_redirect_before_a_compound_command_is_rejected`
+- OK     `eval.tests.test_gosh_redirection_forms.test_leading_redirect_on_a_simple_command`
+- OK     `eval.tests.test_gosh_redirection_forms.test_multiple_redirects_keep_their_written_order`
+- OK     `eval.tests.test_gosh_redirection_forms.test_named_fd_redirect_roundtrip`
+- OK     `eval.tests.test_gosh_redirection_forms.test_process_substitution_words_roundtrip`
+- OK     `eval.tests.test_gosh_redirection_forms.test_quoted_redirect_target_is_preserved`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirect_on_each_pipeline_stage`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirect_operator_spacing_is_collapsed[cat <> f-cat <>f]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirect_operator_spacing_is_collapsed[echo hi > f-echo hi >f]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirect_operator_spacing_is_collapsed[echo hi >> f-echo hi >>f]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirect_operator_spacing_is_collapsed[echo x >| f-echo x >|f]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirect_requires_a_target_word[cmd 2>&\n-<standard input>:1:6: `>&` must be followed by a word\n]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirect_requires_a_target_word[echo >\n-<standard input>:1:6: `>` must be followed by a word\n]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirect_together_with_background_operator`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirects_attached_to_compound_statements[(a) >f-(a) >f]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirects_attached_to_compound_statements[case $x in a) echo A;; esac >log-case $x in a) echo A ;; esac >log]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirects_attached_to_compound_statements[f() { a; } >f-f() { a; } >f]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirects_attached_to_compound_statements[if a; then b; fi >log-if a; then b; fi >log]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirects_attached_to_compound_statements[while read l; do echo "$l"; done >>f-while read l; do echo "$l"; done >>f]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirects_attached_to_compound_statements[while read l; do echo $l; done <f-while read l; do echo $l; done <f]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_redirects_attached_to_compound_statements[{ a; } >f-{ a; } >f]`
+- OK     `eval.tests.test_gosh_redirection_forms.test_two_heredocs_on_one_command`
+- OK     `eval.tests.test_gosh_script_io.test_a_lone_dash_argument_means_standard_input`
+- OK     `eval.tests.test_gosh_script_io.test_blank_line_runs_collapse_to_one`
+- OK     `eval.tests.test_gosh_script_io.test_crlf_line_endings_are_stripped`
+- OK     `eval.tests.test_gosh_script_io.test_dash_beside_a_file_argument_is_a_missing_path`
+- OK     `eval.tests.test_gosh_script_io.test_empty_script_file_prints_a_single_newline`
+- OK     `eval.tests.test_gosh_script_io.test_files_after_a_failing_file_still_run`
+- OK     `eval.tests.test_gosh_script_io.test_invalid_utf8_in_a_script_file_names_the_file`
+- OK     `eval.tests.test_gosh_script_io.test_leading_and_trailing_blank_lines_are_dropped`
+- OK     `eval.tests.test_gosh_script_io.test_non_shell_extension_file_is_still_parsed`
+- OK     `eval.tests.test_gosh_script_io.test_nul_bytes_are_silently_dropped`
+- OK     `eval.tests.test_gosh_script_io.test_parse_error_in_one_file_does_not_stop_later_files`
+- OK     `eval.tests.test_gosh_script_io.test_script_file_parse_error_names_the_file`
+- OK     `eval.tests.test_gosh_script_io.test_stdin_is_ignored_when_script_files_are_given`
+- OK     `eval.tests.test_gosh_script_io.test_the_same_script_file_twice_is_processed_twice`
+- OK     `eval.tests.test_gosh_script_io.test_whitespace_only_lines_count_as_blank`
+- OK     `eval.tests.test_gosh_script_io.test_whitespace_only_program_prints_a_single_newline`
+- OK     `eval.tests.test_gosh_statement_edges.test_assignment_value_forms_roundtrip`
+- OK     `eval.tests.test_gosh_statement_edges.test_background_after_a_pipeline`
+- OK     `eval.tests.test_gosh_statement_edges.test_backslash_line_continuation_is_preserved`
+- OK     `eval.tests.test_gosh_statement_edges.test_bare_select_loop_roundtrips`
+- OK     `eval.tests.test_gosh_statement_edges.test_bodyless_function_uses_the_foo_wording[()\n]`
+- OK     `eval.tests.test_gosh_statement_edges.test_bodyless_function_uses_the_foo_wording[f()\n]`
+- OK     `eval.tests.test_gosh_statement_edges.test_bodyless_function_uses_the_foo_wording[function f\n]`
+- OK     `eval.tests.test_gosh_statement_edges.test_case_item_body_and_terminator_quirks`
+- OK     `eval.tests.test_gosh_statement_edges.test_case_terminator_on_its_own_line_gains_body_indent`
+- OK     `eval.tests.test_gosh_statement_edges.test_case_with_no_items_prints_on_two_lines`
+- OK     `eval.tests.test_gosh_statement_edges.test_comment_in_an_if_header_migrates_to_the_then`
+- OK     `eval.tests.test_gosh_statement_edges.test_comment_placement_roundtrip`
+- OK     `eval.tests.test_gosh_statement_edges.test_comments_are_not_collapsed_like_blank_lines`
+- OK     `eval.tests.test_gosh_statement_edges.test_comments_inside_function_and_case_bodies`
+- OK     `eval.tests.test_gosh_statement_edges.test_continuation_lines_gain_a_tab`
+- OK     `eval.tests.test_gosh_statement_edges.test_empty_brace_group_is_rejected`
+- OK     `eval.tests.test_gosh_statement_edges.test_empty_quoted_redirect_target_is_allowed`
+- OK     `eval.tests.test_gosh_statement_edges.test_escaped_metacharacters_and_empty_command_word`
+- OK     `eval.tests.test_gosh_statement_edges.test_fd_duplication_inside_a_pipeline`
+- OK     `eval.tests.test_gosh_statement_edges.test_function_brace_on_the_next_line_is_rejoined`
+- OK     `eval.tests.test_gosh_statement_edges.test_heredoc_inside_a_subshell`
+- OK     `eval.tests.test_gosh_statement_edges.test_heredoc_on_a_pipeline_stage`
+- OK     `eval.tests.test_gosh_statement_edges.test_indirection_and_substring_expansions_roundtrip`
+- OK     `eval.tests.test_gosh_statement_edges.test_legacy_fd_redirect_forms`
+- OK     `eval.tests.test_gosh_statement_edges.test_mixed_heredoc_operators_on_one_command`
+- OK     `eval.tests.test_gosh_statement_edges.test_multiline_array_literal_is_preserved`
+- OK     `eval.tests.test_gosh_statement_edges.test_multiline_subshell_as_a_pipeline_stage`
+- OK     `eval.tests.test_gosh_statement_edges.test_multiline_subshell_function_body_is_kept`
+- OK     `eval.tests.test_gosh_statement_edges.test_negation_before_compound_statements`
+- OK     `eval.tests.test_gosh_statement_edges.test_persistent_exec_redirections`
+- OK     `eval.tests.test_gosh_statement_edges.test_pipelines_of_compound_statements_roundtrip`
+- OK     `eval.tests.test_gosh_statement_edges.test_redirect_order_with_a_here_string`
+- OK     `eval.tests.test_gosh_statement_edges.test_shebang_is_preserved_and_does_not_switch_dialect`
+- OK     `eval.tests.test_gosh_statement_edges.test_shell_option_and_builtin_flag_words_roundtrip`
+- OK     `eval.tests.test_gosh_statement_edges.test_space_before_function_parens_is_dropped`
+- OK     `eval.tests.test_gosh_statement_edges.test_time_prefix_takes_pipelines_and_subshells`
+- OK     `eval.tests.test_gosh_statement_edges.test_two_functions_on_one_line_are_split`
+- OK     `eval.tests.test_gosh_statement_grammar.test_append_assignment_forms_roundtrip`
+- OK     `eval.tests.test_gosh_statement_grammar.test_array_element_assignment_errors[a[]=1\n-2-`[` must be followed by an expression]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_array_element_assignment_errors[a[b] c=1\n-1-`a[b]` must be followed by `=`]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_array_element_assignments_roundtrip`
+- OK     `eval.tests.test_gosh_statement_grammar.test_background_splits_before_a_following_negation`
+- OK     `eval.tests.test_gosh_statement_grammar.test_bare_for_name_needs_in_do_or_separator`
+- OK     `eval.tests.test_gosh_statement_grammar.test_bare_for_with_immediate_do`
+- OK     `eval.tests.test_gosh_statement_grammar.test_case_needs_its_subject_word`
+- OK     `eval.tests.test_gosh_statement_grammar.test_case_pattern_paren_is_dropped`
+- OK     `eval.tests.test_gosh_statement_grammar.test_case_pattern_union_gets_pipe_spacing`
+- OK     `eval.tests.test_gosh_statement_grammar.test_clause_terminators_outside_case[a ;&\n-3-;&]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_clause_terminators_outside_case[a ;;&\n-3-;;&]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_clause_terminators_outside_case[a;;\n-2-;;]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_coproc_statement_forms_roundtrip[coproc (echo hi)\n]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_coproc_statement_forms_roundtrip[coproc N cat <f\n]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_coproc_statement_forms_roundtrip[coproc NAME { echo hi; }\n]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_coproc_statement_forms_roundtrip[coproc X (echo hi)\n]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_coproc_statement_forms_roundtrip[coproc name cmd &\n]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_directory_stack_builtin_words_roundtrip`
+- OK     `eval.tests.test_gosh_statement_grammar.test_empty_clause_conditions_are_rejected[if; then :; fi\n-if]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_empty_clause_conditions_are_rejected[until; do :; done\n-until]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_empty_clause_conditions_are_rejected[while; do :; done\n-while]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_empty_command_substitution_collapses`
+- OK     `eval.tests.test_gosh_statement_grammar.test_empty_parameter_name_is_invalid`
+- OK     `eval.tests.test_gosh_statement_grammar.test_exec_and_let_word_surfaces_roundtrip`
+- OK     `eval.tests.test_gosh_statement_grammar.test_for_and_select_need_a_literal_name[for "i" in a; do :; done\n-for]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_for_and_select_need_a_literal_name[select; do :; done\n-select]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_function_definition_in_an_and_or_list`
+- OK     `eval.tests.test_gosh_statement_grammar.test_function_keyword_requires_a_name`
+- OK     `eval.tests.test_gosh_statement_grammar.test_inline_variables_cannot_be_arrays`
+- OK     `eval.tests.test_gosh_statement_grammar.test_let_requires_an_expression`
+- OK     `eval.tests.test_gosh_statement_grammar.test_misplaced_second_ampersand`
+- OK     `eval.tests.test_gosh_statement_grammar.test_negation_cannot_appear_mid_pipeline[a | ! b\n-5]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_negation_cannot_appear_mid_pipeline[time ! ls\n-6]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_negation_with_inline_assignments`
+- OK     `eval.tests.test_gosh_statement_grammar.test_operators_need_a_following_statement[a && | b\n-3-&&]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_operators_need_a_following_statement[a |&\n-3-|&]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_process_substitution_as_a_redirect_target`
+- OK     `eval.tests.test_gosh_statement_grammar.test_redirect_between_assignments_and_command`
+- OK     `eval.tests.test_gosh_statement_grammar.test_redirect_only_statement_roundtrips`
+- OK     `eval.tests.test_gosh_statement_grammar.test_stray_paren_in_a_case_body`
+- OK     `eval.tests.test_gosh_statement_grammar.test_time_prefix_takes_any_flag_words[time -p ls\n]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_time_prefix_takes_any_flag_words[time -p\n]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_time_prefix_takes_any_flag_words[time -x ls\n]`
+- OK     `eval.tests.test_gosh_statement_grammar.test_two_ifs_on_one_line_are_split`
+- OK     `eval.tests.test_gosh_statement_layout.test_arithmetic_condition_hugs_but_conditional_keeps_spaces`
+- OK     `eval.tests.test_gosh_statement_layout.test_array_literal_continuation_gains_a_tab`
+- OK     `eval.tests.test_gosh_statement_layout.test_array_literal_spacing_collapses`
+- OK     `eval.tests.test_gosh_statement_layout.test_assignments_in_an_and_or_list`
+- OK     `eval.tests.test_gosh_statement_layout.test_bare_in_header_normalises_to_a_semicolon`
+- OK     `eval.tests.test_gosh_statement_layout.test_c_style_for_opening_paren_continuation`
+- OK     `eval.tests.test_gosh_statement_layout.test_compound_statements_as_pipeline_stages`
+- OK     `eval.tests.test_gosh_statement_layout.test_coproc_takes_a_full_if_statement`
+- OK     `eval.tests.test_gosh_statement_layout.test_escaped_newline_before_a_here_string_word`
+- OK     `eval.tests.test_gosh_statement_layout.test_extglob_case_patterns_roundtrip`
+- OK     `eval.tests.test_gosh_statement_layout.test_final_double_semicolon_ampersand_is_kept`
+- OK     `eval.tests.test_gosh_statement_layout.test_heredoc_inside_command_substitution_goes_multiline`
+- OK     `eval.tests.test_gosh_statement_layout.test_hyphenated_and_dotted_function_names_roundtrip`
+- OK     `eval.tests.test_gosh_statement_layout.test_multiline_c_style_for_header_is_rejoined_with_backslashes`
+- OK     `eval.tests.test_gosh_statement_layout.test_multiline_elif_bodies_rejoin_their_then`
+- OK     `eval.tests.test_gosh_statement_layout.test_process_substitution_as_fd_redirect_targets`
+- OK     `eval.tests.test_gosh_statement_layout.test_quoted_declare_name_is_allowed`
+- OK     `eval.tests.test_gosh_statement_layout.test_spaced_digit_before_redirect_is_a_word`
+- OK     `eval.tests.test_gosh_statement_layout.test_time_prefixes_can_stack`
+- OK     `eval.tests.test_gosh_statement_layout.test_word_list_cannot_continue_on_the_next_line`
+- OK     `eval.tests.test_gosh_statements.test_background_after_a_compound_statement`
+- OK     `eval.tests.test_gosh_statements.test_background_operator_binds_to_the_last_statement`
+- OK     `eval.tests.test_gosh_statements.test_brace_and_subshell_bodies_split_onto_lines`
+- OK     `eval.tests.test_gosh_statements.test_builtin_call_words_roundtrip`
+- OK     `eval.tests.test_gosh_statements.test_c_style_for_empty_parts_spacing`
+- OK     `eval.tests.test_gosh_statements.test_c_style_for_header_spacing_is_normalized`
+- OK     `eval.tests.test_gosh_statements.test_case_fallthrough_operators_are_spaced`
+- OK     `eval.tests.test_gosh_statements.test_case_in_keyword_is_rejoined`
+- OK     `eval.tests.test_gosh_statements.test_case_terminators_and_patterns_get_spacing`
+- OK     `eval.tests.test_gosh_statements.test_classic_test_command_forms`
+- OK     `eval.tests.test_gosh_statements.test_conditional_and_arithmetic_commands_roundtrip`
+- OK     `eval.tests.test_gosh_statements.test_elif_chain_stays_on_one_line`
+- OK     `eval.tests.test_gosh_statements.test_else_if_is_not_collapsed_into_elif`
+- OK     `eval.tests.test_gosh_statements.test_empty_script_prints_a_single_newline`
+- OK     `eval.tests.test_gosh_statements.test_for_in_and_bare_for_roundtrip`
+- OK     `eval.tests.test_gosh_statements.test_function_body_splits_statements`
+- OK     `eval.tests.test_gosh_statements.test_function_definition_forms[f() (echo hi)-f() (echo hi)]`
+- OK     `eval.tests.test_gosh_statements.test_function_definition_forms[f() { echo hi; }-f() { echo hi; }]`
+- OK     `eval.tests.test_gosh_statements.test_function_definition_forms[function f { echo hi; }-function f { echo hi; }]`
+- OK     `eval.tests.test_gosh_statements.test_function_definition_forms[function f() { echo hi; }-function f() { echo hi; }]`
+- OK     `eval.tests.test_gosh_statements.test_if_elif_else_single_line_is_preserved`
+- OK     `eval.tests.test_gosh_statements.test_multiline_case_layout_is_preserved`
+- OK     `eval.tests.test_gosh_statements.test_multiline_if_rejoins_then_to_the_condition`
+- OK     `eval.tests.test_gosh_statements.test_multiline_while_rejoins_do`
+- OK     `eval.tests.test_gosh_statements.test_negation_prefix_forms_roundtrip`
+- OK     `eval.tests.test_gosh_statements.test_nested_compound_statements_indent_with_tabs`
+- OK     `eval.tests.test_gosh_statements.test_script_file_argument_compound_formatting`
+- OK     `eval.tests.test_gosh_statements.test_script_without_final_newline_gains_one`
+- OK     `eval.tests.test_gosh_statements.test_select_loop_roundtrip`
+- OK     `eval.tests.test_gosh_statements.test_semicolons_split_statements_onto_lines`
+- OK     `eval.tests.test_gosh_statements.test_single_statement_bodies_stay_inline[(a)]`
+- OK     `eval.tests.test_gosh_statements.test_single_statement_bodies_stay_inline[{ a; }]`
+- OK     `eval.tests.test_gosh_statements.test_stacked_negation_is_a_parse_error`
+- OK     `eval.tests.test_gosh_statements.test_stderr_pipeline_operator_roundtrip`
+- OK     `eval.tests.test_gosh_statements.test_time_and_coproc_prefixes_roundtrip`
+- OK     `eval.tests.test_gosh_statements.test_while_and_until_one_liners_are_preserved[until]`
+- OK     `eval.tests.test_gosh_statements.test_while_and_until_one_liners_are_preserved[while]`
+- OK     `eval.tests.test_gosh_word_surface_extras.test_ansi_c_escape_sequences_roundtrip`
+- OK     `eval.tests.test_gosh_word_surface_extras.test_arithmetic_in_builtin_arguments_is_normalised`
+- OK     `eval.tests.test_gosh_word_surface_extras.test_array_subscript_word_forms_roundtrip`
+- OK     `eval.tests.test_gosh_word_surface_extras.test_bash_expansion_operator_extras_roundtrip`
+- OK     `eval.tests.test_gosh_word_surface_extras.test_builtin_flag_word_extras_roundtrip`
+- OK     `eval.tests.test_gosh_word_surface_extras.test_combined_set_flag_words_roundtrip`
+- OK     `eval.tests.test_gosh_word_surface_extras.test_flags_parameter_roundtrip`
+- OK     `eval.tests.test_gosh_word_surface_extras.test_heredoc_fed_read_roundtrip`
+- OK     `eval.tests.test_gosh_word_surface_extras.test_localized_string_quoting_roundtrip`
+- OK     `eval.tests.test_gosh_word_surface_extras.test_redirect_only_command_substitution`
+- OK     `eval.tests.test_gosh_word_surface_extras.test_trailing_escaped_quote_in_ansi_c_string`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_arithmetic_command_spacing`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_arithmetic_operator_spacing_is_normalised`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_array_forms_roundtrip`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_assignment_values_get_arithmetic_normalisation`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_backticks_are_rewritten_to_command_substitution`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_conditional_parens_hug_their_operands`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_deprecated_arithmetic_brackets_are_rewritten`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_interword_whitespace_is_collapsed`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_nested_backticks_are_rewritten_to_nested_substitutions`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_parameter_expansion_operators_roundtrip`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_quoting_forms_roundtrip_verbatim`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_spaced_assignment_is_not_an_assignment`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_special_parameters_roundtrip`
+- OK     `eval.tests.test_gosh_words_and_expansions.test_tilde_forms_roundtrip`

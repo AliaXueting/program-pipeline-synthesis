@@ -1,0 +1,251 @@
+# Validation results — shfmt_cli_io
+
+- tests collected: 245
+- OK: 245
+- REJECTED: 0
+
+- OK     `eval.tests.test_diff_output.test_diff_is_colored_when_force_color_is_set`
+- OK     `eval.tests.test_diff_output.test_diff_is_empty_when_the_file_is_formatted`
+- OK     `eval.tests.test_diff_output.test_diff_keeps_context_lines_and_groups_two_hunks`
+- OK     `eval.tests.test_diff_output.test_diff_of_an_empty_file_adds_a_newline`
+- OK     `eval.tests.test_diff_output.test_diff_on_standard_input_names_the_stdin`
+- OK     `eval.tests.test_diff_output.test_diff_prints_one_diff_per_file_in_order`
+- OK     `eval.tests.test_diff_output.test_diff_stays_plain_without_force_color[env0]`
+- OK     `eval.tests.test_diff_output.test_diff_stays_plain_without_force_color[env1]`
+- OK     `eval.tests.test_diff_output.test_diff_stays_plain_without_force_color[env2]`
+- OK     `eval.tests.test_diff_output.test_diff_uses_orig_and_plain_header_names`
+- OK     `eval.tests.test_diff_output.test_diff_with_filename_flag_uses_that_name`
+- OK     `eval.tests.test_diff_output.test_force_color_wins_over_the_other_color_variables[env0]`
+- OK     `eval.tests.test_diff_output.test_force_color_wins_over_the_other_color_variables[env1]`
+- OK     `eval.tests.test_diff_output.test_force_color_wins_over_the_other_color_variables[env2]`
+- OK     `eval.tests.test_diff_output.test_list_and_diff_print_both_outputs`
+- OK     `eval.tests.test_flag_interactions.test_exp_recover_recovers_parse_errors_on_standard_input`
+- OK     `eval.tests.test_flag_interactions.test_exp_recover_works_under_every_output_mode[flags0-0-echo "unterminated\n"\n-False]`
+- OK     `eval.tests.test_flag_interactions.test_exp_recover_works_under_every_output_mode[flags1-1-broken.sh\n-False]`
+- OK     `eval.tests.test_flag_interactions.test_exp_recover_works_under_every_output_mode[flags2-0--True]`
+- OK     `eval.tests.test_flag_interactions.test_exp_recover_zero_keeps_the_error`
+- OK     `eval.tests.test_flag_interactions.test_find_takes_precedence_over_list[flags0-f.sh\n]`
+- OK     `eval.tests.test_flag_interactions.test_find_takes_precedence_over_list[flags1-f.sh\n]`
+- OK     `eval.tests.test_flag_interactions.test_find_takes_precedence_over_list[flags2-f.sh\x00]`
+- OK     `eval.tests.test_flag_interactions.test_find_takes_precedence_over_list[flags3-f.sh\n]`
+- OK     `eval.tests.test_flag_interactions.test_find_takes_precedence_over_write_and_diff[flags0]`
+- OK     `eval.tests.test_flag_interactions.test_find_takes_precedence_over_write_and_diff[flags1]`
+- OK     `eval.tests.test_flag_interactions.test_find_takes_precedence_over_write_and_diff[flags2]`
+- OK     `eval.tests.test_flag_interactions.test_parse_error_is_reported_under_every_output_mode[flags0]`
+- OK     `eval.tests.test_flag_interactions.test_parse_error_is_reported_under_every_output_mode[flags1]`
+- OK     `eval.tests.test_flag_interactions.test_parse_error_is_reported_under_every_output_mode[flags2]`
+- OK     `eval.tests.test_flag_interactions.test_parse_error_is_reported_under_every_output_mode[flags3]`
+- OK     `eval.tests.test_flag_interactions.test_parse_error_is_reported_under_every_output_mode[flags4]`
+- OK     `eval.tests.test_flag_interactions.test_to_json_takes_precedence_over_list_and_diff[flags0]`
+- OK     `eval.tests.test_flag_interactions.test_to_json_takes_precedence_over_list_and_diff[flags1]`
+- OK     `eval.tests.test_flag_interactions.test_to_json_takes_precedence_over_list_and_diff[flags2]`
+- OK     `eval.tests.test_flag_interactions.test_write_false_keeps_standard_input_working`
+- OK     `eval.tests.test_flag_parsing.test_documented_language_dialects_are_accepted[auto]`
+- OK     `eval.tests.test_flag_parsing.test_documented_language_dialects_are_accepted[bash]`
+- OK     `eval.tests.test_flag_parsing.test_documented_language_dialects_are_accepted[bats]`
+- OK     `eval.tests.test_flag_parsing.test_documented_language_dialects_are_accepted[mksh]`
+- OK     `eval.tests.test_flag_parsing.test_documented_language_dialects_are_accepted[zsh]`
+- OK     `eval.tests.test_flag_parsing.test_double_dash_alone_still_reads_standard_input`
+- OK     `eval.tests.test_flag_parsing.test_double_dash_stops_flag_parsing`
+- OK     `eval.tests.test_flag_parsing.test_flags_after_a_path_are_not_parsed`
+- OK     `eval.tests.test_flag_parsing.test_indent_flag_accepts_equals_and_space_forms[args0]`
+- OK     `eval.tests.test_flag_parsing.test_indent_flag_accepts_equals_and_space_forms[args1]`
+- OK     `eval.tests.test_flag_parsing.test_indent_flag_accepts_equals_and_space_forms[args2]`
+- OK     `eval.tests.test_flag_parsing.test_indent_flag_accepts_equals_and_space_forms[args3]`
+- OK     `eval.tests.test_flag_parsing.test_indent_flag_value_selects_tabs_or_spaces[0]`
+- OK     `eval.tests.test_flag_parsing.test_indent_flag_value_selects_tabs_or_spaces[4]`
+- OK     `eval.tests.test_flag_parsing.test_invalid_flag_value_reports_the_offending_value[args0-invalid value "abc" for flag -i: parse error\n]`
+- OK     `eval.tests.test_flag_parsing.test_invalid_flag_value_reports_the_offending_value[args1-invalid value "abc" for flag -i: parse error\n]`
+- OK     `eval.tests.test_flag_parsing.test_invalid_flag_value_reports_the_offending_value[args2-invalid value "-1" for flag -i: parse error\n]`
+- OK     `eval.tests.test_flag_parsing.test_invalid_flag_value_reports_the_offending_value[args3-invalid value "99999999999999999999" for flag -i: value out of range\n]`
+- OK     `eval.tests.test_flag_parsing.test_invalid_flag_value_reports_the_offending_value[args4-invalid value "foobar" for flag -ln: unknown shell language variant: "foobar"\n]`
+- OK     `eval.tests.test_flag_parsing.test_invalid_flag_value_reports_the_offending_value[args5-invalid value "" for flag -ln: unknown shell language variant: ""\n]`
+- OK     `eval.tests.test_flag_parsing.test_invalid_flag_value_reports_the_offending_value[args6-invalid boolean value "maybe" for -s: parse error\n]`
+- OK     `eval.tests.test_flag_parsing.test_invalid_flag_value_reports_the_offending_value[args7-invalid boolean value "notabool" for -apply-ignore: parse error\n]`
+- OK     `eval.tests.test_flag_parsing.test_invalid_flag_value_reports_the_offending_value[args8-invalid value "x" for flag -exp.recover: parse error\n]`
+- OK     `eval.tests.test_flag_parsing.test_missing_flag_value_reports_flag_and_usage[--detect-flag needs an argument: -detect\n]`
+- OK     `eval.tests.test_flag_parsing.test_missing_flag_value_reports_flag_and_usage[--exp.recover-flag needs an argument: -exp.recover\n]`
+- OK     `eval.tests.test_flag_parsing.test_missing_flag_value_reports_flag_and_usage[--filename-flag needs an argument: -filename\n]`
+- OK     `eval.tests.test_flag_parsing.test_missing_flag_value_reports_flag_and_usage[--indent-flag needs an argument: -indent\n]`
+- OK     `eval.tests.test_flag_parsing.test_missing_flag_value_reports_flag_and_usage[--language-dialect-flag needs an argument: -language-dialect\n]`
+- OK     `eval.tests.test_flag_parsing.test_missing_flag_value_reports_flag_and_usage[-i-flag needs an argument: -i\n]`
+- OK     `eval.tests.test_flag_parsing.test_missing_flag_value_reports_flag_and_usage[-ln-flag needs an argument: -ln\n]`
+- OK     `eval.tests.test_flag_parsing.test_posix_dialect_flag_spellings_are_equivalent[args0]`
+- OK     `eval.tests.test_flag_parsing.test_posix_dialect_flag_spellings_are_equivalent[args1]`
+- OK     `eval.tests.test_flag_parsing.test_posix_dialect_flag_spellings_are_equivalent[args2]`
+- OK     `eval.tests.test_flag_parsing.test_posix_dialect_flag_spellings_are_equivalent[args3]`
+- OK     `eval.tests.test_flag_parsing.test_posix_dialect_flag_spellings_are_equivalent[args4]`
+- OK     `eval.tests.test_flag_parsing.test_posix_dialect_flag_spellings_are_equivalent[args5]`
+- OK     `eval.tests.test_flag_parsing.test_unknown_flag_reports_name_and_usage[--bogus-flag provided but not defined: -bogus\n]`
+- OK     `eval.tests.test_flag_parsing.test_unknown_flag_reports_name_and_usage[--bogus=1-flag provided but not defined: -bogus\n]`
+- OK     `eval.tests.test_flag_parsing.test_unknown_flag_reports_name_and_usage[--to-flag provided but not defined: -to\n]`
+- OK     `eval.tests.test_flag_parsing.test_unknown_flag_reports_name_and_usage[-i2-flag provided but not defined: -i2\n]`
+- OK     `eval.tests.test_flag_parsing.test_unknown_flag_reports_name_and_usage[-lnposix-flag provided but not defined: -lnposix\n]`
+- OK     `eval.tests.test_flag_parsing.test_unknown_flag_reports_name_and_usage[-lw-flag provided but not defined: -lw\n]`
+- OK     `eval.tests.test_flag_parsing.test_unknown_flag_reports_name_and_usage[-x-flag provided but not defined: -x\n]`
+- OK     `eval.tests.test_help_usage.test_help_beats_hand_written_validation`
+- OK     `eval.tests.test_help_usage.test_help_flags_print_usage_on_stderr_and_exit_zero[--help=x]`
+- OK     `eval.tests.test_help_usage.test_help_flags_print_usage_on_stderr_and_exit_zero[--help]`
+- OK     `eval.tests.test_help_usage.test_help_flags_print_usage_on_stderr_and_exit_zero[-h=1]`
+- OK     `eval.tests.test_help_usage.test_help_flags_print_usage_on_stderr_and_exit_zero[-h]`
+- OK     `eval.tests.test_help_usage.test_help_flags_print_usage_on_stderr_and_exit_zero[-help]`
+- OK     `eval.tests.test_help_usage.test_help_loses_when_a_bad_flag_comes_first`
+- OK     `eval.tests.test_help_usage.test_help_wins_when_it_follows_a_bad_flag`
+- OK     `eval.tests.test_help_usage.test_usage_documents_every_flag_family[  --from-json         read syntax tree from stdin as a typed JSON]`
+- OK     `eval.tests.test_help_usage.test_usage_documents_every_flag_family[  --to-json           print syntax tree to stdout as a typed JSON]`
+- OK     `eval.tests.test_help_usage.test_usage_documents_every_flag_family[  -f[=0], --find[=0]  recursively find all shell files and print the paths;]`
+- OK     `eval.tests.test_help_usage.test_usage_documents_every_flag_family[  -fn, --func-next-line    function opening braces are placed on a separate line (deprecated; use -bl)]`
+- OK     `eval.tests.test_help_usage.test_usage_documents_every_flag_family[  -l[=0], --list[=0]  error with a list of files whose formatting differs from shfmt;]`
+- OK     `eval.tests.test_help_usage.test_usage_documents_every_flag_family[  -ln, --language-dialect str  bash/posix/mksh/bats/zsh, default "auto"]`
+- OK     `eval.tests.test_help_usage.test_usage_documents_every_flag_family[For more information and to report bugs, see https://github.com/mvdan/sh.]`
+- OK     `eval.tests.test_help_usage.test_usage_groups_flags_into_documented_sections[Parser options:]`
+- OK     `eval.tests.test_help_usage.test_usage_groups_flags_into_documented_sections[Printer options:]`
+- OK     `eval.tests.test_help_usage.test_usage_groups_flags_into_documented_sections[Utilities:]`
+- OK     `eval.tests.test_help_usage.test_usage_starts_with_synopsis_line`
+- OK     `eval.tests.test_input_routing.test_dash_after_flag_terminator_reads_standard_input`
+- OK     `eval.tests.test_input_routing.test_dash_plus_path_switches_to_file_mode`
+- OK     `eval.tests.test_input_routing.test_empty_filename_value_keeps_the_default_name`
+- OK     `eval.tests.test_input_routing.test_filename_bashrc_selects_bash_over_the_shebang`
+- OK     `eval.tests.test_input_routing.test_filename_flag_renames_standard_input`
+- OK     `eval.tests.test_input_routing.test_filename_still_reads_standard_input_with_dash`
+- OK     `eval.tests.test_input_routing.test_filename_with_path_arguments_is_rejected[args0--filename can only be used with stdin\n]`
+- OK     `eval.tests.test_input_routing.test_filename_with_path_arguments_is_rejected[args1--filename can only be used with stdin\n]`
+- OK     `eval.tests.test_input_routing.test_filename_zprofile_selects_zsh`
+- OK     `eval.tests.test_input_routing.test_from_json_reports_invalid_input`
+- OK     `eval.tests.test_input_routing.test_from_json_round_trips_through_the_formatter`
+- OK     `eval.tests.test_input_routing.test_from_json_with_list_reports_the_stdin_name`
+- OK     `eval.tests.test_input_routing.test_from_json_with_path_arguments_is_rejected`
+- OK     `eval.tests.test_input_routing.test_no_arguments_reads_standard_input`
+- OK     `eval.tests.test_input_routing.test_parse_error_names_the_standard_input`
+- OK     `eval.tests.test_input_routing.test_single_dash_reads_standard_input`
+- OK     `eval.tests.test_input_routing.test_stdin_only_flags_are_checked_in_a_fixed_order[args0---to-json can only be used with stdin\n]`
+- OK     `eval.tests.test_input_routing.test_stdin_only_flags_are_checked_in_a_fixed_order[args1---to-json can only be used with stdin\n]`
+- OK     `eval.tests.test_input_routing.test_stdin_only_flags_are_checked_in_a_fixed_order[args2--filename can only be used with stdin\n]`
+- OK     `eval.tests.test_input_routing.test_stdin_only_flags_are_checked_in_a_fixed_order[args3--filename can only be used with stdin\n]`
+- OK     `eval.tests.test_input_routing.test_to_json_and_from_json_round_trip_identically`
+- OK     `eval.tests.test_input_routing.test_to_json_parse_error_has_an_empty_name`
+- OK     `eval.tests.test_input_routing.test_to_json_prints_a_tree_to_stdout`
+- OK     `eval.tests.test_input_routing.test_to_json_with_filename_reports_that_name_in_errors`
+- OK     `eval.tests.test_input_routing.test_to_json_with_path_arguments_is_rejected`
+- OK     `eval.tests.test_input_routing.test_tojson_deprecated_alias_prints_the_same_tree`
+- OK     `eval.tests.test_input_routing.test_two_dashes_are_two_path_arguments`
+- OK     `eval.tests.test_input_routing.test_write_cannot_be_used_on_standard_input[--write=true]`
+- OK     `eval.tests.test_input_routing.test_write_cannot_be_used_on_standard_input[--write]`
+- OK     `eval.tests.test_input_routing.test_write_cannot_be_used_on_standard_input[-w=1]`
+- OK     `eval.tests.test_input_routing.test_write_cannot_be_used_on_standard_input[-w]`
+- OK     `eval.tests.test_output_disposition.test_already_formatted_input_is_printed_unchanged`
+- OK     `eval.tests.test_output_disposition.test_apply_ignore_resolves_the_filename_through_its_directory`
+- OK     `eval.tests.test_output_disposition.test_apply_ignore_suppresses_output_for_ignored_stdin`
+- OK     `eval.tests.test_output_disposition.test_dangling_symlink_argument_reports_a_stat_error`
+- OK     `eval.tests.test_output_disposition.test_default_mode_prints_formatted_code_to_stdout`
+- OK     `eval.tests.test_output_disposition.test_diff_with_write_writes_and_reports_the_difference`
+- OK     `eval.tests.test_output_disposition.test_empty_input_formats_to_a_single_newline`
+- OK     `eval.tests.test_output_disposition.test_empty_path_argument_reports_lstat_error`
+- OK     `eval.tests.test_output_disposition.test_empty_standard_input_formats_to_a_single_newline`
+- OK     `eval.tests.test_output_disposition.test_errors_do_not_stop_processing_later_arguments`
+- OK     `eval.tests.test_output_disposition.test_explicit_paths_bypass_ignore_rules_unless_apply_ignore`
+- OK     `eval.tests.test_output_disposition.test_explicit_symlink_is_formatted_under_its_own_name`
+- OK     `eval.tests.test_output_disposition.test_explicit_symlink_to_a_directory_prints_nothing`
+- OK     `eval.tests.test_output_disposition.test_find_is_ignored_when_reading_standard_input[--find=true]`
+- OK     `eval.tests.test_output_disposition.test_find_is_ignored_when_reading_standard_input[-f=0]`
+- OK     `eval.tests.test_output_disposition.test_find_is_ignored_when_reading_standard_input[-f]`
+- OK     `eval.tests.test_output_disposition.test_find_prints_paths_newline_separated`
+- OK     `eval.tests.test_output_disposition.test_find_zero_separator_uses_null_bytes`
+- OK     `eval.tests.test_output_disposition.test_ignored_files_are_skipped_while_walking_directories`
+- OK     `eval.tests.test_output_disposition.test_invalid_utf8_input_is_an_error`
+- OK     `eval.tests.test_output_disposition.test_list_is_silent_and_successful_when_nothing_differs`
+- OK     `eval.tests.test_output_disposition.test_list_on_standard_input_prints_the_stdin_name`
+- OK     `eval.tests.test_output_disposition.test_list_prints_differing_paths_in_argument_order`
+- OK     `eval.tests.test_output_disposition.test_list_with_filename_prints_that_name[args0-custom.sh\n]`
+- OK     `eval.tests.test_output_disposition.test_list_with_filename_prints_that_name[args1-custom.sh\n]`
+- OK     `eval.tests.test_output_disposition.test_list_with_filename_prints_that_name[args2-custom.sh\x00]`
+- OK     `eval.tests.test_output_disposition.test_list_with_write_still_exits_zero`
+- OK     `eval.tests.test_output_disposition.test_list_write_and_diff_together_print_path_and_diff`
+- OK     `eval.tests.test_output_disposition.test_list_zero_separator_on_standard_input`
+- OK     `eval.tests.test_output_disposition.test_list_zero_separator_uses_null_bytes`
+- OK     `eval.tests.test_output_disposition.test_list_zero_separator_with_write`
+- OK     `eval.tests.test_output_disposition.test_missing_final_newline_is_added`
+- OK     `eval.tests.test_output_disposition.test_missing_path_reports_a_lstat_error`
+- OK     `eval.tests.test_output_disposition.test_parse_error_in_file_mode_uses_the_path_as_name`
+- OK     `eval.tests.test_output_disposition.test_parse_error_names_the_dialect_from_editorconfig`
+- OK     `eval.tests.test_output_disposition.test_parse_error_names_the_dialect_it_tried_on_standard_input`
+- OK     `eval.tests.test_output_disposition.test_repeated_path_arguments_are_processed_again`
+- OK     `eval.tests.test_output_disposition.test_stdin_without_apply_ignore_still_formats_ignored_files`
+- OK     `eval.tests.test_output_disposition.test_stdout_and_stderr_carry_different_streams`
+- OK     `eval.tests.test_output_disposition.test_trailing_slash_on_a_file_reports_not_a_directory`
+- OK     `eval.tests.test_output_disposition.test_write_error_beats_the_ignore_rules_on_standard_input`
+- OK     `eval.tests.test_output_disposition.test_write_is_skipped_for_an_explicitly_ignored_path`
+- OK     `eval.tests.test_output_disposition.test_write_leaves_no_temporary_files_behind`
+- OK     `eval.tests.test_output_disposition.test_write_preserves_the_permission_bits[384]`
+- OK     `eval.tests.test_output_disposition.test_write_preserves_the_permission_bits[416]`
+- OK     `eval.tests.test_output_disposition.test_write_preserves_the_permission_bits[420]`
+- OK     `eval.tests.test_output_disposition.test_write_preserves_the_permission_bits[493]`
+- OK     `eval.tests.test_output_disposition.test_write_refuses_to_replace_a_symlink`
+- OK     `eval.tests.test_output_disposition.test_write_rewrites_the_file_and_prints_nothing`
+- OK     `eval.tests.test_output_disposition.test_write_skips_files_that_need_no_changes`
+- OK     `eval.tests.test_tty_behavior.test_a_terminal_stdin_does_not_change_file_arguments`
+- OK     `eval.tests.test_tty_behavior.test_a_terminal_stdout_does_not_change_plain_output`
+- OK     `eval.tests.test_tty_behavior.test_diff_is_colored_when_stdout_is_a_terminal`
+- OK     `eval.tests.test_tty_behavior.test_dumb_terminal_disables_terminal_coloring`
+- OK     `eval.tests.test_tty_behavior.test_explicit_dash_still_reads_a_terminal_stdin`
+- OK     `eval.tests.test_tty_behavior.test_no_arguments_on_a_terminal_prints_usage_and_exits_2`
+- OK     `eval.tests.test_tty_behavior.test_no_color_disables_terminal_coloring`
+- OK     `eval.tests.test_validation_errors.test_detect_accepts_its_documented_values[all]`
+- OK     `eval.tests.test_validation_errors.test_detect_accepts_its_documented_values[default]`
+- OK     `eval.tests.test_validation_errors.test_detect_accepts_its_documented_values[exec]`
+- OK     `eval.tests.test_validation_errors.test_detect_only_allows_three_documented_values[args0]`
+- OK     `eval.tests.test_validation_errors.test_detect_only_allows_three_documented_values[args1]`
+- OK     `eval.tests.test_validation_errors.test_detect_only_allows_three_documented_values[args2]`
+- OK     `eval.tests.test_validation_errors.test_detect_only_allows_three_documented_values[args3]`
+- OK     `eval.tests.test_validation_errors.test_detect_only_allows_three_documented_values[args4]`
+- OK     `eval.tests.test_validation_errors.test_detect_only_allows_three_documented_values[args5]`
+- OK     `eval.tests.test_validation_errors.test_find_flag_explicit_values_are_honoured`
+- OK     `eval.tests.test_validation_errors.test_find_flag_only_allows_bare_or_zero[--find=x]`
+- OK     `eval.tests.test_validation_errors.test_find_flag_only_allows_bare_or_zero[--find=yes]`
+- OK     `eval.tests.test_validation_errors.test_find_flag_only_allows_bare_or_zero[-f=1]`
+- OK     `eval.tests.test_validation_errors.test_find_flag_only_allows_bare_or_zero[-f=2]`
+- OK     `eval.tests.test_validation_errors.test_find_flag_only_allows_bare_or_zero[-f=TRUE]`
+- OK     `eval.tests.test_validation_errors.test_func_next_line_and_block_next_line_cannot_coexist[args0]`
+- OK     `eval.tests.test_validation_errors.test_func_next_line_and_block_next_line_cannot_coexist[args1]`
+- OK     `eval.tests.test_validation_errors.test_func_next_line_and_block_next_line_cannot_coexist[args2]`
+- OK     `eval.tests.test_validation_errors.test_func_next_line_and_block_next_line_cannot_coexist[args3]`
+- OK     `eval.tests.test_validation_errors.test_func_next_line_and_block_next_line_cannot_coexist[args4]`
+- OK     `eval.tests.test_validation_errors.test_list_flag_explicit_values_are_honoured[-l=0-messy.sh\x00-1]`
+- OK     `eval.tests.test_validation_errors.test_list_flag_explicit_values_are_honoured[-l=false-echo hi\n-0]`
+- OK     `eval.tests.test_validation_errors.test_list_flag_explicit_values_are_honoured[-l=true-messy.sh\n-1]`
+- OK     `eval.tests.test_validation_errors.test_list_flag_only_allows_bare_or_zero[--list=1]`
+- OK     `eval.tests.test_validation_errors.test_list_flag_only_allows_bare_or_zero[--list=yes]`
+- OK     `eval.tests.test_validation_errors.test_list_flag_only_allows_bare_or_zero[-l=00]`
+- OK     `eval.tests.test_validation_errors.test_list_flag_only_allows_bare_or_zero[-l=0\n]`
+- OK     `eval.tests.test_validation_errors.test_list_flag_only_allows_bare_or_zero[-l=1]`
+- OK     `eval.tests.test_validation_errors.test_list_flag_only_allows_bare_or_zero[-l=2]`
+- OK     `eval.tests.test_validation_errors.test_list_flag_only_allows_bare_or_zero[-l=TRUE]`
+- OK     `eval.tests.test_validation_errors.test_list_flag_only_allows_bare_or_zero[-l=true ]`
+- OK     `eval.tests.test_validation_errors.test_posix_and_language_dialect_cannot_coexist[args0]`
+- OK     `eval.tests.test_validation_errors.test_posix_and_language_dialect_cannot_coexist[args1]`
+- OK     `eval.tests.test_validation_errors.test_posix_and_language_dialect_cannot_coexist[args2]`
+- OK     `eval.tests.test_validation_errors.test_posix_and_language_dialect_cannot_coexist[args3]`
+- OK     `eval.tests.test_validation_errors.test_posix_and_language_dialect_cannot_coexist[args4]`
+- OK     `eval.tests.test_validation_errors.test_posix_and_language_dialect_cannot_coexist[args5]`
+- OK     `eval.tests.test_validation_errors.test_validation_errors_do_not_print_the_usage_text`
+- OK     `eval.tests.test_validation_errors.test_validation_happens_before_any_input_is_processed`
+- OK     `eval.tests.test_validation_errors.test_validations_report_the_first_failing_check[args0--p and -ln=lang cannot coexist\n]`
+- OK     `eval.tests.test_validation_errors.test_validations_report_the_first_failing_check[args1--fn and -bl cannot coexist; note that -fn is deprecated\n]`
+- OK     `eval.tests.test_validation_errors.test_validations_report_the_first_failing_check[args2-only -l and -l=0 allowed\n]`
+- OK     `eval.tests.test_validation_errors.test_validations_report_the_first_failing_check[args3-only -f and -f=0 allowed\n]`
+- OK     `eval.tests.test_validation_errors.test_validations_report_the_first_failing_check[args4---detect only allows default, exec, or all\n]`
+- OK     `eval.tests.test_version.test_version_accepts_explicit_true_value[--version=1]`
+- OK     `eval.tests.test_version.test_version_accepts_explicit_true_value[--version=t]`
+- OK     `eval.tests.test_version.test_version_accepts_explicit_true_value[--version=true]`
+- OK     `eval.tests.test_version.test_version_does_not_read_standard_input`
+- OK     `eval.tests.test_version.test_version_false_value_falls_through_to_formatting[--version=0]`
+- OK     `eval.tests.test_version.test_version_false_value_falls_through_to_formatting[--version=false]`
+- OK     `eval.tests.test_version.test_version_long_flag_prints_build_version`
+- OK     `eval.tests.test_version.test_version_short_flag_matches_long_flag`
+- OK     `eval.tests.test_version.test_version_wins_over_path_arguments`
+- OK     `eval.tests.test_version.test_version_wins_over_validation_errors[args0]`
+- OK     `eval.tests.test_version.test_version_wins_over_validation_errors[args1]`
+- OK     `eval.tests.test_version.test_version_wins_over_validation_errors[args2]`
+- OK     `eval.tests.test_version.test_version_wins_over_validation_errors[args3]`
+- OK     `eval.tests.test_version.test_version_wins_over_validation_errors[args4]`
+- OK     `eval.tests.test_version.test_version_wins_over_validation_errors[args5]`

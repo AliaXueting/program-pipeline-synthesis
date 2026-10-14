@@ -1,0 +1,562 @@
+# Validation results — expansion_globbing
+
+- tests collected: 556
+- OK: 556
+- REJECTED: 0
+
+- OK     `eval.tests.test_arith_error_wording.test_assignment_target_rules`
+- OK     `eval.tests.test_arith_error_wording.test_bracket_and_comma_errors`
+- OK     `eval.tests.test_arith_error_wording.test_floating_point_is_zsh_only`
+- OK     `eval.tests.test_arith_error_wording.test_invalid_operator_wording`
+- OK     `eval.tests.test_arith_error_wording.test_ternary_operator_errors`
+- OK     `eval.tests.test_arith_error_wording.test_unary_operator_spelling`
+- OK     `eval.tests.test_arith_parse_tails.test_increment_requires_literal`
+- OK     `eval.tests.test_arith_parse_tails.test_increment_requires_name[echo $(($x++))-11]`
+- OK     `eval.tests.test_arith_parse_tails.test_increment_requires_name[echo $(((x)++))-12]`
+- OK     `eval.tests.test_arith_parse_tails.test_increment_requires_name[echo $((1++))-10]`
+- OK     `eval.tests.test_arith_parse_tails.test_logical_not_requires_expression`
+- OK     `eval.tests.test_arith_parse_tails.test_mksh_unsigned_arithm_roundtrip`
+- OK     `eval.tests.test_arith_parse_tails.test_power_requires_left_operand`
+- OK     `eval.tests.test_arith_parse_tails.test_ternary_question_edges[echo $((? 1 : 2))-<standard input>:1:9: `?` must follow an expression\n]`
+- OK     `eval.tests.test_arith_parse_tails.test_ternary_question_edges[echo $((a ?: 2))-<standard input>:1:11: `?` must be followed by an expression\n]`
+- OK     `eval.tests.test_arith_parse_tails.test_word_that_is_no_operator`
+- OK     `eval.tests.test_arithmetic.test_array_subscripts_in_arithmetic`
+- OK     `eval.tests.test_arithmetic.test_assignment_word_arithmetic_spacing`
+- OK     `eval.tests.test_arithmetic.test_binary_operator_spacing`
+- OK     `eval.tests.test_arithmetic.test_dollar_index_in_arithmetic_is_an_error`
+- OK     `eval.tests.test_arithmetic.test_increment_decrement_no_padding`
+- OK     `eval.tests.test_arithmetic.test_minify_removes_arithmetic_spacing`
+- OK     `eval.tests.test_arithmetic.test_numeric_bases_preserved`
+- OK     `eval.tests.test_arithmetic.test_parenthesised_grouping_preserved`
+- OK     `eval.tests.test_arithmetic.test_precedence_untouched`
+- OK     `eval.tests.test_arithmetic.test_simplify_inlines_simple_parameters`
+- OK     `eval.tests.test_arithmetic.test_simplify_keeps_non_name_parameters`
+- OK     `eval.tests.test_arithmetic.test_simplify_removes_redundant_parentheses`
+- OK     `eval.tests.test_arithmetic.test_ternary_and_comma_spacing`
+- OK     `eval.tests.test_arithmetic.test_tojson_arithmetic_operator_field`
+- OK     `eval.tests.test_arithmetic.test_tojson_reflects_simplify`
+- OK     `eval.tests.test_arithmetic.test_unary_operator_spacing`
+- OK     `eval.tests.test_arithmetic.test_unterminated_arithmetic_errors`
+- OK     `eval.tests.test_array_index_simplify.test_array_element_parens_are_kept`
+- OK     `eval.tests.test_array_index_simplify.test_dollar_parameters_kept_in_subscripts[a=([$i+1]=v)\n-a=([$i + 1]=v)\n]`
+- OK     `eval.tests.test_array_index_simplify.test_dollar_parameters_kept_in_subscripts[echo $((x[$i]))\n-echo $((x[$i]))\n]`
+- OK     `eval.tests.test_array_index_simplify.test_dollar_parameters_kept_in_subscripts[echo ${!x[$i]}\n-echo ${!x[$i]}\n]`
+- OK     `eval.tests.test_array_index_simplify.test_dollar_parameters_kept_in_subscripts[echo ${x[$i+1]}\n-echo ${x[$i + 1]}\n]`
+- OK     `eval.tests.test_array_index_simplify.test_dollar_parameters_kept_in_subscripts[x[$i+1]=v\n-x[$i + 1]=v\n]`
+- OK     `eval.tests.test_array_index_simplify.test_dollar_parameters_kept_in_subscripts[x[$i]=v\n-x[$i]=v\n]`
+- OK     `eval.tests.test_array_index_simplify.test_index_parens_and_spacing_simplified[a=([i+1]=v)\n-a=([i + 1]=v)\n]`
+- OK     `eval.tests.test_array_index_simplify.test_index_parens_and_spacing_simplified[echo $((x[(i)]))\n-echo $((x[i]))\n]`
+- OK     `eval.tests.test_array_index_simplify.test_index_parens_and_spacing_simplified[echo $((x[i+1]))\n-echo $((x[i + 1]))\n]`
+- OK     `eval.tests.test_array_index_simplify.test_index_parens_and_spacing_simplified[echo ${x[(i)]}\n-echo ${x[i]}\n]`
+- OK     `eval.tests.test_array_index_simplify.test_index_parens_and_spacing_simplified[echo ${x[i+1]}\n-echo ${x[i + 1]}\n]`
+- OK     `eval.tests.test_array_index_simplify.test_index_parens_and_spacing_simplified[x[((i+1))]=v\n-x[i + 1]=v\n]`
+- OK     `eval.tests.test_array_index_simplify.test_index_parens_and_spacing_simplified[x[(i)]=v\n-x[i]=v\n]`
+- OK     `eval.tests.test_array_index_simplify.test_index_parens_and_spacing_simplified[x[i+1]+=v\n-x[i + 1]+=v\n]`
+- OK     `eval.tests.test_array_index_simplify.test_index_parens_and_spacing_simplified[x[i+1]=v\n-x[i + 1]=v\n]`
+- OK     `eval.tests.test_array_index_simplify.test_nested_arith_subscript_left_alone`
+- OK     `eval.tests.test_array_index_simplify.test_same_parameter_inlined_outside_subscript`
+- OK     `eval.tests.test_assign_index_forms.test_broken_index_assignment_errors`
+- OK     `eval.tests.test_assign_index_forms.test_indexed_array_value_dialect_split`
+- OK     `eval.tests.test_assign_index_forms.test_indexed_assignment_roundtrip`
+- OK     `eval.tests.test_assign_index_forms.test_length_operator_special_params`
+- OK     `eval.tests.test_assign_index_forms.test_multi_digit_positional_parameters`
+- OK     `eval.tests.test_assign_index_forms.test_naked_index_in_declare_builtins`
+- OK     `eval.tests.test_brace_tilde.test_brace_forms_pass_through_untouched`
+- OK     `eval.tests.test_brace_tilde.test_brace_is_a_plain_literal_in_the_tree`
+- OK     `eval.tests.test_brace_tilde.test_braces_and_tilde_survive_minify`
+- OK     `eval.tests.test_brace_tilde.test_braces_inside_quotes_stay_literal`
+- OK     `eval.tests.test_brace_tilde.test_tilde_after_expansion_word`
+- OK     `eval.tests.test_brace_tilde.test_tilde_forms_pass_through_untouched`
+- OK     `eval.tests.test_brace_tilde.test_tilde_is_a_plain_literal_in_the_tree`
+- OK     `eval.tests.test_brace_tilde.test_tilde_is_literal_when_quoted_or_midword`
+- OK     `eval.tests.test_call_structure_errors.test_compound_command_word_in_posix[[[ -n (x)\n-7-[[]`
+- OK     `eval.tests.test_call_structure_errors.test_compound_command_word_in_posix[declare -f (x)\n-12-declare]`
+- OK     `eval.tests.test_call_structure_errors.test_compound_command_word_in_posix[export a (b)\n-10-export]`
+- OK     `eval.tests.test_call_structure_errors.test_compound_command_word_in_posix[let 1 (x)\n-7-let]`
+- OK     `eval.tests.test_call_structure_errors.test_compound_command_word_in_posix[local x (y)\n-9-local]`
+- OK     `eval.tests.test_call_structure_errors.test_compound_command_word_in_posix[nameref x (y)\n-11-nameref]`
+- OK     `eval.tests.test_call_structure_errors.test_dangling_pipe_operators`
+- OK     `eval.tests.test_call_structure_errors.test_missing_statement_list_after_keyword`
+- OK     `eval.tests.test_call_structure_errors.test_negation_edges`
+- OK     `eval.tests.test_call_structure_errors.test_parenthesis_in_argument_position`
+- OK     `eval.tests.test_call_structure_errors.test_pipe_coprocess_operator_gating`
+- OK     `eval.tests.test_call_structure_errors.test_pipe_into_redirect_only`
+- OK     `eval.tests.test_call_structure_errors.test_unterminated_word_constructs[((x\n-<standard input>:1:1: reached EOF without matching `((` with `))`\n]`
+- OK     `eval.tests.test_call_structure_errors.test_unterminated_word_constructs[[[ (a) == b ]]\n-<standard input>:1:8: expected `&&`, `||` or `]]` after complex expr\n]`
+- OK     `eval.tests.test_call_structure_errors.test_unterminated_word_constructs[echo $((3, ))\n-<standard input>:1:10: `,` must be followed by an expression\n]`
+- OK     `eval.tests.test_call_structure_errors.test_unterminated_word_constructs[echo $[1+2\n-<standard input>:1:6: reached EOF without matching `$[` with `]`\n]`
+- OK     `eval.tests.test_call_structure_errors.test_unterminated_word_constructs[echo 'a\\\n-<standard input>:1:6: reached EOF without closing quote `'`\n]`
+- OK     `eval.tests.test_call_structure_errors.test_unterminated_word_constructs[echo @(\n-<standard input>:1:6: reached EOF without matching `@(` with `)`\n]`
+- OK     `eval.tests.test_case_test_clauses.test_case_comment_attached_to_item`
+- OK     `eval.tests.test_case_test_clauses.test_case_extglob_and_default_pattern`
+- OK     `eval.tests.test_case_test_clauses.test_case_item_terminator_operators`
+- OK     `eval.tests.test_case_test_clauses.test_case_multiline_item_layout_preserved`
+- OK     `eval.tests.test_case_test_clauses.test_case_one_line_items_keep_flow`
+- OK     `eval.tests.test_case_test_clauses.test_case_pipe_terminator_is_rejected`
+- OK     `eval.tests.test_case_test_clauses.test_legacy_single_bracket_test`
+- OK     `eval.tests.test_case_test_clauses.test_test_clause_operator_round_trip`
+- OK     `eval.tests.test_case_test_clauses.test_test_clause_rejects_chained_comparison`
+- OK     `eval.tests.test_case_test_clauses.test_test_clause_unary_negation_and_groups`
+- OK     `eval.tests.test_case_test_clauses.test_test_regex_mixed_parts_and_command_substitution`
+- OK     `eval.tests.test_case_test_clauses.test_test_regex_unbalanced_close_paren_error`
+- OK     `eval.tests.test_case_test_clauses.test_test_regex_with_parens_is_one_word`
+- OK     `eval.tests.test_cmdsubst_value_forms.test_backquote_ending_in_heredoc`
+- OK     `eval.tests.test_cmdsubst_value_forms.test_backquote_only_comment`
+- OK     `eval.tests.test_cmdsubst_value_forms.test_cmdsubst_paren_disambiguation`
+- OK     `eval.tests.test_cmdsubst_value_forms.test_cmdsubst_statement_layout`
+- OK     `eval.tests.test_cmdsubst_value_forms.test_keep_padding_in_cmdsubst`
+- OK     `eval.tests.test_cmdsubst_value_forms.test_value_of_forms`
+- OK     `eval.tests.test_cmdsubst_value_forms.test_value_of_multiline_body`
+- OK     `eval.tests.test_cmdsubst_value_forms.test_value_of_requires_leading_space`
+- OK     `eval.tests.test_comment_layout.test_comment_after_each_multiline_construct[a=(\n1\n) # c\n-a=(\n\t1\n) # c\n]`
+- OK     `eval.tests.test_comment_layout.test_comment_after_each_multiline_construct[case x in\na) b;;\nesac # c\n-case x in\na) b ;;\nesac # c\n]`
+- OK     `eval.tests.test_comment_layout.test_comment_after_each_multiline_construct[coproc foo {\n\t:\n} # c\n-coproc foo {\n\t:\n} # c\n]`
+- OK     `eval.tests.test_comment_layout.test_comment_after_each_multiline_construct[for x in a b; do\n\t:\ndone # c\n-for x in a b; do\n\t:\ndone # c\n]`
+- OK     `eval.tests.test_comment_layout.test_comment_after_each_multiline_construct[select x in a; do\n\t:\ndone # c\n-select x in a; do\n\t:\ndone # c\n]`
+- OK     `eval.tests.test_comment_layout.test_comment_after_each_multiline_construct[time {\n\t:\n} # c\n-time {\n\t:\n} # c\n]`
+- OK     `eval.tests.test_comment_layout.test_comment_after_function_body`
+- OK     `eval.tests.test_comment_layout.test_comment_after_multiline_arith_command`
+- OK     `eval.tests.test_comment_layout.test_comment_after_pipe_subshell`
+- OK     `eval.tests.test_comment_layout.test_trailing_comments_align_in_one_column`
+- OK     `eval.tests.test_comment_layout_tails.test_blank_line_before_comment`
+- OK     `eval.tests.test_comment_layout_tails.test_comment_before_first_block_statement`
+- OK     `eval.tests.test_comment_layout_tails.test_comment_before_first_case_item`
+- OK     `eval.tests.test_comment_layout_tails.test_comment_only_array_body`
+- OK     `eval.tests.test_comment_layout_tails.test_comment_only_case_body`
+- OK     `eval.tests.test_comment_layout_tails.test_keep_padding_before_comment`
+- OK     `eval.tests.test_comment_layout_tails.test_minify_keeps_only_shebang_comments`
+- OK     `eval.tests.test_comment_layout_tails.test_semicolon_after_continuation_keeps_line`
+- OK     `eval.tests.test_comment_layout_tails.test_then_requires_statement_list`
+- OK     `eval.tests.test_compound_word_contexts.test_comment_after_assignment_and_redirect`
+- OK     `eval.tests.test_compound_word_contexts.test_coproc_time_and_let_words`
+- OK     `eval.tests.test_compound_word_contexts.test_declare_array_assignment_forms`
+- OK     `eval.tests.test_compound_word_contexts.test_for_c_style_header_spacing`
+- OK     `eval.tests.test_compound_word_contexts.test_for_word_list_keeps_word_kinds`
+- OK     `eval.tests.test_compound_word_contexts.test_function_declaration_forms`
+- OK     `eval.tests.test_compound_word_contexts.test_heredoc_body_expansions_normalised`
+- OK     `eval.tests.test_compound_word_contexts.test_heredoc_dash_form_strips_tabs`
+- OK     `eval.tests.test_compound_word_contexts.test_heredoc_quoted_delimiter_keeps_body_literal`
+- OK     `eval.tests.test_compound_word_contexts.test_heredoc_unclosed_at_eof_is_completed`
+- OK     `eval.tests.test_compound_word_contexts.test_if_elif_else_layout`
+- OK     `eval.tests.test_compound_word_contexts.test_redirect_array_element_fd`
+- OK     `eval.tests.test_compound_word_contexts.test_redirect_fd_word_forms`
+- OK     `eval.tests.test_compound_word_contexts.test_redirect_glued_word_gets_spaced`
+- OK     `eval.tests.test_compound_word_contexts.test_select_menu`
+- OK     `eval.tests.test_compound_word_contexts.test_statement_operators_with_words`
+- OK     `eval.tests.test_compound_word_contexts.test_while_and_until_one_liners`
+- OK     `eval.tests.test_compound_word_contexts.test_word_glued_process_substitution`
+- OK     `eval.tests.test_coproc_function_forms.test_coproc_compound_command_forms`
+- OK     `eval.tests.test_coproc_function_forms.test_coproc_name_forms`
+- OK     `eval.tests.test_coproc_function_forms.test_coproc_requires_command_error`
+- OK     `eval.tests.test_coproc_function_forms.test_function_missing_paren_error`
+- OK     `eval.tests.test_coproc_function_forms.test_function_multi_name_and_anonymous`
+- OK     `eval.tests.test_coproc_function_forms.test_paren_in_call_arguments`
+- OK     `eval.tests.test_dialect_gates.test_auto_dialect_acceptance_by_extension`
+- OK     `eval.tests.test_dialect_gates.test_auto_dialect_from_filename_extension`
+- OK     `eval.tests.test_dialect_gates.test_auto_dialect_from_shebang`
+- OK     `eval.tests.test_dialect_gates.test_auto_dialect_shebang_bash_accepted`
+- OK     `eval.tests.test_dialect_gates.test_bash_only_families_rejected_in_posix`
+- OK     `eval.tests.test_dialect_gates.test_bash_rejects_mksh_width_operator`
+- OK     `eval.tests.test_dialect_gates.test_explicit_dialect_has_no_auto_suffix`
+- OK     `eval.tests.test_dialect_gates.test_operators_accepted_outside_their_home_dialect`
+- OK     `eval.tests.test_dialect_gates.test_zsh_only_prefix_operators`
+- OK     `eval.tests.test_dialect_gates.test_zsh_rejects_bash_and_mksh_operators`
+- OK     `eval.tests.test_dialect_word_gates.test_assign_paren_process_substitution_gating`
+- OK     `eval.tests.test_dialect_word_gates.test_bash_rejects_zsh_arith_assignments`
+- OK     `eval.tests.test_dialect_word_gates.test_dollar_quoted_forms_gated_by_dialect`
+- OK     `eval.tests.test_dialect_word_gates.test_legacy_arith_bracket_only_in_bash`
+- OK     `eval.tests.test_dialect_word_gates.test_posix_rejects_case_fallthrough_operators[case x in a) ;& b) ;; esac\n-`;` can only immediately follow a statement]`
+- OK     `eval.tests.test_dialect_word_gates.test_posix_rejects_case_fallthrough_operators[case x in a) ;;& b) ;; esac\n-case patterns must consist of words]`
+- OK     `eval.tests.test_dialect_word_gates.test_unsigned_arith_prefix_is_mksh_only`
+- OK     `eval.tests.test_dialect_word_gates.test_zsh_arith_assignment_operators[&&=]`
+- OK     `eval.tests.test_dialect_word_gates.test_zsh_arith_assignment_operators[&=]`
+- OK     `eval.tests.test_dialect_word_gates.test_zsh_arith_assignment_operators[**=]`
+- OK     `eval.tests.test_dialect_word_gates.test_zsh_arith_assignment_operators[+=]`
+- OK     `eval.tests.test_dialect_word_gates.test_zsh_arith_assignment_operators[-=]`
+- OK     `eval.tests.test_dialect_word_gates.test_zsh_arith_assignment_operators[^=]`
+- OK     `eval.tests.test_dialect_word_gates.test_zsh_arith_assignment_operators[^^=]`
+- OK     `eval.tests.test_dialect_word_gates.test_zsh_arith_assignment_operators[||=]`
+- OK     `eval.tests.test_dialect_word_gates.test_zsh_fd_clobber_aliases_normalise`
+- OK     `eval.tests.test_expansion_errors.test_error_column_tracks_multiline_input`
+- OK     `eval.tests.test_expansion_errors.test_error_recovery_flag_keeps_going`
+- OK     `eval.tests.test_expansion_errors.test_malformed_parameter_expansion_diagnostics`
+- OK     `eval.tests.test_expansion_errors.test_only_the_first_error_is_reported`
+- OK     `eval.tests.test_expansion_errors.test_unclosed_brace_reports_the_opening_position`
+- OK     `eval.tests.test_expansion_errors.test_valid_expansion_after_a_comment_is_fine`
+- OK     `eval.tests.test_from_json_decode_errors.test_command_interface_needs_type`
+- OK     `eval.tests.test_from_json_decode_errors.test_node_type_decoded_into_wrong_slot`
+- OK     `eval.tests.test_from_json_decode_errors.test_operator_must_be_given_as_string`
+- OK     `eval.tests.test_from_json_decode_errors.test_position_field_must_be_object[3-number]`
+- OK     `eval.tests.test_from_json_decode_errors.test_position_field_must_be_object[None-null]`
+- OK     `eval.tests.test_from_json_decode_errors.test_position_field_must_be_object[True-boolean]`
+- OK     `eval.tests.test_from_json_decode_errors.test_position_field_must_be_object[value4-array]`
+- OK     `eval.tests.test_from_json_decode_errors.test_position_field_must_be_object[x-string]`
+- OK     `eval.tests.test_from_json_decode_errors.test_position_field_value_must_be_number`
+- OK     `eval.tests.test_from_json_decode_errors.test_position_needs_exactly_three_fields[pos0]`
+- OK     `eval.tests.test_from_json_decode_errors.test_position_needs_exactly_three_fields[pos1]`
+- OK     `eval.tests.test_from_json_decode_errors.test_position_values_out_of_range[pos0-Offset--1]`
+- OK     `eval.tests.test_from_json_decode_errors.test_position_values_out_of_range[pos1-Offset-0.5]`
+- OK     `eval.tests.test_from_json_decode_errors.test_position_values_out_of_range[pos2-Line-4.294967296e+09]`
+- OK     `eval.tests.test_from_json_decode_errors.test_redirect_fd_must_be_a_literal_node[2-string]`
+- OK     `eval.tests.test_from_json_decode_errors.test_redirect_fd_must_be_a_literal_node[3-number]`
+- OK     `eval.tests.test_from_json_decode_errors.test_redirect_fd_must_be_a_literal_node[True-boolean]`
+- OK     `eval.tests.test_from_json_decode_errors.test_redirect_fd_must_be_a_literal_node[value3-array]`
+- OK     `eval.tests.test_from_json_decode_errors.test_redirect_fd_null_and_roundtrips`
+- OK     `eval.tests.test_from_json_decode_errors.test_top_level_json_types["foo"-cannot decode JSON string into syntax.Node]`
+- OK     `eval.tests.test_from_json_decode_errors.test_top_level_json_types[3-cannot decode JSON number into syntax.Node]`
+- OK     `eval.tests.test_from_json_decode_errors.test_top_level_json_types[[1, 2]-cannot decode JSON array into syntax.Node]`
+- OK     `eval.tests.test_from_json_decode_errors.test_top_level_json_types[null-cannot decode JSON null into a syntax node]`
+- OK     `eval.tests.test_from_json_decode_errors.test_top_level_json_types[true-cannot decode JSON boolean into syntax.Node]`
+- OK     `eval.tests.test_from_json_decode_errors.test_unknown_field_names_the_type`
+- OK     `eval.tests.test_from_json_operator_tails.test_position_missing_field_named`
+- OK     `eval.tests.test_from_json_operator_tails.test_procsubst_temp_decodes`
+- OK     `eval.tests.test_from_json_operator_tails.test_unary_arithm_decode_only_ops[+]`
+- OK     `eval.tests.test_from_json_operator_tails.test_unary_arithm_decode_only_ops[-]`
+- OK     `eval.tests.test_from_json_operator_tails.test_unknown_binary_test_operator`
+- OK     `eval.tests.test_from_json_operator_tails.test_unknown_paramexp_operator`
+- OK     `eval.tests.test_glob_patterns.test_case_pattern_alternation_gets_spacing`
+- OK     `eval.tests.test_glob_patterns.test_case_pattern_quoting_preserved`
+- OK     `eval.tests.test_glob_patterns.test_case_pattern_with_glob_and_extglob`
+- OK     `eval.tests.test_glob_patterns.test_extended_glob_forms_in_bash`
+- OK     `eval.tests.test_glob_patterns.test_extended_glob_in_case_pattern_rejected_in_posix`
+- OK     `eval.tests.test_glob_patterns.test_extended_glob_is_its_own_node`
+- OK     `eval.tests.test_glob_patterns.test_extended_globs_rejected_in_posix`
+- OK     `eval.tests.test_glob_patterns.test_field_splitting_ifs_assignment_roundtrip`
+- OK     `eval.tests.test_glob_patterns.test_glob_metacharacters_pass_through`
+- OK     `eval.tests.test_glob_patterns.test_globbing_shell_options_are_plain_commands`
+- OK     `eval.tests.test_glob_patterns.test_quoted_or_escaped_glob_stays_literal`
+- OK     `eval.tests.test_glob_patterns.test_unterminated_extended_glob_error`
+- OK     `eval.tests.test_heredoc_bodies.test_dash_heredoc_inside_function`
+- OK     `eval.tests.test_heredoc_bodies.test_dash_heredoc_keeps_tabs_with_space_indent`
+- OK     `eval.tests.test_heredoc_bodies.test_dash_heredoc_strips_one_tab`
+- OK     `eval.tests.test_heredoc_bodies.test_quoted_heredoc_backslashes_literal`
+- OK     `eval.tests.test_heredoc_bodies.test_tab_prefixed_word_is_not_the_closing_word`
+- OK     `eval.tests.test_heredoc_bodies.test_unquoted_heredoc_escapes_preserved`
+- OK     `eval.tests.test_heredoc_bodies.test_unterminated_heredoc_completes_at_eof`
+- OK     `eval.tests.test_heredoc_nested_edges.test_backquote_escapes_in_double_quotes`
+- OK     `eval.tests.test_heredoc_nested_edges.test_closed_heredoc_inside_backquote`
+- OK     `eval.tests.test_heredoc_nested_edges.test_dash_heredoc_tabbed_closing_word`
+- OK     `eval.tests.test_heredoc_nested_edges.test_empty_unclosed_heredoc_gains_closing_word`
+- OK     `eval.tests.test_heredoc_nested_edges.test_quoted_unclosed_heredoc_gains_closing_word`
+- OK     `eval.tests.test_heredoc_nested_edges.test_quotes_with_escaped_newline_round_trip`
+- OK     `eval.tests.test_heredoc_nested_edges.test_unclosed_heredoc_completes_at_backquote`
+- OK     `eval.tests.test_json_enum_matrix.test_arith_binary_operator_zoo_roundtrip`
+- OK     `eval.tests.test_json_enum_matrix.test_array_literal_assign_enum_roundtrip`
+- OK     `eval.tests.test_json_enum_matrix.test_decode_type_mismatch_errors`
+- OK     `eval.tests.test_json_enum_matrix.test_extglob_enums_roundtrip`
+- OK     `eval.tests.test_json_enum_matrix.test_json_only_compound_assign_ops[&&=]`
+- OK     `eval.tests.test_json_enum_matrix.test_json_only_compound_assign_ops[**=]`
+- OK     `eval.tests.test_json_enum_matrix.test_json_only_compound_assign_ops[^^=]`
+- OK     `eval.tests.test_json_enum_matrix.test_json_only_compound_assign_ops[||=]`
+- OK     `eval.tests.test_json_enum_matrix.test_null_literal_decodes_to_empty_word`
+- OK     `eval.tests.test_json_enum_matrix.test_paramexp_unset_operators_roundtrip`
+- OK     `eval.tests.test_json_enum_matrix.test_pipe_and_case_enums_roundtrip`
+- OK     `eval.tests.test_json_enum_matrix.test_redirect_enums_roundtrip`
+- OK     `eval.tests.test_json_enum_matrix.test_test_operator_zoo_roundtrip`
+- OK     `eval.tests.test_json_enum_matrix.test_zsh_array_operator_enums_roundtrip`
+- OK     `eval.tests.test_json_node_end_positions.test_array_element_without_value_end`
+- OK     `eval.tests.test_json_node_end_positions.test_bare_time_clause_end`
+- OK     `eval.tests.test_json_node_end_positions.test_braced_c_style_for_end`
+- OK     `eval.tests.test_json_node_end_positions.test_braced_case_clause_end`
+- OK     `eval.tests.test_json_node_end_positions.test_coprocess_statement_end`
+- OK     `eval.tests.test_json_node_end_positions.test_declare_bare_name_end`
+- OK     `eval.tests.test_json_node_end_positions.test_declare_index_without_value_end`
+- OK     `eval.tests.test_json_node_end_positions.test_disowned_statement_end[&!]`
+- OK     `eval.tests.test_json_node_end_positions.test_disowned_statement_end[&|]`
+- OK     `eval.tests.test_json_node_end_positions.test_empty_subshell_end`
+- OK     `eval.tests.test_json_node_end_positions.test_negated_statement_end`
+- OK     `eval.tests.test_json_node_end_positions.test_paren_arithm_end`
+- OK     `eval.tests.test_json_node_end_positions.test_paren_test_end`
+- OK     `eval.tests.test_json_node_end_positions.test_procsubst_temp_end`
+- OK     `eval.tests.test_json_test_operators.test_lparen_as_unary_operator_decodes`
+- OK     `eval.tests.test_json_test_operators.test_unary_operator_alias_normalised[[[ -a x ]]--e]`
+- OK     `eval.tests.test_json_test_operators.test_unary_operator_alias_normalised[[[ -h x ]]--L]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[!]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-G]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-L]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-N]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-O]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-R]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-S]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-b]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-c]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-d]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-e]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-f]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-g]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-k]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-n]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-o]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-p]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-r]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-s]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-t]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-u]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-v]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-w]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-x]`
+- OK     `eval.tests.test_json_test_operators.test_unary_test_operator_round_trip[-z]`
+- OK     `eval.tests.test_json_test_operators.test_unknown_unary_operator_rejected`
+- OK     `eval.tests.test_legacy_and_json_forms.test_arithmetic_base_prefixes`
+- OK     `eval.tests.test_legacy_and_json_forms.test_arithmetic_empty_expression_error`
+- OK     `eval.tests.test_legacy_and_json_forms.test_arithmetic_operator_zoo`
+- OK     `eval.tests.test_legacy_and_json_forms.test_arithmetic_unbalanced_paren_error`
+- OK     `eval.tests.test_legacy_and_json_forms.test_at_transform_operator_alphabet`
+- OK     `eval.tests.test_legacy_and_json_forms.test_at_transform_unknown_letter_error`
+- OK     `eval.tests.test_legacy_and_json_forms.test_backtick_inside_double_quotes`
+- OK     `eval.tests.test_legacy_and_json_forms.test_bats_test_declaration`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_empty_file_prints_blank_line`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_invalid_names_separator`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_invalid_operator_names_the_type[[[ -z $x ]]\n-path4--zz-invalid UnTestOperator: "-zz"\n]`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_invalid_operator_names_the_type[a && b\n-path0-&&&-invalid BinCmdOperator: "&&&"\n]`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_invalid_operator_names_the_type[case $x in a) echo 1 ;; esac\n-path3-;;;-invalid CaseOperator: ";;;"\n]`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_invalid_operator_names_the_type[cat <(make)\n-path2-!!-invalid ProcOperator: "!!"\n]`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_invalid_operator_names_the_type[echo $((++i))\n-path5-+++-invalid UnAritOperator: "+++"\n]`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_invalid_operator_names_the_type[echo $((1 + 2))\n-path6-***-invalid BinAritOperator: "***"\n]`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_invalid_operator_names_the_type[echo @(a)\n-path1-%()-invalid GlobOperator: "%()"\n]`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_invalid_redir_operator`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_malformed_json_error`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_round_trips_every_operator_kind`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_round_trips_param_exp_operators`
+- OK     `eval.tests.test_legacy_and_json_forms.test_from_json_unknown_type_error`
+- OK     `eval.tests.test_legacy_and_json_forms.test_legacy_bracket_arith_normalised`
+- OK     `eval.tests.test_legacy_and_json_forms.test_name_expansion_forms_and_json_field`
+- OK     `eval.tests.test_legacy_and_json_forms.test_nested_backquote_escapes_normalised`
+- OK     `eval.tests.test_lexer_byte_edges.test_crlf_line_endings_normalise_to_lf`
+- OK     `eval.tests.test_lexer_byte_edges.test_escaped_crlf_is_a_line_continuation`
+- OK     `eval.tests.test_lexer_byte_edges.test_escaped_newline_before_input_is_dropped`
+- OK     `eval.tests.test_lexer_byte_edges.test_invalid_utf8_reports_exact_position`
+- OK     `eval.tests.test_lexer_byte_edges.test_lone_carriage_return_separates_words`
+- OK     `eval.tests.test_lexer_byte_edges.test_null_bytes_are_skipped_like_bash`
+- OK     `eval.tests.test_lexer_byte_edges.test_trailing_backslash_at_eof_is_re_escaped`
+- OK     `eval.tests.test_lexer_byte_edges.test_valid_multibyte_words_round_trip`
+- OK     `eval.tests.test_lexer_scan_tails.test_multibyte_word_across_read_boundary`
+- OK     `eval.tests.test_lexer_scan_tails.test_zsh_number_range_without_dash`
+- OK     `eval.tests.test_loop_case_edges.test_case_structure_errors`
+- OK     `eval.tests.test_loop_case_edges.test_for_numeric_loop_name`
+- OK     `eval.tests.test_loop_case_edges.test_for_without_in_list`
+- OK     `eval.tests.test_loop_case_edges.test_for_word_list_errors`
+- OK     `eval.tests.test_loop_case_edges.test_mksh_case_braces_form_normalises`
+- OK     `eval.tests.test_multiline_word_layout.test_arith_continuation_gains_backslash`
+- OK     `eval.tests.test_multiline_word_layout.test_binary_next_line_moves_test_operator`
+- OK     `eval.tests.test_multiline_word_layout.test_case_semicolon_on_own_line`
+- OK     `eval.tests.test_multiline_word_layout.test_heredoc_body_starting_with_escaped_newline`
+- OK     `eval.tests.test_multiline_word_layout.test_heredoc_word_with_escaped_newline`
+- OK     `eval.tests.test_multiline_word_layout.test_multiline_test_expr_indents_continuation`
+- OK     `eval.tests.test_multiline_word_layout.test_multiline_test_inside_if`
+- OK     `eval.tests.test_nested_and_special_params.test_cannot_combine_operators_error`
+- OK     `eval.tests.test_nested_and_special_params.test_nested_expansion_is_zsh_only`
+- OK     `eval.tests.test_nested_and_special_params.test_zsh_nested_length_forms`
+- OK     `eval.tests.test_nested_and_special_params.test_zsh_nested_parameter_value`
+- OK     `eval.tests.test_param_exp_gates.test_bad_operator_characters_are_named[echo ${a b}\n-<standard input>:1:9: not a valid parameter expansion operator: ` `\n]`
+- OK     `eval.tests.test_param_exp_gates.test_bad_operator_characters_are_named[echo ${x{y}}\n-<standard input>:1:9: not a valid parameter expansion operator: `{`\n]`
+- OK     `eval.tests.test_param_exp_gates.test_bad_operator_characters_are_named[x=${y`z`}\n-<standard input>:1:6: not a valid parameter expansion operator: "`"\n]`
+- OK     `eval.tests.test_param_exp_gates.test_hash_inside_assoc_array_key[echo ${args[#,cmd]}\n]`
+- OK     `eval.tests.test_param_exp_gates.test_hash_inside_assoc_array_key[echo ${args[cmd,#]}\n]`
+- OK     `eval.tests.test_param_exp_gates.test_mksh_stmt_forms_need_terminator_in_bash`
+- OK     `eval.tests.test_param_exp_gates.test_param_exp_indirection_gated_in_posix`
+- OK     `eval.tests.test_param_exp_gates.test_special_parameters_cannot_be_indexed[echo ${#[1]}\n]`
+- OK     `eval.tests.test_param_exp_gates.test_special_parameters_cannot_be_indexed[echo ${*[1]}\n]`
+- OK     `eval.tests.test_param_exp_gates.test_special_parameters_cannot_be_indexed[echo ${@[1]}\n]`
+- OK     `eval.tests.test_param_exp_gates.test_zsh_prefix_flag_json_values[echo ${==x}\n-Split-2]`
+- OK     `eval.tests.test_param_exp_gates.test_zsh_prefix_flag_json_values[echo ${=x}\n-Split-1]`
+- OK     `eval.tests.test_param_exp_gates.test_zsh_prefix_flag_json_values[echo ${^^x}\n-RcExpand-2]`
+- OK     `eval.tests.test_param_exp_gates.test_zsh_prefix_flag_json_values[echo ${^x}\n-RcExpand-1]`
+- OK     `eval.tests.test_param_exp_gates.test_zsh_prefix_flag_json_values[echo ${~x}\n-GlobSubst-1]`
+- OK     `eval.tests.test_param_exp_gates.test_zsh_prefix_flag_json_values[echo ${~~x}\n-GlobSubst-2]`
+- OK     `eval.tests.test_param_exp_gates.test_zsh_prefix_flags_combine[echo ${=^x}\n-fields0]`
+- OK     `eval.tests.test_param_exp_gates.test_zsh_prefix_flags_combine[echo ${=~x}\n-fields2]`
+- OK     `eval.tests.test_param_exp_gates.test_zsh_prefix_flags_combine[echo ${~~^x}\n-fields1]`
+- OK     `eval.tests.test_param_exp_gates.test_zsh_prefix_flags_rejected_in_bash`
+- OK     `eval.tests.test_param_exp_gates.test_zsh_short_param_subscript`
+- OK     `eval.tests.test_param_expansion.test_adjacent_expansions_not_merged`
+- OK     `eval.tests.test_param_expansion.test_array_literal_whitespace_collapsed`
+- OK     `eval.tests.test_param_expansion.test_array_parameter_forms_roundtrip`
+- OK     `eval.tests.test_param_expansion.test_braced_set_operators_roundtrip`
+- OK     `eval.tests.test_param_expansion.test_case_conversion_operators_roundtrip`
+- OK     `eval.tests.test_param_expansion.test_default_word_keeps_its_own_quoting`
+- OK     `eval.tests.test_param_expansion.test_indexed_array_literal_roundtrip`
+- OK     `eval.tests.test_param_expansion.test_length_and_special_parameter_forms`
+- OK     `eval.tests.test_param_expansion.test_minify_keeps_braces_where_required`
+- OK     `eval.tests.test_param_expansion.test_minify_shortens_braced_parameter`
+- OK     `eval.tests.test_param_expansion.test_minify_shortens_braced_parameter_inside_quotes`
+- OK     `eval.tests.test_param_expansion.test_naked_dollar_parameters_roundtrip`
+- OK     `eval.tests.test_param_expansion.test_pattern_removal_operators_roundtrip`
+- OK     `eval.tests.test_param_expansion.test_search_and_replace_slashes[${var//pat/repl}-${var//pat/repl}]`
+- OK     `eval.tests.test_param_expansion.test_search_and_replace_slashes[${var//}-${var///}]`
+- OK     `eval.tests.test_param_expansion.test_search_and_replace_slashes[${var/pat/repl}-${var/pat/repl}]`
+- OK     `eval.tests.test_param_expansion.test_search_and_replace_slashes[${var/pat}-${var/pat/}]`
+- OK     `eval.tests.test_param_expansion.test_search_and_replace_slashes[${var/}-${var//}]`
+- OK     `eval.tests.test_param_expansion.test_tojson_array_slice_fields`
+- OK     `eval.tests.test_param_expansion.test_tojson_param_exp_operator_and_word`
+- OK     `eval.tests.test_param_expansion.test_tojson_short_param_flag`
+- OK     `eval.tests.test_parser_error_tails.test_adjacent_statements_need_separator`
+- OK     `eval.tests.test_parser_error_tails.test_bang_rejected_inside_pipeline`
+- OK     `eval.tests.test_parser_error_tails.test_bats_test_needs_description_and_body`
+- OK     `eval.tests.test_parser_error_tails.test_declare_rejects_invalid_var_name`
+- OK     `eval.tests.test_parser_error_tails.test_empty_then_body_dialect_split`
+- OK     `eval.tests.test_parser_error_tails.test_heredoc_word_expansion_gate`
+- OK     `eval.tests.test_parser_error_tails.test_inline_variable_cannot_be_array`
+- OK     `eval.tests.test_parser_error_tails.test_let_expression_requirements`
+- OK     `eval.tests.test_parser_error_tails.test_mksh_unclosed_heredoc`
+- OK     `eval.tests.test_parser_error_tails.test_paramexp_operator_gates`
+- OK     `eval.tests.test_parser_error_tails.test_redirect_before_compound_is_zsh`
+- OK     `eval.tests.test_parser_error_tails.test_stray_closing_tokens`
+- OK     `eval.tests.test_parser_error_tails.test_test_clause_operand_errors`
+- OK     `eval.tests.test_parser_error_tails.test_test_operator_single_literal`
+- OK     `eval.tests.test_parser_error_tails.test_zsh_nested_parameter_word_gate`
+- OK     `eval.tests.test_parser_error_tails.test_zsh_subscript_flags_unclosed`
+- OK     `eval.tests.test_position_overflow.test_column_overflow_line_still_formats`
+- OK     `eval.tests.test_position_overflow.test_column_overflow_renders_question_mark`
+- OK     `eval.tests.test_position_overflow.test_line_overflow_file_still_formats`
+- OK     `eval.tests.test_position_overflow.test_line_overflow_renders_question_mark`
+- OK     `eval.tests.test_printer_layout_tails.test_assign_prefix_continuation`
+- OK     `eval.tests.test_printer_layout_tails.test_assign_prefix_semicolon_split`
+- OK     `eval.tests.test_printer_layout_tails.test_binary_arithm_chain_split`
+- OK     `eval.tests.test_printer_layout_tails.test_binary_chain_comment_indent`
+- OK     `eval.tests.test_printer_layout_tails.test_blank_lines_collapse_to_one`
+- OK     `eval.tests.test_printer_layout_tails.test_c_style_for_without_init`
+- OK     `eval.tests.test_printer_layout_tails.test_case_pattern_spelled_esac`
+- OK     `eval.tests.test_printer_layout_tails.test_comment_before_else_kept`
+- OK     `eval.tests.test_printer_layout_tails.test_dquoted_line_continuation_kept`
+- OK     `eval.tests.test_printer_layout_tails.test_for_comment_moves_to_do`
+- OK     `eval.tests.test_printer_layout_tails.test_function_starting_brace_own_line`
+- OK     `eval.tests.test_printer_layout_tails.test_heredoc_dash_blank_line`
+- OK     `eval.tests.test_printer_layout_tails.test_heredoc_dash_underindented_line`
+- OK     `eval.tests.test_printer_layout_tails.test_heredoc_trailing_comment`
+- OK     `eval.tests.test_printer_layout_tails.test_if_header_newline_kept`
+- OK     `eval.tests.test_printer_layout_tails.test_keep_pipes_subshell_comment`
+- OK     `eval.tests.test_printer_layout_tails.test_minify_nested_subshell`
+- OK     `eval.tests.test_printer_layout_tails.test_mksh_typeset_unsigned_flag_roundtrip`
+- OK     `eval.tests.test_printer_layout_tails.test_redirect_line_continuation`
+- OK     `eval.tests.test_printer_layout_tails.test_redirect_spaces_runs_mid_word`
+- OK     `eval.tests.test_printer_layout_tails.test_switch_case_indent`
+- OK     `eval.tests.test_printer_layout_tails.test_until_header_newline_kept`
+- OK     `eval.tests.test_printer_layout_tails.test_zsh_double_parameter_flags_roundtrip`
+- OK     `eval.tests.test_printer_layout_tails.test_zsh_function_extra_names_roundtrip`
+- OK     `eval.tests.test_printer_word_layout.test_binary_chain_layout_untouched_by_default`
+- OK     `eval.tests.test_printer_word_layout.test_binary_next_line_moves_operators`
+- OK     `eval.tests.test_printer_word_layout.test_keep_padding_flag`
+- OK     `eval.tests.test_printer_word_layout.test_line_continuation_before_word`
+- OK     `eval.tests.test_printer_word_layout.test_line_continuation_chain`
+- OK     `eval.tests.test_printer_word_layout.test_minify_compound_statements`
+- OK     `eval.tests.test_printer_word_layout.test_minify_continuation_drops_indent`
+- OK     `eval.tests.test_printer_word_layout.test_space_indent_flag`
+- OK     `eval.tests.test_printer_word_layout.test_space_redirects_flag`
+- OK     `eval.tests.test_redirect_spellings.test_bash_redirect_operator_family`
+- OK     `eval.tests.test_redirect_spellings.test_posix_rejects_amp_redirect`
+- OK     `eval.tests.test_redirect_spellings.test_zsh_amp_pipe_operators`
+- OK     `eval.tests.test_redirect_spellings.test_zsh_clobber_spellings_normalise`
+- OK     `eval.tests.test_simplify_node_kinds.test_simplify_comments_in_case_and_array`
+- OK     `eval.tests.test_simplify_node_kinds.test_simplify_declare_let_time_coproc`
+- OK     `eval.tests.test_simplify_node_kinds.test_simplify_extglob_and_procsubst`
+- OK     `eval.tests.test_simplify_node_kinds.test_simplify_loop_forms`
+- OK     `eval.tests.test_simplify_node_kinds.test_simplify_mixed_script`
+- OK     `eval.tests.test_simplify_node_kinds.test_simplify_pipeline_and_subshell`
+- OK     `eval.tests.test_simplify_node_kinds.test_simplify_replacement_and_unary_minus`
+- OK     `eval.tests.test_simplify_node_kinds.test_simplify_statement_comments`
+- OK     `eval.tests.test_simplify_node_kinds.test_simplify_trailing_comment_after_block`
+- OK     `eval.tests.test_simplify_tails.test_escaped_dollar_requoted`
+- OK     `eval.tests.test_simplify_tails.test_escaped_newline_literal_kept`
+- OK     `eval.tests.test_simplify_tails.test_inline_subshell_in_command_substitution`
+- OK     `eval.tests.test_simplify_tails.test_negated_test_flips_operator`
+- OK     `eval.tests.test_simplify_tails.test_parenthesised_unary_test_unwrapped`
+- OK     `eval.tests.test_simplify_tails.test_unary_minus_index_kept`
+- OK     `eval.tests.test_simplify_tails.test_unquote_params_respects_position`
+- OK     `eval.tests.test_simplify_words.test_minify_shortens_function_body_braces`
+- OK     `eval.tests.test_simplify_words.test_simplify_expands_short_match_operator`
+- OK     `eval.tests.test_simplify_words.test_simplify_inlines_redundant_subshell`
+- OK     `eval.tests.test_simplify_words.test_simplify_inlines_slice_offset_parameter`
+- OK     `eval.tests.test_simplify_words.test_simplify_keeps_dollar_in_array_assignment_index`
+- OK     `eval.tests.test_simplify_words.test_simplify_keeps_dollar_in_indexed_param_index`
+- OK     `eval.tests.test_simplify_words.test_simplify_keeps_positional_in_slice`
+- OK     `eval.tests.test_simplify_words.test_simplify_keeps_quotes_on_pattern_side`
+- OK     `eval.tests.test_simplify_words.test_simplify_merges_negation_with_operators`
+- OK     `eval.tests.test_simplify_words.test_simplify_prefers_single_quotes_for_escapes`
+- OK     `eval.tests.test_simplify_words.test_simplify_removes_parentheses_in_tests`
+- OK     `eval.tests.test_simplify_words.test_simplify_unquotes_both_sides_of_numeric_test`
+- OK     `eval.tests.test_simplify_words.test_simplify_unquotes_lhs_of_tests`
+- OK     `eval.tests.test_simplify_words.test_simplify_unquotes_regex_operand_is_kept`
+- OK     `eval.tests.test_stmt_keyword_errors.test_backquote_statement_normalises`
+- OK     `eval.tests.test_stmt_keyword_errors.test_closing_brace_after_statement`
+- OK     `eval.tests.test_stmt_keyword_errors.test_double_negation_rejected`
+- OK     `eval.tests.test_stmt_keyword_errors.test_mksh_coprocess_pipe_layout`
+- OK     `eval.tests.test_stmt_keyword_errors.test_multiline_subshell_keeps_paren_gap`
+- OK     `eval.tests.test_stmt_keyword_errors.test_paren_after_substituted_word_is_not_a_func`
+- OK     `eval.tests.test_stmt_keyword_errors.test_reserved_words_cannot_start_statements[do echo\n-1-`do` can only be used in a loop]`
+- OK     `eval.tests.test_stmt_keyword_errors.test_reserved_words_cannot_start_statements[done\n-1-`done` can only be used to end a loop]`
+- OK     `eval.tests.test_stmt_keyword_errors.test_reserved_words_cannot_start_statements[esac\n-1-`esac` can only be used to end a `case`]`
+- OK     `eval.tests.test_stmt_keyword_errors.test_reserved_words_cannot_start_statements[fi\n-1-`fi` can only be used to end an `if`]`
+- OK     `eval.tests.test_stmt_keyword_errors.test_reserved_words_cannot_start_statements[then echo\n-1-`then` can only be used in an `if`]`
+- OK     `eval.tests.test_stmt_keyword_errors.test_zsh_anonymous_function_and_empty_parens`
+- OK     `eval.tests.test_substitution_forms.test_command_substitution_padding_removed`
+- OK     `eval.tests.test_substitution_forms.test_herestring_loses_padding`
+- OK     `eval.tests.test_substitution_forms.test_legacy_backticks_become_command_substitution`
+- OK     `eval.tests.test_substitution_forms.test_multiline_command_substitution_is_indented`
+- OK     `eval.tests.test_substitution_forms.test_nested_backticks_also_normalised`
+- OK     `eval.tests.test_substitution_forms.test_process_substitution_forms`
+- OK     `eval.tests.test_substitution_forms.test_process_substitution_rejected_in_posix`
+- OK     `eval.tests.test_substitution_forms.test_quoted_command_substitution_roundtrip`
+- OK     `eval.tests.test_substitution_forms.test_quoted_heredoc_body_roundtrip`
+- OK     `eval.tests.test_substitution_forms.test_quoted_herestring_word_roundtrip`
+- OK     `eval.tests.test_substitution_forms.test_unquoted_heredoc_body_roundtrip`
+- OK     `eval.tests.test_substitution_forms.test_unterminated_substitution_errors`
+- OK     `eval.tests.test_test_operator_vocabulary.test_binary_operator_vocabulary_additions`
+- OK     `eval.tests.test_test_operator_vocabulary.test_invalid_test_operator_errors`
+- OK     `eval.tests.test_test_operator_vocabulary.test_unary_operator_aliases_normalise`
+- OK     `eval.tests.test_test_operator_vocabulary.test_unary_operator_vocabulary`
+- OK     `eval.tests.test_word_io.test_diff_flag_prints_unified_diff`
+- OK     `eval.tests.test_word_io.test_filename_flag_names_the_error_position`
+- OK     `eval.tests.test_word_io.test_from_json_round_trips_a_tree`
+- OK     `eval.tests.test_word_io.test_list_flag_reports_file_that_differs`
+- OK     `eval.tests.test_word_io.test_list_flag_silent_when_already_formatted`
+- OK     `eval.tests.test_word_io.test_multiple_statements_keep_word_order`
+- OK     `eval.tests.test_word_io.test_parse_error_goes_to_stderr_only`
+- OK     `eval.tests.test_word_io.test_path_argument_formats_file`
+- OK     `eval.tests.test_word_io.test_stdin_dash_reads_standard_input`
+- OK     `eval.tests.test_word_io.test_stdin_error_prefix_is_standard_input`
+- OK     `eval.tests.test_word_io.test_to_json_is_tab_indented`
+- OK     `eval.tests.test_word_io.test_write_flag_rewrites_file_in_place`
+- OK     `eval.tests.test_word_layout_edges.test_array_literal_continuation_indent`
+- OK     `eval.tests.test_word_layout_edges.test_array_literal_inline_comment`
+- OK     `eval.tests.test_word_layout_edges.test_case_comment_before_pattern`
+- OK     `eval.tests.test_word_layout_edges.test_case_trailing_comment_on_item`
+- OK     `eval.tests.test_word_layout_edges.test_comment_after_then_keyword`
+- OK     `eval.tests.test_word_layout_edges.test_multiline_array_literal_layout`
+- OK     `eval.tests.test_word_lexer_tails.test_arithmetic_expansion_inside_double_quotes`
+- OK     `eval.tests.test_word_lexer_tails.test_bash_for_braces_normalise_to_do_done`
+- OK     `eval.tests.test_word_lexer_tails.test_case_head_requires_word_then_in`
+- OK     `eval.tests.test_word_lexer_tails.test_comment_ended_by_escaped_newline`
+- OK     `eval.tests.test_word_lexer_tails.test_for_without_in_normalises`
+- OK     `eval.tests.test_word_lexer_tails.test_for_word_list_rejects_parens`
+- OK     `eval.tests.test_word_lexer_tails.test_function_named_at`
+- OK     `eval.tests.test_word_lexer_tails.test_hash_is_a_word_character_in_tests`
+- OK     `eval.tests.test_word_lexer_tails.test_param_word_escapes_and_quotes`
+- OK     `eval.tests.test_word_lexer_tails.test_posix_rejects_process_substitution`
+- OK     `eval.tests.test_word_lexer_tails.test_quoted_heredoc_body_with_escaped_newline`
+- OK     `eval.tests.test_word_lexer_tails.test_word_starting_with_multibyte_rune`
+- OK     `eval.tests.test_word_lexer_tails.test_zsh_append_all_redirect_aliases`
+- OK     `eval.tests.test_word_lexer_tails.test_zsh_numeric_range_across_read_buffer`
+- OK     `eval.tests.test_word_structure.test_adjacent_quoted_parts_are_not_merged`
+- OK     `eval.tests.test_word_structure.test_assignment_words_keep_their_quoting`
+- OK     `eval.tests.test_word_structure.test_dollar_quoted_string_roundtrip`
+- OK     `eval.tests.test_word_structure.test_escaped_glob_characters_roundtrip`
+- OK     `eval.tests.test_word_structure.test_fd_redirect_word_roundtrip`
+- OK     `eval.tests.test_word_structure.test_leading_redirect_word_order`
+- OK     `eval.tests.test_word_structure.test_quote_forms_roundtrip`
+- OK     `eval.tests.test_word_structure.test_redirection_target_word_roundtrip`
+- OK     `eval.tests.test_word_structure.test_space_separated_arguments_unchanged`
+- OK     `eval.tests.test_word_structure.test_tojson_dollar_quoted_is_flagged`
+- OK     `eval.tests.test_word_structure.test_tojson_single_quoted_part`
+- OK     `eval.tests.test_word_structure.test_tojson_splits_word_into_parts`
+- OK     `eval.tests.test_zsh_param_tail_forms.test_zsh_colon_modifier_unterminated`
+- OK     `eval.tests.test_zsh_param_tail_forms.test_zsh_colon_modifiers_chain`
+- OK     `eval.tests.test_zsh_param_tail_forms.test_zsh_empty_short_prefix`
+- OK     `eval.tests.test_zsh_param_tail_forms.test_zsh_flag_expression_unterminated`
+- OK     `eval.tests.test_zsh_param_tail_forms.test_zsh_is_set_operator`
+- OK     `eval.tests.test_zsh_param_tail_forms.test_zsh_nested_expansion_cannot_be_followed_by_word`
+- OK     `eval.tests.test_zsh_word_forms.test_numeric_range_is_redirects_in_bash`
+- OK     `eval.tests.test_zsh_word_forms.test_zsh_extended_glob_is_a_literal`
+- OK     `eval.tests.test_zsh_word_forms.test_zsh_numeric_range_globs`
+- OK     `eval.tests.test_zsh_word_forms.test_zsh_parameter_flags`
+- OK     `eval.tests.test_zsh_word_forms.test_zsh_subscript_flags`

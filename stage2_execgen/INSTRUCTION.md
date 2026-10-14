@@ -46,6 +46,14 @@ online/offline separation contract.
 - The executable must be built from the repo source, at the workspace root as
   `./executable`.
 
+## Final-image contract (learned the hard way in the pilot)
+
+The task package's environment image does NOT contain the repository source —
+the reproduction agent must write its own source. So download.sh must work
+WITHOUT any source tree: prefetch the dependency modules (e.g. a scratch
+go.mod listing the requires you observed) into the module cache and prepare
+the toolchain. Never require files under sh-src/ or a source-path env var.
+
 ## Workflow
 
 1. Inspect `./sh-src` (go.mod, cmd/shfmt, build docs) to decide what the online
