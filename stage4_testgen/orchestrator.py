@@ -102,6 +102,8 @@ def main():
     ap.add_argument("--rounds", type=int, default=5)
     ap.add_argument("--start-round", type=int, default=1,
                     help="resume: skip earlier rounds (module workspaces persist)")
+    ap.add_argument("--skip-modules", default="",
+                    help="comma-separated module names to treat as already done")
     ap.add_argument("--threshold", type=float, default=0.8)
     ap.add_argument("--target-tests", type=int, default=60)
     ap.add_argument("--max-turns", type=int, default=120)
@@ -138,6 +140,11 @@ def main():
 
     state = {m["name"]: {"done": False, "rounds": 0, "coverage_pct": None,
                          "n_ok": 0, "n_total": 0} for m in modules}
+    for skip in filter(None, (s.strip() for s in args.skip_modules.split(","))):
+        if skip in state:
+            state[skip]["done"] = True
+            state[skip]["rounds"] = args.start_round - 1
+            print(f"[stage4] {skip}: marked done (--skip-modules)")
     verdicts_all: dict[str, dict] = {}
 
     for rnd in range(args.start_round, args.rounds + 1):

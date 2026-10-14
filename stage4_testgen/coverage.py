@@ -39,15 +39,32 @@ def build_instrumented(repo: Path, main_pkg: str, out_bin: Path) -> Path:
 
 def run_suite_instrumented(eval_dir: Path, cov_bin: Path, gocoverdir: Path,
                            branch_root: Path) -> bool:
-    """Run a module suite against the instrumented binary; accumulate coverage."""
+    """Run a module suite against the instrumented binary; accumulate coverage.
+
+    eval/run.sh force-resets PROGRAMGYM_EXECUTABLE to ${BRANCH_ROOT}/executable,
+    so pointing the env var at the instrumented build is not enough: we swap the
+    instrumented binary INTO the module's ./executable for the duration of the
+    run (backup + restore), which makes the reset harmless.
+    """
+    import shutil as _shutil
     gocoverdir.mkdir(parents=True, exist_ok=True)
-    env = dict(os.environ)
-    env["PROGRAMGYM_EXECUTABLE"] = str(cov_bin)
-    env["GOCOVERDIR"] = str(gocoverdir)
-    env["PROGRAMGYM_PYTEST_WORKERS"] = "2"
-    proc = subprocess.run(["bash", "eval/run.sh"], cwd=branch_root, env=env,
-                          capture_output=True, timeout=1800)
-    return proc.returncode == 0
+    exe = branch_root / "executable"
+    backup = branch_root / "executable.uninstrumented.bak"
+    _shutil.copy2(exe, backup)
+    try:
+        _shutil.copy2(cov_bin, exe)
+        os.chmod(exe, 0o755)
+        env = dict(os.environ)
+        env["PROGRAMGYM_EXECUTABLE"] = str(exe)
+        env["GOCOVERDIR"] = str(gocoverdir)
+        env["PROGRAMGYM_PYTEST_WORKERS"] = "2"
+        proc = subprocess.run(["bash", "eval/run.sh"], cwd=branch_root, env=env,
+                              capture_output=True, timeout=1800)
+        return proc.returncode == 0
+    finally:
+        _shutil.copy2(backup, exe)
+        os.chmod(exe, 0o755)
+        backup.unlink()
 
 
 def per_file_coverage(repo: Path, gocoverdir: Path) -> dict[str, tuple[int, int]]:
