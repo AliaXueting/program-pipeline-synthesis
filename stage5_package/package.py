@@ -20,8 +20,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import importlib.util
 
-_spec = importlib.util.spec_from_file_location(
-    "validator", Path(__file__).parent / "validator.py")
+_VALIDATOR = Path(__file__).parent / "validator.py"
+if not _VALIDATOR.exists():
+    _VALIDATOR = Path(__file__).parent.parent / "stage4_testgen" / "validator.py"
+_spec = importlib.util.spec_from_file_location("validator", _VALIDATOR)
 validator = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(validator)
 
