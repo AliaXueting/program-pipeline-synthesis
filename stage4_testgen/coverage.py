@@ -103,7 +103,8 @@ def select_targets(cov: dict[str, tuple[int, int]], assigned_paths: list[str]) -
     """Coverage over the module's assigned files + the next round's target list."""
     assigned = {}
     for rel, (c, t) in cov.items():
-        if any(rel.startswith(p) or rel == p or ("/" + p) in ("/" + rel) for p in assigned_paths):
+        if any(p == "." or rel.startswith(p) or rel == p or ("/" + p) in ("/" + rel)
+               for p in assigned_paths):
             assigned[rel] = (c, t)
     partial, zero, full = [], [], []
     for rel, (c, t) in assigned.items():

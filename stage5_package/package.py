@@ -127,11 +127,13 @@ if __name__ == "__main__":
     ap.add_argument("--commit", required=True)
     ap.add_argument("--repo-name", default="mvdan/sh")
     ap.add_argument("--instance-id", default="mvdan--sh.0e8ea6f")
-    ap.add_argument("--jobs", default="/root/synth/jobs")
+    ap.add_argument("--jobs", default="/root/pgsynth/jobs")
+    ap.add_argument("--acceptance", action="store_true",
+                    help="run harbor oracle acceptance after packaging")
     a = ap.parse_args()
     task = Path(a.task)
     stats = package(task, Path(a.stage4_out), Path(a.plan), a.commit, a.repo_name, a.instance_id)
-    if "--acceptance" in sys.argv:
+    if a.acceptance:
         reward = acceptance(task.parent, task.name, Path(a.jobs))
         print(f"[stage5] ORACLE REWARD = {reward}")
         sys.exit(0 if reward == 1.0 else 1)
