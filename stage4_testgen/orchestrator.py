@@ -21,7 +21,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import importlib.util
 
-for name in ("stage4_coverage", "stage4_validator"):
+for name in ("coverage", "validator"):
     _spec = importlib.util.spec_from_file_location(name, Path(__file__).parent / f"{name}.py")
     _mod = importlib.util.module_from_spec(_spec)
     _spec.loader.exec_module(_mod)
