@@ -48,7 +48,7 @@ def runtime_deps(repo: Path, language: str) -> int:
     if go_mod.exists():
         n = 0
         for line in go_mod.read_text().splitlines():
-            if line.startswith(("\t", " ") and not line.strip().startswith("//")):
+            if line.startswith(("\t", " ")) and not line.strip().startswith("//"):
                 if re.match(r"\s+\S+\s+v\S+", line) and " indirect" not in line:
                     n += 1
         return n
