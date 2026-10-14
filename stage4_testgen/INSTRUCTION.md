@@ -39,6 +39,13 @@ re-implementation is behaviorally identical. You own ONE module.
   * tests whose only assertion is an exit code
   * tautological assertions, or assertions that never inspect the run result
   * substring assertions where the expected fragment is shorter than 15 characters
+* **Coverage instrumentation hook (REQUIRED):** when your `conftest.py` builds the
+  child process environment (even a fully pinned/hermetic one), it MUST copy the
+  `GOCOVERDIR` variable from the test process environment into the child env
+  when present (`cov_env = {"GOCOVERDIR": v} for v in [os.environ.get("GOCOVERDIR")] if v`;
+  merge that into the child env). The pipeline measures source coverage of the
+  reference binary through this variable; without it your module's coverage
+  report is empty and the feedback loop cannot guide you.
 * Parametrize where natural; target **{TARGET_TESTS} tests in total** for this module.
 
 ## Round protocol (this run is round {ROUND} of {MAX_ROUNDS})

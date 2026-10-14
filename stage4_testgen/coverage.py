@@ -69,9 +69,14 @@ def per_file_coverage(repo: Path, gocoverdir: Path) -> dict[str, tuple[int, int]
         if not m:
             continue
         name, nstmt, count = m.group(1), int(m.group(2)), int(m.group(3))
-        if not name.startswith("/"):
+        if name.startswith(prefix):
+            rel = name[len(prefix):]
+        elif name.startswith("/"):
+            # absolute path outside the repo (module-cache deps) — ignore
             continue
-        rel = name[len(prefix):] if name.startswith(prefix) else name
+        else:
+            # module-relative path (covdata textfmt emits these in module mode)
+            rel = name
         c, t = cov.get(rel, (0, 0))
         cov[rel] = (c + (nstmt if count > 0 else 0), t + nstmt)
     return cov

@@ -100,6 +100,8 @@ def main():
     ap.add_argument("--run-sh", default="/root/synth/format-example/eval/run.sh")
     ap.add_argument("--instruction", default=str(Path(__file__).parent / "INSTRUCTION.md"))
     ap.add_argument("--rounds", type=int, default=5)
+    ap.add_argument("--start-round", type=int, default=1,
+                    help="resume: skip earlier rounds (module workspaces persist)")
     ap.add_argument("--threshold", type=float, default=0.8)
     ap.add_argument("--target-tests", type=int, default=60)
     ap.add_argument("--max-turns", type=int, default=120)
@@ -138,7 +140,7 @@ def main():
                          "n_ok": 0, "n_total": 0} for m in modules}
     verdicts_all: dict[str, dict] = {}
 
-    for rnd in range(1, args.rounds + 1):
+    for rnd in range(args.start_round, args.rounds + 1):
         pending = [n for n, s in state.items() if not s["done"]]
         if not pending:
             break
@@ -184,8 +186,17 @@ def main():
                 mod = next(m for m in modules if m["name"] == name)
                 sel = coverage.select_targets(cov, mod["source_paths"])
                 state[name]["coverage_pct"] = sel["module_coverage_pct"]
+                empty_warn = (
+                    "\n> **NO COVERAGE DATA was collected.** Your conftest run helper "
+                    "strips the child environment and drops `GOCOVERDIR`. REPAIR IT "
+                    "FIRST: propagate `GOCOVERDIR` from the test process env into the "
+                    "child env (see INSTRUCTION.md, \"Coverage instrumentation hook\"). "
+                    "Until fixed, no coverage feedback can be produced.\n"
+                    if sel["assigned_files"] == 0 else ""
+                )
                 (mws / "Feedback_Docs/coverage_report.md").write_text(
                     f"# Coverage report — after round {rnd}\n\n"
+                    + empty_warn +
                     f"- module coverage (assigned files): **{sel['module_coverage_pct']}%**\n"
                     f"- assigned files: {sel['assigned_files']} "
                     f"(full {len(sel['full'])}, partial {len(sel['partial'])}, zero {len(sel['zero'])})\n\n"
