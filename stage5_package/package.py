@@ -100,7 +100,9 @@ def package(task: Path, stage4_out: Path, plan: Path, commit: str, repo_name: st
 def acceptance(task_parent: Path, task_name: str, jobs_dir: Path) -> float:
     """harbor run -a oracle — the released ceiling-check acceptance."""
     env = dict(os.environ)
-    env["PATH"] = "/root/.local/bin:" + env["PATH"]
+    # keep the caller PATH: the venv harbor (>=0.20) must win over any
+    # uv-tool harbor shim in ~/.local/bin
+    pass
     env.setdefault("ANTHROPIC_BASE_URL", "https://open.bigmodel.cn/api/anthropic")
     if "ANTHROPIC_AUTH_TOKEN" not in env:
         sys.exit("set ANTHROPIC_AUTH_TOKEN (oracle agent may not need it, harbor defaults may)")
