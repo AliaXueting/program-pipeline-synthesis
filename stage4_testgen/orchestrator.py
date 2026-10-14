@@ -53,16 +53,15 @@ def setup_module(ws: Path, mod: dict, repo: Path, ref: Path, docs_dir: Path,
                  fmt_example: Path, run_sh: Path, instruction_tmpl: str,
                  target_tests: int, max_rounds: int, is_reuse: bool) -> Path:
     mws = ws / mod["name"]
-    if mws.exists():
-        return mws
-    (mws / "Feedback_Docs").mkdir(parents=True)
-    (mws / "eval/tests").mkdir(parents=True)
-    shutil.copy2(run_sh, mws / "eval/run.sh")
-    shutil.copy2(ref, mws / "executable")
-    os.chmod(mws / "executable", 0o755)
-    os.symlink(repo.resolve(), mws / "src")
-    os.symlink(docs_dir.resolve(), mws / "docs")
-    os.symlink(fmt_example.resolve(), mws / "format-example")
+    if not mws.exists():
+        (mws / "Feedback_Docs").mkdir(parents=True)
+        (mws / "eval/tests").mkdir(parents=True)
+        shutil.copy2(run_sh, mws / "eval/run.sh")
+        shutil.copy2(ref, mws / "executable")
+        os.chmod(mws / "executable", 0o755)
+        os.symlink(repo.resolve(), mws / "src")
+        os.symlink(docs_dir.resolve(), mws / "docs")
+        os.symlink(fmt_example.resolve(), mws / "format-example")
     cats = ", ".join(f"`{c}` ({CATEGORIES_DOC[c]})" for c in mod["interaction_categories"])
     assignment = (
         f"- name: {mod['name']}\n"
@@ -73,6 +72,7 @@ def setup_module(ws: Path, mod: dict, repo: Path, ref: Path, docs_dir: Path,
            "under ./src/ (e.g. *_test.go) for behavioral cases, and rewrite them as "
            "black-box CLI tests of ./executable.\n" if is_reuse else "")
     )
+    # always refresh: the template may have been updated between runs
     (mws / "INSTRUCTION.md").write_text(
         instruction_tmpl
         .replace("{MODULE}", mod["name"])
