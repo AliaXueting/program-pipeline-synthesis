@@ -21,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import importlib.util
 
 _spec = importlib.util.spec_from_file_location(
-    "validator", Path(__file__).parent / "stage4_validator.py")
+    "validator", Path(__file__).parent / "validator.py")
 validator = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(validator)
 

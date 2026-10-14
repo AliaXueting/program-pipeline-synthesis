@@ -25,7 +25,7 @@ for name in ("coverage", "validator"):
     _spec = importlib.util.spec_from_file_location(name, Path(__file__).parent / f"{name}.py")
     _mod = importlib.util.module_from_spec(_spec)
     _spec.loader.exec_module(_mod)
-    globals()[name.split("_", 1)[1]] = _mod  # coverage, validator
+    globals()[name] = _mod
 
 CATEGORIES_DOC = {
     "Args": "flag syntax, required/optional arguments, type checking",
