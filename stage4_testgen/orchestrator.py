@@ -98,7 +98,7 @@ def main():
     ap.add_argument("--docs", default=None)
     ap.add_argument("--format-example", default="/root/synth/format-example")
     ap.add_argument("--run-sh", default="/root/synth/format-example/eval/run.sh")
-    ap.add_argument("--instruction", default=str(Path(__file__).parent / "stage4-instruction.md"))
+    ap.add_argument("--instruction", default=str(Path(__file__).parent / "INSTRUCTION.md"))
     ap.add_argument("--rounds", type=int, default=5)
     ap.add_argument("--threshold", type=float, default=0.8)
     ap.add_argument("--target-tests", type=int, default=60)
