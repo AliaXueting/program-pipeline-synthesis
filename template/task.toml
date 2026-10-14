@@ -1,0 +1,69 @@
+schema_version = "1.3"
+source = "ProgramGym"
+artifacts = [
+  "/logs/verifier/programgym_eval.json",
+  "/logs/verifier/harbor_diagnostics.json",
+  "/logs/verifier/programgym_eval.log",
+  "/logs/verifier/reward.json",
+  "/logs/verifier/reward.txt",
+  # Keep agent/runtime state out of the submission handoff. In particular,
+  # Claude Code installs an absolute symlink under .local/bin; transferring it
+  # makes Python's safe tar extraction reject the entire workspace archive.
+  { source = "/workspace", exclude = [
+    "executable",
+    ".git",
+    ".bashrc",
+    ".cache",
+    ".cc-switch",
+    ".claude",
+    ".local",
+  ] },
+]
+
+[task]
+name = "programgym/a8m--envsubst.795eb83"
+description = "Synthetic ProgramGym cleanroom reconstruction task for a8m/envsubst"
+authors = [{ name = "Harbor ProgramGym Synthetic Adapter" }]
+keywords = ["programgym", "synthetic", "reverse-engineering", "cleanroom", "go"]
+
+[metadata]
+source = "ProgramGym"
+instance_id = "a8m__envsubst.795eb83"
+repository = "a8m/envsubst"
+commit = "795eb83c96b4dfc929c4fdcd3ea92465509ed70c"
+language = "go"
+difficulty = "easy"
+difficulty_score = 0.9057958803678687
+test_branches = 4
+test_count = 457
+
+[agent]
+timeout_sec = 14400
+user = "agent"
+network_mode = "allowlist"
+allowed_hosts = ["api.anthropic.com", "api.openai.com"]
+
+[verifier]
+timeout_sec = 7200
+user = "root"
+environment_mode = "separate"
+
+[verifier.env]
+PROGRAMGYM_XDIST_WORKERS = "8"
+
+[verifier.environment]
+build_timeout_sec = 1800
+cpus = 8
+memory_mb = 16384
+storage_mb = 30720
+gpus = 0
+workdir = "/workspace"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 1800
+cpus = 8
+memory_mb = 16384
+storage_mb = 30720
+gpus = 0
+workdir = "/workspace"
