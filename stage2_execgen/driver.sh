@@ -1,7 +1,8 @@
 #!/bin/bash
 # Stage 2 driver: Executable & Sandbox Generation outer feedback loop (paper: <=4 attempts)
 set -u
-WS=/root/synth/execgen
+# workspace = directory containing this driver (override with PG_WS)
+WS="${PG_WS:-$(cd "$(dirname "$BASH_SOURCE[0])" && pwd)}"
 FB=$WS/FEEDBACK.md
 LOG=$WS/driver.log
 
@@ -53,7 +54,7 @@ verify() {
   fi
   # ---- online phase (host, scratch build env inside workspace) ----
   rm -rf .buildenv && mkdir -p .buildenv/gopath .buildenv/gocache
-  local ONLINE_ENV="PATH=/usr/local/go/bin:/usr/bin:/bin GOPATH=$WS/.buildenv/gopath GOMODCACHE=$WS/.buildenv/gopath/pkg/mod GOCACHE=$WS/.buildenv/gocache GOTOOLCHAIN=local GOFLAGS=-mod=mod HOME=$WS/.buildenv"
+  local ONLINE_ENV="PATH=/usr/local/go/bin:/usr/bin:/bin GOPATH=$WS/.buildenv/gopath GOMODCACHE=$WS/.buildenv/gopath/pkg/mod GOCACHE=$WS/.buildenv/gocache GOPROXY=${GO_PROXY:-https://proxy.golang.org,direct} GOFLAGS=-mod=mod HOME=$WS/.buildenv"
   if ! bash -c "set -a; source ./download.sh; set +a; env" > env.snapshot.raw 2> online.stderr < /dev/null; then
     write_feedback $attempt FAILED "download.sh (online phase) exited non-zero" "Fix the online preparation; see stderr below." "$(tail -5 online.stderr)"
     return 1
