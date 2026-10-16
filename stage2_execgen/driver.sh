@@ -2,7 +2,7 @@
 # Stage 2 driver: Executable & Sandbox Generation outer feedback loop (paper: <=4 attempts)
 set -u
 # workspace = directory containing this driver (override with PG_WS)
-WS="${PG_WS:-$(cd "$(dirname "$BASH_SOURCE[0])" && pwd)}"
+WS="${PG_WS:-$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)}"
 FB=$WS/FEEDBACK.md
 LOG=$WS/driver.log
 
