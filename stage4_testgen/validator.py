@@ -82,7 +82,9 @@ def validate_module(module_ws: Path, ref: Path, work_root: Path) -> dict:
     lint_out = {}
     for f in sorted((eval_dir / "tests").glob("test_*.py")):
         try:
-            lint_out.update(linter.lint_test_file(f))
+            # nested per-file (lint_test_file returns {test_name: findings});
+            # do NOT flatten with update() — lint_errors_for expects file keys
+            lint_out[str(f)] = linter.lint_test_file(f)
         except SyntaxError as e:
             lint_out[str(f)] = {"__file__": [{"level": "E0", "msg": f"syntax error: {e}"}]}
 
