@@ -83,3 +83,17 @@ pinned toolchain + docs-only workspace + execute-only reference binary),
 ## License
 
 MIT
+
+## Sandbox deployment (PPIO)
+
+The pipeline also runs fully inside cloud sandboxes (tested on PPIO Sandbox):
+
+- \ / \ — full stages 1-5 in one sandbox
+- \ — stage-2 driver with GOPROXY=off offline verification
+  (no docker) for sandbox hosts
+- \ — oracle acceptance via the evaluator's native
+  single-container mode (no docker)
+- \ — packaging without harbor acceptance
+- \ — 9-sandbox fleet manager (create/keepalive/status),
+  8 vCPU / 8 GB custom template, PPIO egress proxy + China no_proxy split
+- orchestrator \ / \ flags for constrained hosts

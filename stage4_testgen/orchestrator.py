@@ -107,6 +107,10 @@ def main():
     ap.add_argument("--threshold", type=float, default=0.8)
     ap.add_argument("--target-tests", type=int, default=60)
     ap.add_argument("--max-turns", type=int, default=120)
+    ap.add_argument("--sequential", action="store_true",
+                    help="run module agents one at a time (memory-constrained hosts)")
+    ap.add_argument("--cov-bin", default=None,
+                    help="pre-built instrumented reference; skips build_instrumented")
     args = ap.parse_args()
 
     plan = json.loads(Path(args.plan).read_text())
@@ -126,9 +130,14 @@ def main():
     print(f"[stage4] {len(modules)} modules, {args.rounds} rounds max, "
           f"coverage threshold {args.threshold:.0%}")
 
-    print("[stage4] building instrumented reference (-cover -coverpkg=./...) ...")
     cov_bin = out / "executable.cov"
-    coverage.build_instrumented(repo, args.main_pkg, cov_bin)
+    if args.cov_bin:
+        print(f"[stage4] using pre-built instrumented reference: {args.cov_bin}")
+        shutil.copy2(args.cov_bin, cov_bin)
+        os.chmod(cov_bin, 0o755)
+    else:
+        print("[stage4] building instrumented reference (-cover -coverpkg=./...) ...")
+        coverage.build_instrumented(repo, args.main_pkg, cov_bin)
 
     mws_map = {}
     for mod in modules:
@@ -165,12 +174,15 @@ def main():
                           f"for the listed target files. Update Feedback_Docs/summary.md. "
                           f"Follow INSTRUCTION.md for the full contract.")
             log = open(mws / f"agent_round{rnd}.log", "w")
-            agents[name] = subprocess.Popen(
+            proc = subprocess.Popen(
                 ["claude", "--verbose", "--output-format=stream-json",
                  "--max-turns", str(args.max_turns),
                  "--permission-mode=bypassPermissions", "--print", prompt],
                 cwd=mws, env=env, stdout=log, stderr=subprocess.STDOUT,
             )
+            agents[name] = proc
+            if args.sequential:
+                run_round({name: proc})  # wait for this one before the next
         run_round(agents)
 
         for name in pending:
